@@ -20,6 +20,6 @@ namespace Fournisseurs_Reconnect
         public int getMarqueId() { return idMarque; }
 
         public string getNomMarque() { return nomMarque; }
-
+        public Marque() { }
     }
 }

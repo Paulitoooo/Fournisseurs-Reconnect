@@ -129,9 +129,11 @@ namespace Fournisseurs_Reconnect
                 {
                     //MessageBox.Show(drFinal.GetUInt32("Prix") + " " + drFinal.GetString("siteAppareilFourni"));
                     labelPrix.Text = drFinal.GetUInt32("Prix").ToString() + " €";
-                    linkLabelSite.Links.Add(0,3,"www.microsoft.com");
+                    linkLabelSite.Links.Add(0,12, drFinal.GetString("siteAppareilFourni"));
                     //string lienSite = drFinal.GetString("siteAppareilFourni");
                     //System.Diagnostics.Process.Start(lienSite);
+                    string siteAppareilFourni = drFinal.GetString("siteAppareilFourni");                    
+                    
                     
 
                     
@@ -177,7 +179,8 @@ namespace Fournisseurs_Reconnect
         private void linkLabelSite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //System.Diagnostics.Process.Start();
-
+            string leLien = linkLabelSite.Links[0].LinkData.ToString();
+            System.Diagnostics.Process.Start(leLien);
         }
     }
 }
