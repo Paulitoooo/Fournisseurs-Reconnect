@@ -52,8 +52,11 @@ namespace Fournisseurs_Reconnect
                 drId.Close();
                 MySqlDataReader drAjoutMarque = cmdAjoutMarque.ExecuteReader();
                 MessageBox.Show("La marque a bien été ajoutée à la base de données");
+                textBoxNomMarque.Clear();
             }
-            
+            conn.Close();
+
+
         }
 
         private void boutonRetour_Click(object sender, EventArgs e)
@@ -63,7 +66,7 @@ namespace Fournisseurs_Reconnect
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SupprimerMarque supprimerMarque = new SupprimerMarque();
+            ModifierSupprimerMarque supprimerMarque = new ModifierSupprimerMarque();
             supprimerMarque.ShowDialog();
         }
     }

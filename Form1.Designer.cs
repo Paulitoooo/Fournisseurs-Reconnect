@@ -58,9 +58,9 @@
             // 
             this.buttonAJouterMarque.Location = new System.Drawing.Point(555, 103);
             this.buttonAJouterMarque.Name = "buttonAJouterMarque";
-            this.buttonAJouterMarque.Size = new System.Drawing.Size(172, 23);
+            this.buttonAJouterMarque.Size = new System.Drawing.Size(172, 35);
             this.buttonAJouterMarque.TabIndex = 2;
-            this.buttonAJouterMarque.Text = "Ajouter/Supprimer une marque ";
+            this.buttonAJouterMarque.Text = "Ajouter/Modifier/\r\nSupprimer une marque ";
             this.buttonAJouterMarque.UseVisualStyleBackColor = true;
             this.buttonAJouterMarque.Click += new System.EventHandler(this.buttonAJouterMarque_Click);
             // 

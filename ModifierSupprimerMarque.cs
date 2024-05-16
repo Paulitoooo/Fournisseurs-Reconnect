@@ -1,19 +1,21 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Bcpg.OpenPgp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fournisseurs_Reconnect
 {
-    public partial class SupprimerMarque : Form
+    public partial class ModifierSupprimerMarque : Form
     {
-        public SupprimerMarque()
+        public ModifierSupprimerMarque()
         {
             InitializeComponent();
         }
@@ -38,6 +40,11 @@ namespace Fournisseurs_Reconnect
             int compteurSecurite = 0;
             string marqueASupprimer = listeMarques.Text;
             string requeteSupprimer = "DELETE FROM `marque` WHERE idMarque = (select idMarque where nomMarque = '" + marqueASupprimer + "');";
+            if(marqueASupprimer == "")
+            {
+                MessageBox.Show("Il faut selectionner une marque");
+                return;
+            }
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             try
             {
@@ -92,9 +99,11 @@ namespace Fournisseurs_Reconnect
                     this.listeMarques.Items.Add(drMarques.GetString("nomMarque"));
                 }
                 drMarques.Close();
+                conn.Close();
+
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -103,6 +112,105 @@ namespace Fournisseurs_Reconnect
         private void boutonRetour_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void modifNom(string nouveauNom , string unMarque)
+        {
+            string requeteModif = "Update marque set nomMarque = '" + nouveauNom + "' where idMarque = (select idMarque where nomMarque = '" + unMarque + "');";
+            MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
+            try
+            {
+                conn.Open();
+                MySqlCommand cmdRequeteModif = new MySqlCommand(requeteModif, conn);
+                MySqlDataReader drModif = cmdRequeteModif.ExecuteReader();
+                MessageBox.Show("Le nom a bien été modifié");
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void boutonModifier_Click(object sender, EventArgs e)
+        {
+            string laMarqueAModif = listeMarques.Text;
+            if (laMarqueAModif == "")
+            {
+                MessageBox.Show("Il faut selectionner une marque");
+                return;
+            }
+            Form formModif = new Form();
+            formModif.Size = new Size(446, 246);
+            formModif.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            formModif.ControlBox = false;
+            formModif.StartPosition = FormStartPosition.CenterScreen ;
+            formModif.Text = "Modifier une marque";
+            formModif.AutoSize = false;
+            formModif.SizeGripStyle = SizeGripStyle.Hide;
+            TextBox textBoxModif = new TextBox();
+            textBoxModif.Size = new Size(312,20);
+            textBoxModif.Location = new Point(57, 47);
+            formModif.Controls.Add(textBoxModif);
+            Label label1 = new Label();
+            label1.Text = "Saisissez un nouveau nom de marque";
+            label1.Location = new Point(125, 31);
+            label1.Size = new Size(186,13);
+            formModif.Controls.Add(label1);
+            Button boutonModif = new Button();
+            boutonModif.Size = new Size(75, 23);
+            boutonModif.Location = new Point(236, 112);
+            boutonModif.Text = "Modifier";
+            Button retour = new Button();
+            retour.Size = new Size(75, 23);
+            retour.Location = new Point(110, 112);
+            retour.Text = "< Retour";
+            void fermerModif(object send , EventArgs e2)
+            {
+                formModif.Close();
+            }
+            retour.Click += fermerModif;
+            formModif.Controls.Add(retour);
+            void modifNom(object send ,EventArgs e2)
+            {
+                string nouveauNom = textBoxModif.Text;
+
+                string requeteModif = "Update marque set nomMarque = '" + nouveauNom + "' where idMarque = (select idMarque where nomMarque = '" + laMarqueAModif + "');";
+                MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmdRequeteModif = new MySqlCommand(requeteModif, conn);
+                    MySqlDataReader drModif = cmdRequeteModif.ExecuteReader();
+                    MessageBox.Show("Le nom a bien été modifié");
+                    drModif.Close();
+                    listeMarques.Items.Clear();
+                    string requeteMarques = "SELECT * FROM marque;";
+                    MySqlCommand cmdMarques = new MySqlCommand(requeteMarques, conn);
+                    MySqlDataReader drMarques = cmdMarques.ExecuteReader();
+                    while (drMarques.Read())
+                    {
+                        this.listeMarques.Items.Add(drMarques.GetString("nomMarque"));
+                    }
+                    drMarques.Close();
+                    conn.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            boutonModif.Click +=   modifNom;
+            formModif.Controls.Add(boutonModif);
+            formModif.AcceptButton = boutonModif;
+            formModif.CancelButton = retour;
+            
+            formModif.ShowDialog();
+        }
+
+        private void BoutonModif_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -39,8 +39,10 @@
             // textBoxNomMarque
             // 
             this.textBoxNomMarque.Location = new System.Drawing.Point(191, 58);
+            this.textBoxNomMarque.MaxLength = 150;
             this.textBoxNomMarque.Name = "textBoxNomMarque";
             this.textBoxNomMarque.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxNomMarque.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textBoxNomMarque.Size = new System.Drawing.Size(312, 20);
             this.textBoxNomMarque.TabIndex = 0;
             // 
@@ -67,9 +69,9 @@
             // 
             this.boutonSupprimerMarque.Location = new System.Drawing.Point(408, 215);
             this.boutonSupprimerMarque.Name = "boutonSupprimerMarque";
-            this.boutonSupprimerMarque.Size = new System.Drawing.Size(138, 23);
+            this.boutonSupprimerMarque.Size = new System.Drawing.Size(138, 45);
             this.boutonSupprimerMarque.TabIndex = 3;
-            this.boutonSupprimerMarque.Text = "Supprimer une marque ?";
+            this.boutonSupprimerMarque.Text = "Modifier/Supprimer une marque ?";
             this.boutonSupprimerMarque.UseVisualStyleBackColor = true;
             this.boutonSupprimerMarque.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -78,7 +80,7 @@
             this.boutonRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.boutonRetour.Location = new System.Drawing.Point(12, 237);
             this.boutonRetour.Name = "boutonRetour";
-            this.boutonRetour.Size = new System.Drawing.Size(75, 23);
+            this.boutonRetour.Size = new System.Drawing.Size(112, 23);
             this.boutonRetour.TabIndex = 14;
             this.boutonRetour.Text = "< Retour";
             this.boutonRetour.UseVisualStyleBackColor = true;
