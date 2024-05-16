@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RechercheAppareil));
             this.label1 = new System.Windows.Forms.Label();
             this.listeMarques = new System.Windows.Forms.ListBox();
             this.listeModèles = new System.Windows.Forms.ListBox();
@@ -42,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.labelPrix = new System.Windows.Forms.Label();
             this.linkLabelSite = new System.Windows.Forms.LinkLabel();
+            this.boutonRetour = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,28 +169,40 @@
             // labelPrix
             // 
             this.labelPrix.AutoSize = true;
-            this.labelPrix.Location = new System.Drawing.Point(580, 152);
+            this.labelPrix.Location = new System.Drawing.Point(565, 152);
             this.labelPrix.Name = "labelPrix";
-            this.labelPrix.Size = new System.Drawing.Size(0, 13);
+            this.labelPrix.Size = new System.Drawing.Size(36, 13);
             this.labelPrix.TabIndex = 11;
+            this.labelPrix.Text = "Prix ...";
             // 
             // linkLabelSite
             // 
             this.linkLabelSite.AutoSize = true;
-            this.linkLabelSite.Location = new System.Drawing.Point(580, 227);
+            this.linkLabelSite.Location = new System.Drawing.Point(565, 197);
             this.linkLabelSite.Name = "linkLabelSite";
-            this.linkLabelSite.Size = new System.Drawing.Size(61, 13);
+            this.linkLabelSite.Size = new System.Drawing.Size(0, 13);
             this.linkLabelSite.TabIndex = 12;
-            this.linkLabelSite.TabStop = true;
-            this.linkLabelSite.Text = "Lien du site";
             this.linkLabelSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSite_LinkClicked);
+            // 
+            // boutonRetour
+            // 
+            this.boutonRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.boutonRetour.Location = new System.Drawing.Point(39, 415);
+            this.boutonRetour.Name = "boutonRetour";
+            this.boutonRetour.Size = new System.Drawing.Size(75, 23);
+            this.boutonRetour.TabIndex = 13;
+            this.boutonRetour.Text = "< Retour";
+            this.boutonRetour.UseVisualStyleBackColor = true;
+            this.boutonRetour.Click += new System.EventHandler(this.boutonRetour_Click);
             // 
             // RechercheAppareil
             // 
             this.AcceptButton = this.boutonRecherche;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.boutonRetour;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.boutonRetour);
             this.Controls.Add(this.linkLabelSite);
             this.Controls.Add(this.labelPrix);
             this.Controls.Add(this.label4);
@@ -201,6 +215,7 @@
             this.Controls.Add(this.listeModèles);
             this.Controls.Add(this.listeMarques);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RechercheAppareil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Appareil";
@@ -227,5 +242,6 @@
         private System.Windows.Forms.ListBox listeType;
         private System.Windows.Forms.Label labelPrix;
         private System.Windows.Forms.LinkLabel linkLabelSite;
+        private System.Windows.Forms.Button boutonRetour;
     }
 }

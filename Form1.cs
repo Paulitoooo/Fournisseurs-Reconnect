@@ -43,6 +43,12 @@ namespace Fournisseurs_Reconnect
             rechercheAppareil.ShowDialog();
             
         }
+
+        private void buttonAJouterMarque_Click(object sender, EventArgs e)
+        {
+            AjouterMarque ajouterMarque = new AjouterMarque();
+            ajouterMarque.ShowDialog();
+        }
     }
     }
 

@@ -80,8 +80,8 @@ namespace Fournisseurs_Reconnect
             listeTailleStockage.Items.Clear();
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
-            string typeSelectionné = listeType.SelectedItem.ToString();
-            string modèleSelectionné = listeModèles.SelectedItem.ToString();
+            string typeSelectionné = listeType.Text;
+            string modèleSelectionné = listeModèles.Text;
             string requeteTailleStockage = "Select StockageAppareil from appareil where modele='" + modèleSelectionné + "';";
             MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
             MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
@@ -105,10 +105,6 @@ namespace Fournisseurs_Reconnect
             {
                 NeufOuReconditionné = 0;
             }
-            LinkLabel linkLabel2 = new LinkLabel();
-            linkLabel2.Text = "test";
-            linkLabel2.Location = new System.Drawing.Point(562, 187);
-            linkLabel2.AutoSize = true;
             try
             {
                 string marqueSelectionnée = listeMarques.Text;
@@ -128,8 +124,10 @@ namespace Fournisseurs_Reconnect
                 if (drFinal.Read())
                 {
                     //MessageBox.Show(drFinal.GetUInt32("Prix") + " " + drFinal.GetString("siteAppareilFourni"));
-                    labelPrix.Text = drFinal.GetUInt32("Prix").ToString() + " €";
+                    labelPrix.Text = drFinal.GetFloat("Prix").ToString() + " €";
+                    linkLabelSite.Text = "Lien du site";
                     linkLabelSite.Links.Add(0,12, drFinal.GetString("siteAppareilFourni"));
+
                     //string lienSite = drFinal.GetString("siteAppareilFourni");
                     //System.Diagnostics.Process.Start(lienSite);
                     string siteAppareilFourni = drFinal.GetString("siteAppareilFourni");                    
@@ -181,6 +179,11 @@ namespace Fournisseurs_Reconnect
             //System.Diagnostics.Process.Start();
             string leLien = linkLabelSite.Links[0].LinkData.ToString();
             System.Diagnostics.Process.Start(leLien);
+        }
+
+        private void boutonRetour_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
