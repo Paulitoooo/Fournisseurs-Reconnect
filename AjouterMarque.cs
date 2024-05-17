@@ -39,7 +39,7 @@ namespace Fournisseurs_Reconnect
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
             MySqlCommand mySqlCommandId = new MySqlCommand(requeteId, conn);
             MySqlDataReader drId = mySqlCommandId.ExecuteReader();

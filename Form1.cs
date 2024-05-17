@@ -49,6 +49,12 @@ namespace Fournisseurs_Reconnect
             AjouterMarque ajouterMarque = new AjouterMarque();
             ajouterMarque.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AjouterModifierSupprimerFournisseur ajouterModifierSupprimerFournisseur = new AjouterModifierSupprimerFournisseur();
+            ajouterModifierSupprimerFournisseur.ShowDialog();
+        }
     }
     }
 

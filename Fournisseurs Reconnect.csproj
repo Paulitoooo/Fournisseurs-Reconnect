@@ -105,9 +105,21 @@
     <Compile Include="AjouterMarque.Designer.cs">
       <DependentUpon>AjouterMarque.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjouterModifierSupprimerFournisseur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterModifierSupprimerFournisseur.Designer.cs">
+      <DependentUpon>AjouterModifierSupprimerFournisseur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Appareil_Fourni.cs" />
     <Compile Include="Appareil.cs" />
     <Compile Include="Marque.cs" />
+    <Compile Include="ModifierSupprimerFournisseur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierSupprimerFournisseur.Designer.cs">
+      <DependentUpon>ModifierSupprimerFournisseur.cs</DependentUpon>
+    </Compile>
     <Compile Include="RechercheAppareil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,8 +144,14 @@
     <EmbeddedResource Include="AjouterMarque.resx">
       <DependentUpon>AjouterMarque.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AjouterModifierSupprimerFournisseur.resx">
+      <DependentUpon>AjouterModifierSupprimerFournisseur.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierSupprimerFournisseur.resx">
+      <DependentUpon>ModifierSupprimerFournisseur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

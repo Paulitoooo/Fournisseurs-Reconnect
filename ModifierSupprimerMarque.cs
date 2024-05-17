@@ -125,11 +125,13 @@ namespace Fournisseurs_Reconnect
                 MySqlDataReader drModif = cmdRequeteModif.ExecuteReader();
                 MessageBox.Show("Le nom a bien été modifié");
                 conn.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            this.Close();
         }
         private void boutonModifier_Click(object sender, EventArgs e)
         {
@@ -144,12 +146,14 @@ namespace Fournisseurs_Reconnect
             formModif.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             formModif.ControlBox = false;
             formModif.StartPosition = FormStartPosition.CenterScreen ;
+            formModif.ShowInTaskbar = false;
             formModif.Text = "Modifier une marque";
             formModif.AutoSize = false;
             formModif.SizeGripStyle = SizeGripStyle.Hide;
             TextBox textBoxModif = new TextBox();
             textBoxModif.Size = new Size(312,20);
             textBoxModif.Location = new Point(57, 47);
+            textBoxModif.Text = laMarqueAModif;
             formModif.Controls.Add(textBoxModif);
             Label label1 = new Label();
             label1.Text = "Saisissez un nouveau nom de marque";
@@ -183,6 +187,7 @@ namespace Fournisseurs_Reconnect
                     MySqlDataReader drModif = cmdRequeteModif.ExecuteReader();
                     MessageBox.Show("Le nom a bien été modifié");
                     drModif.Close();
+                    formModif.Close();
                     listeMarques.Items.Clear();
                     string requeteMarques = "SELECT * FROM marque;";
                     MySqlCommand cmdMarques = new MySqlCommand(requeteMarques, conn);
@@ -200,7 +205,7 @@ namespace Fournisseurs_Reconnect
                     MessageBox.Show(ex.Message);
                 }
             }
-            boutonModif.Click +=   modifNom;
+            boutonModif.Click += modifNom ;
             formModif.Controls.Add(boutonModif);
             formModif.AcceptButton = boutonModif;
             formModif.CancelButton = retour;
