@@ -55,6 +55,12 @@ namespace Fournisseurs_Reconnect
             AjouterModifierSupprimerFournisseur ajouterModifierSupprimerFournisseur = new AjouterModifierSupprimerFournisseur();
             ajouterModifierSupprimerFournisseur.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AjouterModifierSupprimerAppareil ajouterModifierSupprimerApareil = new AjouterModifierSupprimerAppareil();
+            ajouterModifierSupprimerApareil.ShowDialog();
+        }
     }
     }
 

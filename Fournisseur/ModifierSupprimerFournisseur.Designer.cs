@@ -97,6 +97,7 @@
             this.Controls.Add(this.boutonSupprimer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listeFournisseur);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ModifierSupprimerFournisseur";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

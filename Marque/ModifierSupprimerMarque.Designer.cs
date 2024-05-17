@@ -85,7 +85,7 @@
             this.boutonModifier.UseVisualStyleBackColor = true;
             this.boutonModifier.Click += new System.EventHandler(this.boutonModifier_Click);
             // 
-            // SupprimerMarque
+            // ModifierSupprimerMarque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -98,9 +98,10 @@
             this.Controls.Add(this.boutonSupprimer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listeMarques);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "SupprimerMarque";
+            this.Name = "ModifierSupprimerMarque";
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

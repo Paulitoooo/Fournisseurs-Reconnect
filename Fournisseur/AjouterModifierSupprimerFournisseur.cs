@@ -52,6 +52,18 @@ namespace Fournisseurs_Reconnect
             {
                 prochainId = drID.GetInt32("Count(idFournisseur)") + 1;
                 drID.Close();
+                string requeteVerifId = "Select idFournisseur from fournisseur order by idFournisseur DESC";
+
+                MySqlCommand cmdVerifId = new MySqlCommand(requeteVerifId, conn);
+                MySqlDataReader drVerifId = cmdVerifId.ExecuteReader();
+                while (drVerifId.Read())
+                {
+                    if (drVerifId.GetUInt32("idFournisseur") == prochainId)
+                    {
+                        prochainId = prochainId - 1;
+                    }
+                }
+                drVerifId.Close();
                 string requeteFournisseur = "INSERT INTO `fournisseur` VALUES (" + prochainId + ",'" + textBoxNomFournisseur.Text + "','" + textBoxSite.Text + "');";
                 MySqlCommand cmdFournisseur = new MySqlCommand(requeteFournisseur, conn);
                 MySqlDataReader drFournisseur = cmdFournisseur.ExecuteReader();

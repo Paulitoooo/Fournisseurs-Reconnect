@@ -41,15 +41,41 @@ namespace Fournisseurs_Reconnect
             {
                 MessageBox.Show(ex.Message);
             }
+            string requeteVerif = "Select nomMarque from marque;";
+            MySqlCommand cmdVerif = new MySqlCommand(requeteVerif, conn);
+            MySqlDataReader drVerif = cmdVerif.ExecuteReader();
+            while (drVerif.Read())
+            {
+                if (drVerif.GetString("nomMarque") == textBoxNomMarque.Text)
+                {
+                    MessageBox.Show("Cette marque est déjà inscrite dans la base de données");
+                    return;
+                }
+            }
+            drVerif.Close();
+            
             MySqlCommand mySqlCommandId = new MySqlCommand(requeteId, conn);
             MySqlDataReader drId = mySqlCommandId.ExecuteReader();
             if (drId.Read())
             {
 
                 prochainId = drId.GetInt32("count(idMarque)") + 1;
-                string requeteAjoutMarque = "Insert into marque values("+ prochainId+",'"+textBoxNomMarque.Text+"');";
-                MySqlCommand cmdAjoutMarque = new MySqlCommand(requeteAjoutMarque, conn);
+                
                 drId.Close();
+                string requeteVerifId = "Select idMarque from marque order by idMarque DESC";
+
+                MySqlCommand cmdVerifId = new MySqlCommand(requeteVerifId, conn);
+                MySqlDataReader drVerifId = cmdVerifId.ExecuteReader();
+                while (drVerifId.Read())
+                {
+                    if (drVerifId.GetUInt32("idMarque") == prochainId)
+                    {
+                        prochainId=prochainId - 1;
+                    }
+                }
+                drVerifId.Close();
+                string requeteAjoutMarque = "Insert into marque values(" + prochainId + ",'" + textBoxNomMarque.Text + "');";
+                MySqlCommand cmdAjoutMarque = new MySqlCommand(requeteAjoutMarque, conn);
                 MySqlDataReader drAjoutMarque = cmdAjoutMarque.ExecuteReader();
                 MessageBox.Show("La marque a bien été ajoutée à la base de données");
                 textBoxNomMarque.Clear();

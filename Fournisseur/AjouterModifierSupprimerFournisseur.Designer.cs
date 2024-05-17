@@ -122,6 +122,7 @@
             this.Controls.Add(this.boutonEnregistrer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxNomFournisseur);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AjouterModifierSupprimerFournisseur";
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
