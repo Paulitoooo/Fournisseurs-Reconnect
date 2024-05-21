@@ -51,6 +51,7 @@
             this.boutonRetour.TabIndex = 54;
             this.boutonRetour.Text = "< Retour";
             this.boutonRetour.UseVisualStyleBackColor = true;
+            this.boutonRetour.Click += new System.EventHandler(this.boutonRetour_Click);
             // 
             // boutonSupprimerMarque
             // 
@@ -90,7 +91,7 @@
             this.textBoxNomModèle.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBoxNomModèle.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textBoxNomModèle.Size = new System.Drawing.Size(312, 20);
-            this.textBoxNomModèle.TabIndex = 51;
+            this.textBoxNomModèle.TabIndex = 3;
             // 
             // listeMarques
             // 
@@ -98,7 +99,7 @@
             this.listeMarques.Location = new System.Drawing.Point(188, 27);
             this.listeMarques.Name = "listeMarques";
             this.listeMarques.Size = new System.Drawing.Size(120, 56);
-            this.listeMarques.TabIndex = 56;
+            this.listeMarques.TabIndex = 1;
             this.listeMarques.Click += new System.EventHandler(this.listeMarques_Click);
             this.listeMarques.SelectedIndexChanged += new System.EventHandler(this.listeMarques_SelectedIndexChanged);
             // 
@@ -118,7 +119,7 @@
             this.listeTypes.Location = new System.Drawing.Point(188, 100);
             this.listeTypes.Name = "listeTypes";
             this.listeTypes.Size = new System.Drawing.Size(120, 56);
-            this.listeTypes.TabIndex = 58;
+            this.listeTypes.TabIndex = 2;
             this.listeTypes.Click += new System.EventHandler(this.listeTypes_Click);
             // 
             // label3
@@ -146,14 +147,16 @@
             this.textBoxStockage.Location = new System.Drawing.Point(188, 218);
             this.textBoxStockage.Name = "textBoxStockage";
             this.textBoxStockage.Size = new System.Drawing.Size(37, 20);
-            this.textBoxStockage.TabIndex = 62;
+            this.textBoxStockage.TabIndex = 4;
             this.textBoxStockage.ValidatingType = typeof(int);
             // 
             // AjouterModifierSupprimerAppareil
             // 
+            this.AcceptButton = this.boutonEnregistrer;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CancelButton = this.boutonRetour;
             this.ClientSize = new System.Drawing.Size(680, 347);
             this.ControlBox = false;
             this.Controls.Add(this.textBoxStockage);
@@ -171,6 +174,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AjouterModifierSupprimerAppareil";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AjouterModifierSupprimerAppareil";
             this.Load += new System.EventHandler(this.AjouterModifierSupprimerAppareil_Load);
             this.ResumeLayout(false);

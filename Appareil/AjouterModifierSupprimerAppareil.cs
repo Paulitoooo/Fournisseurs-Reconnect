@@ -83,6 +83,7 @@ namespace Fournisseurs_Reconnect
                 MessageBox.Show("Il faut rensiegner un stockage", "Ajout de l'appareil impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            
             string requeteVerif = "select modele , StockageAppareil from appareil;";
             int prochainId;
             string requeteId = "SELECT count(idAppareil) from appareil;";
@@ -124,14 +125,31 @@ namespace Fournisseurs_Reconnect
                     }
                 }
                 drVerifId.Close();
-                string requeteAppareil = "INSERT INTO `appareil` VALUES (" + prochainId + ", '" + textBoxNomModèle.Text + "', (Select idMarque from marque where nomMarque = '" + listeMarques.Text + "') , (select idTypeAppareil from typeappareil where libelleTypeAppareil = '"+ listeTypes.Text+ "') , " + textBoxStockage.Text + " , 1);";
-                MySqlCommand cmdAppareil = new MySqlCommand(requeteAppareil, conn);
-                MySqlDataReader drAppareil = cmdAppareil.ExecuteReader();
-                MessageBox.Show("L'appareil a bien été ajouté à la base de données");
-                drAppareil.Close();
+                try
+                {
+                    string requeteAppareil = "INSERT INTO `appareil` VALUES (" + prochainId + ", '" + textBoxNomModèle.Text + "', (Select idMarque from marque where nomMarque = '" + listeMarques.Text + "') , (select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + listeTypes.Text + "') , " + textBoxStockage.Text + " , 1);";
+
+
+                    MySqlCommand cmdAppareil = new MySqlCommand(requeteAppareil, conn);
+                    MySqlDataReader drAppareil = cmdAppareil.ExecuteReader();
+                    MessageBox.Show("L'appareil a bien été ajouté à la base de données");
+                    textBoxNomModèle.Clear();
+                    textBoxStockage.Clear();
+                    drAppareil.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Veillez à ce que le stockage saisi soit un nombre");
+                }
                 conn.Close();
             }
 
+        }
+
+        private void boutonRetour_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

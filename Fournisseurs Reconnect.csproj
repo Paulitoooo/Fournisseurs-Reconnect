@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -105,16 +120,22 @@
     <Compile Include="Marque\AjouterMarque.Designer.cs">
       <DependentUpon>AjouterMarque.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModifierSupprimerApareil.cs">
+    <Compile Include="Appareil\ModifierAppareil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModifierSupprimerApareil.Designer.cs">
+    <Compile Include="Appareil\ModifierAppareil.Designer.cs">
+      <DependentUpon>ModifierAppareil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Appareil\ModifierSupprimerApareil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appareil\ModifierSupprimerApareil.Designer.cs">
       <DependentUpon>ModifierSupprimerApareil.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjouterModifierSupprimerAppareil.cs">
+    <Compile Include="Appareil\AjouterModifierSupprimerAppareil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AjouterModifierSupprimerAppareil.Designer.cs">
+    <Compile Include="Appareil\AjouterModifierSupprimerAppareil.Designer.cs">
       <DependentUpon>AjouterModifierSupprimerAppareil.cs</DependentUpon>
     </Compile>
     <Compile Include="Fournisseur\AjouterModifierSupprimerFournisseur.cs">
@@ -156,10 +177,13 @@
     <EmbeddedResource Include="Marque\AjouterMarque.resx">
       <DependentUpon>AjouterMarque.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModifierSupprimerApareil.resx">
+    <EmbeddedResource Include="Appareil\ModifierAppareil.resx">
+      <DependentUpon>ModifierAppareil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Appareil\ModifierSupprimerApareil.resx">
       <DependentUpon>ModifierSupprimerApareil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterModifierSupprimerAppareil.resx">
+    <EmbeddedResource Include="Appareil\AjouterModifierSupprimerAppareil.resx">
       <DependentUpon>AjouterModifierSupprimerAppareil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fournisseur\AjouterModifierSupprimerFournisseur.resx">
@@ -204,6 +228,17 @@
     <Content Include="Image\logoreconnect.jpg" />
     <Content Include="logoreconnect.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

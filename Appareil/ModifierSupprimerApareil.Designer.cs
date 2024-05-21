@@ -37,6 +37,7 @@
             this.labelMarque = new System.Windows.Forms.Label();
             this.listeTypes = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.listeStockage = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // boutonModifier
@@ -48,6 +49,7 @@
             this.boutonModifier.TabIndex = 21;
             this.boutonModifier.Text = "Modifier";
             this.boutonModifier.UseVisualStyleBackColor = true;
+            this.boutonModifier.Click += new System.EventHandler(this.boutonModifier_Click);
             // 
             // boutonRetour
             // 
@@ -69,6 +71,7 @@
             this.boutonSupprimer.TabIndex = 19;
             this.boutonSupprimer.Text = "Supprimer";
             this.boutonSupprimer.UseVisualStyleBackColor = true;
+            this.boutonSupprimer.Click += new System.EventHandler(this.boutonSupprimer_Click);
             // 
             // label1
             // 
@@ -89,6 +92,7 @@
             this.listeAppareils.Size = new System.Drawing.Size(120, 56);
             this.listeAppareils.Sorted = true;
             this.listeAppareils.TabIndex = 17;
+            this.listeAppareils.Click += new System.EventHandler(this.listeAppareils_Click);
             // 
             // listeMarques
             // 
@@ -110,11 +114,13 @@
             // 
             // listeTypes
             // 
+            this.listeTypes.Enabled = false;
             this.listeTypes.FormattingEnabled = true;
             this.listeTypes.Location = new System.Drawing.Point(236, 80);
             this.listeTypes.Name = "listeTypes";
             this.listeTypes.Size = new System.Drawing.Size(120, 56);
             this.listeTypes.TabIndex = 24;
+            this.listeTypes.Click += new System.EventHandler(this.listeTypes_Click);
             // 
             // label2
             // 
@@ -125,13 +131,25 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "Selectionnez un type";
             // 
+            // listeStockage
+            // 
+            this.listeStockage.Enabled = false;
+            this.listeStockage.FormattingEnabled = true;
+            this.listeStockage.Location = new System.Drawing.Point(422, 151);
+            this.listeStockage.Name = "listeStockage";
+            this.listeStockage.Size = new System.Drawing.Size(120, 56);
+            this.listeStockage.TabIndex = 26;
+            this.listeStockage.Click += new System.EventHandler(this.listeStockage_Click);
+            // 
             // ModifierSupprimerApareil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CancelButton = this.boutonRetour;
             this.ClientSize = new System.Drawing.Size(582, 272);
             this.ControlBox = false;
+            this.Controls.Add(this.listeStockage);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listeTypes);
             this.Controls.Add(this.labelMarque);
@@ -144,6 +162,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ModifierSupprimerApareil";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModifierSupprimerApareil";
             this.Load += new System.EventHandler(this.AjouterModifierSupprimerApareil_Load);
             this.ResumeLayout(false);
@@ -162,5 +181,6 @@
         private System.Windows.Forms.Label labelMarque;
         private System.Windows.Forms.ListBox listeTypes;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox listeStockage;
     }
 }
