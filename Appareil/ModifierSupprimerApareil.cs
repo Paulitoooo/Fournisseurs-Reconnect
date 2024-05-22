@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Fournisseurs_Reconnect.Appareil;
 namespace Fournisseurs_Reconnect
 {
     public partial class ModifierSupprimerApareil : Form
@@ -129,13 +129,71 @@ namespace Fournisseurs_Reconnect
             boutonSupprimer.Enabled = true;
             
         }
+        public static Appareils AppareilAModifier;
+        bool modifFinie = false ;
 
         private void boutonModifier_Click(object sender, EventArgs e)
         {
             leModeleSelectionné = listeAppareils.Text;
             leStockageSelectionné = listeStockage.Text;
-            leTypeSelectionné = listeTypes.Text;
-            laMarqueSelectionnée = listeMarques.Text;
+            leTypeSelectionné = "( Select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + listeTypes.Text + "' )";
+            laMarqueSelectionnée = "( Select idMarque from marque where nomMarque = '" + listeMarques.Text + "')";
+            string idAppareil = "Select idAppareil from appareil where modele = '" + leModeleSelectionné + "' and StockageAppareil = " + leStockageSelectionné + " and idTypeAppareil = " + leTypeSelectionné + " and idMarqueAppareil = " + laMarqueSelectionnée + " ;";
+            MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            MySqlCommand cmdMarque = new MySqlCommand(laMarqueSelectionnée, conn);
+            MySqlDataReader drMarque = cmdMarque.ExecuteReader();
+            int idMarque=0;
+            if (drMarque.Read())
+            {
+                idMarque = drMarque.GetInt32("idMarque");
+            }
+            drMarque.Close();
+            int idType = 0;
+            MySqlCommand cmdType = new MySqlCommand(leTypeSelectionné, conn);
+            MySqlDataReader drType = cmdType.ExecuteReader();
+            if (drType.Read())
+            {
+                idType = drType.GetInt32("idTypeAppareil");
+            }
+            drType.Close();
+            MySqlCommand cmdId = new MySqlCommand(idAppareil, conn);
+            MySqlDataReader drId = cmdId.ExecuteReader();
+            if (drId.Read())
+            {
+                AppareilAModifier = new Appareils(drId.GetInt32("idAppareil"),leModeleSelectionné,idMarque,idType,Int32.Parse(leStockageSelectionné),true);
+            }
+            drId.Close();
+            ModifierAppareil modifierAppareil = new ModifierAppareil();
+            modifierAppareil.ShowDialog();
+            modifFinie = ModifierAppareil.laModifFinie;
+            if (modifFinie)
+            {
+                listeAppareils.Items.Clear();
+                listeMarques.Items.Clear();
+                listeStockage.Items.Clear();
+                listeTypes.Items.Clear();
+                string requeteMarques = "SELECT * FROM marque;";
+                string requeteType = "SELECT `libelleTypeAppareil` FROM `typeappareil`;";
+                MySqlCommand cmdMarques = new MySqlCommand(requeteMarques, conn);
+                MySqlCommand cmdType2 = new MySqlCommand(requeteType, conn);
+                MySqlDataReader drMarques = cmdMarques.ExecuteReader();
+                while (drMarques.Read())
+                {
+                    this.listeMarques.Items.Add(drMarques.GetString("nomMarque"));
+                }
+                drMarques.Close();
+                MySqlDataReader drType2 = cmdType2.ExecuteReader();
+                while (drType2.Read())
+                {
+                    listeTypes.Items.Add(drType2.GetString("libelleTypeAppareil"));
+                }
+                drType2.Close();
+                conn.Close();
+                modifFinie = false;
+            }
+            
+            
 
         }
 
@@ -158,4 +216,4 @@ namespace Fournisseurs_Reconnect
             listeStockage.Items.Clear();
         }
     }
-    }
+}

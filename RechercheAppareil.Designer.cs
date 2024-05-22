@@ -42,8 +42,8 @@
             this.listeType = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.labelPrix = new System.Windows.Forms.Label();
-            this.linkLabelSite = new System.Windows.Forms.LinkLabel();
             this.boutonRetour = new System.Windows.Forms.Button();
+            this.linkLabelSite = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,6 +138,7 @@
             // 
             // boutonRecherche
             // 
+            this.boutonRecherche.Cursor = System.Windows.Forms.Cursors.Hand;
             this.boutonRecherche.Location = new System.Drawing.Point(338, 374);
             this.boutonRecherche.Name = "boutonRecherche";
             this.boutonRecherche.Size = new System.Drawing.Size(75, 23);
@@ -175,17 +176,9 @@
             this.labelPrix.TabIndex = 11;
             this.labelPrix.Text = "Prix ...";
             // 
-            // linkLabelSite
-            // 
-            this.linkLabelSite.AutoSize = true;
-            this.linkLabelSite.Location = new System.Drawing.Point(565, 197);
-            this.linkLabelSite.Name = "linkLabelSite";
-            this.linkLabelSite.Size = new System.Drawing.Size(0, 13);
-            this.linkLabelSite.TabIndex = 12;
-            this.linkLabelSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSite_LinkClicked);
-            // 
             // boutonRetour
             // 
+            this.boutonRetour.Cursor = System.Windows.Forms.Cursors.Hand;
             this.boutonRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.boutonRetour.Location = new System.Drawing.Point(39, 415);
             this.boutonRetour.Name = "boutonRetour";
@@ -195,6 +188,15 @@
             this.boutonRetour.UseVisualStyleBackColor = true;
             this.boutonRetour.Click += new System.EventHandler(this.boutonRetour_Click);
             // 
+            // linkLabelSite
+            // 
+            this.linkLabelSite.AutoSize = true;
+            this.linkLabelSite.Location = new System.Drawing.Point(565, 197);
+            this.linkLabelSite.Name = "linkLabelSite";
+            this.linkLabelSite.Size = new System.Drawing.Size(0, 13);
+            this.linkLabelSite.TabIndex = 12;
+            this.linkLabelSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSite_LinkClicked);
+            // 
             // RechercheAppareil
             // 
             this.AcceptButton = this.boutonRecherche;
@@ -202,6 +204,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.boutonRetour;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.boutonRetour);
             this.Controls.Add(this.linkLabelSite);
             this.Controls.Add(this.labelPrix);
@@ -241,7 +244,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listeType;
         private System.Windows.Forms.Label labelPrix;
-        private System.Windows.Forms.LinkLabel linkLabelSite;
         private System.Windows.Forms.Button boutonRetour;
+        private System.Windows.Forms.LinkLabel linkLabelSite;
     }
 }

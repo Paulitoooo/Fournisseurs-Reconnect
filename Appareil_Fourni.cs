@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fournisseurs_Reconnect.Appareil;
 
 namespace Fournisseurs_Reconnect
 {
@@ -11,9 +12,9 @@ namespace Fournisseurs_Reconnect
         Fournisseur fournisseur;
         float prix;
         string siteAppareilFourni;
-        Appareil Appareil;
+        Appareils Appareil;
         
-        public Appareil_Fourni(Fournisseur unFournisseur, float unPrix , string unSite, Appareil unAppareil)
+        public Appareil_Fourni(Fournisseur unFournisseur, float unPrix , string unSite, Appareils unAppareil)
         {
             this.fournisseur = unFournisseur;
             this.prix = unPrix;
@@ -27,7 +28,6 @@ namespace Fournisseurs_Reconnect
 
         public int getIdAppareil() { return Appareil.getIdAppareil(); }
 
-        public string getModeleAppareil() { return Appareil.getModeleAppareil(); }
 
 
 

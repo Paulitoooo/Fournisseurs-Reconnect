@@ -101,7 +101,7 @@
             this.Name = "ModifierSupprimerFournisseur";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ModifierSupprimerFournisseur";
+            this.Text = "Modifier/Supprimer un fournisseur";
             this.Load += new System.EventHandler(this.ModifierSupprimerFournisseur_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

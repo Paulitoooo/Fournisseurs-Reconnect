@@ -12,7 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Gresset Paul\Desktop\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,10 +23,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -46,6 +48,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>D4DF4526BB564D0DDF2B86B4D8BDCBD43CDD92A8</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Fournisseurs Reconnect_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
@@ -114,6 +128,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appareil\Appareils.cs" />
+    <Compile Include="fonctions.cs" />
     <Compile Include="Marque\AjouterMarque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,7 +161,6 @@
       <DependentUpon>AjouterModifierSupprimerFournisseur.cs</DependentUpon>
     </Compile>
     <Compile Include="Appareil_Fourni.cs" />
-    <Compile Include="Appareil.cs" />
     <Compile Include="Marque\Marque.cs" />
     <Compile Include="Fournisseur\ModifierSupprimerFournisseur.cs">
       <SubType>Form</SubType>
@@ -203,6 +218,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RechercheAppareil.resx">
       <DependentUpon>RechercheAppareil.cs</DependentUpon>
@@ -210,6 +226,7 @@
     <EmbeddedResource Include="Marque\ModifierSupprimerMarque.resx">
       <DependentUpon>ModifierSupprimerMarque.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Fournisseurs Reconnect_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -225,7 +242,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Image\logoreconnect.jpg" />
+    <None Include="Image\logoreconnect.png" />
     <Content Include="logoreconnect.jpg" />
   </ItemGroup>
   <ItemGroup>

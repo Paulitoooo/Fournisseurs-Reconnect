@@ -127,7 +127,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AjouterFournisseur";
+            this.Text = "Ajouter un fournisseur";
             this.ResumeLayout(false);
             this.PerformLayout();
 

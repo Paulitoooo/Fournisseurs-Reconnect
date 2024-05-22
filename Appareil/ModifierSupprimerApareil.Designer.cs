@@ -163,7 +163,7 @@
             this.Name = "ModifierSupprimerApareil";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ModifierSupprimerApareil";
+            this.Text = "Modifier/Supprimer un appareil";
             this.Load += new System.EventHandler(this.AjouterModifierSupprimerApareil_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

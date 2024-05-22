@@ -105,7 +105,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SupprimerMarque";
+            this.Text = "Supprimer une marque";
             this.Load += new System.EventHandler(this.SupprimerMarque_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

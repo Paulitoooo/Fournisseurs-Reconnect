@@ -108,7 +108,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AjouterMarque";
+            this.Text = "Ajouter une marque";
             this.ResumeLayout(false);
             this.PerformLayout();
 
