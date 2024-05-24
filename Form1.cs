@@ -32,7 +32,7 @@ namespace Fournisseurs_Reconnect
            
                 conn.Open();
                 MessageBox.Show("Connexion réussie");
-                
+            conn.Close();
                 
 
             }
@@ -60,6 +60,12 @@ namespace Fournisseurs_Reconnect
         {
             AjouterModifierSupprimerAppareil ajouterModifierSupprimerApareil = new AjouterModifierSupprimerAppareil();
             ajouterModifierSupprimerApareil.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AffilierFournisseur affilierFournisseur = new AffilierFournisseur();
+            affilierFournisseur.Show();
         }
     }
     }

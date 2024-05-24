@@ -52,7 +52,7 @@ namespace Fournisseurs_Reconnect
             {
                 prochainId = drID.GetInt32("Count(idFournisseur)") + 1;
                 drID.Close();
-                string requeteVerifId = "Select idFournisseur from fournisseur order by idFournisseur DESC";
+                string requeteVerifId = "Select * from fournisseur order by idFournisseur DESC";
 
                 MySqlCommand cmdVerifId = new MySqlCommand(requeteVerifId, conn);
                 MySqlDataReader drVerifId = cmdVerifId.ExecuteReader();
@@ -61,6 +61,11 @@ namespace Fournisseurs_Reconnect
                     if (drVerifId.GetUInt32("idFournisseur") == prochainId)
                     {
                         prochainId = prochainId - 1;
+                    }
+                    if (drVerifId.GetString("nomFournisseur") == textBoxNomFournisseur.Text)
+                    {
+                        MessageBox.Show("Il existe déjà un fournisseur portant ce nom", "Ajout de fournisseur impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
                 }
                 drVerifId.Close();

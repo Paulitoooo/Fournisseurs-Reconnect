@@ -63,6 +63,26 @@ namespace Fournisseurs_Reconnect.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fleche_droite {
+            get {
+                object obj = ResourceManager.GetObject("fleche_droite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fleche_gauche {
+            get {
+                object obj = ResourceManager.GetObject("fleche_gauche", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logoreconnect {
             get {
                 object obj = ResourceManager.GetObject("logoreconnect", resourceCulture);

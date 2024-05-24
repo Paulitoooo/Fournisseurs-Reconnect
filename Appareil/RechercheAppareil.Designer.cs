@@ -44,6 +44,9 @@
             this.labelPrix = new System.Windows.Forms.Label();
             this.boutonRetour = new System.Windows.Forms.Button();
             this.linkLabelSite = new System.Windows.Forms.LinkLabel();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.flecheGauche = new System.Windows.Forms.Button();
+            this.flecheDroite = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,8 +141,10 @@
             // 
             // boutonRecherche
             // 
+            this.boutonRecherche.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.boutonRecherche.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.boutonRecherche.Location = new System.Drawing.Point(338, 374);
+            this.boutonRecherche.Location = new System.Drawing.Point(296, 527);
             this.boutonRecherche.Name = "boutonRecherche";
             this.boutonRecherche.Size = new System.Drawing.Size(75, 23);
             this.boutonRecherche.TabIndex = 8;
@@ -170,7 +175,8 @@
             // labelPrix
             // 
             this.labelPrix.AutoSize = true;
-            this.labelPrix.Location = new System.Drawing.Point(565, 152);
+            this.labelPrix.Location = new System.Drawing.Point(327, 20);
+            this.labelPrix.MaximumSize = new System.Drawing.Size(100, 100);
             this.labelPrix.Name = "labelPrix";
             this.labelPrix.Size = new System.Drawing.Size(36, 13);
             this.labelPrix.TabIndex = 11;
@@ -178,11 +184,12 @@
             // 
             // boutonRetour
             // 
+            this.boutonRetour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.boutonRetour.Cursor = System.Windows.Forms.Cursors.Hand;
             this.boutonRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.boutonRetour.Location = new System.Drawing.Point(39, 415);
+            this.boutonRetour.Location = new System.Drawing.Point(12, 521);
             this.boutonRetour.Name = "boutonRetour";
-            this.boutonRetour.Size = new System.Drawing.Size(75, 23);
+            this.boutonRetour.Size = new System.Drawing.Size(99, 34);
             this.boutonRetour.TabIndex = 13;
             this.boutonRetour.Text = "< Retour";
             this.boutonRetour.UseVisualStyleBackColor = true;
@@ -191,11 +198,53 @@
             // linkLabelSite
             // 
             this.linkLabelSite.AutoSize = true;
-            this.linkLabelSite.Location = new System.Drawing.Point(565, 197);
+            this.linkLabelSite.Location = new System.Drawing.Point(327, 45);
             this.linkLabelSite.Name = "linkLabelSite";
-            this.linkLabelSite.Size = new System.Drawing.Size(0, 13);
+            this.linkLabelSite.Size = new System.Drawing.Size(61, 13);
             this.linkLabelSite.TabIndex = 12;
+            this.linkLabelSite.TabStop = true;
+            this.linkLabelSite.Text = "Lien du site";
             this.linkLabelSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSite_LinkClicked);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.webBrowser1.Location = new System.Drawing.Point(394, -3);
+            this.webBrowser1.MaximumSize = new System.Drawing.Size(1000, 1000);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScriptErrorsSuppressed = true;
+            this.webBrowser1.Size = new System.Drawing.Size(767, 501);
+            this.webBrowser1.TabIndex = 14;
+            this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
+            // 
+            // flecheGauche
+            // 
+            this.flecheGauche.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.flecheGauche.Enabled = false;
+            this.flecheGauche.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.flecheGauche.Image = global::Fournisseurs_Reconnect.Properties.Resources.fleche_gauche;
+            this.flecheGauche.Location = new System.Drawing.Point(772, 504);
+            this.flecheGauche.Name = "flecheGauche";
+            this.flecheGauche.Size = new System.Drawing.Size(37, 31);
+            this.flecheGauche.TabIndex = 15;
+            this.flecheGauche.UseVisualStyleBackColor = true;
+            this.flecheGauche.Click += new System.EventHandler(this.flecheGauche_Click);
+            // 
+            // flecheDroite
+            // 
+            this.flecheDroite.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.flecheDroite.Enabled = false;
+            this.flecheDroite.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.flecheDroite.Image = global::Fournisseurs_Reconnect.Properties.Resources.fleche_droite;
+            this.flecheDroite.Location = new System.Drawing.Point(815, 504);
+            this.flecheDroite.Name = "flecheDroite";
+            this.flecheDroite.Size = new System.Drawing.Size(37, 31);
+            this.flecheDroite.TabIndex = 16;
+            this.flecheDroite.UseVisualStyleBackColor = true;
+            this.flecheDroite.Click += new System.EventHandler(this.flecheDroite_Click);
             // 
             // RechercheAppareil
             // 
@@ -203,8 +252,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1163, 567);
             this.ControlBox = false;
+            this.Controls.Add(this.flecheDroite);
+            this.Controls.Add(this.flecheGauche);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.boutonRetour);
             this.Controls.Add(this.linkLabelSite);
             this.Controls.Add(this.labelPrix);
@@ -222,6 +274,7 @@
             this.Name = "RechercheAppareil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Appareil";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.RechercheAppareil_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -246,5 +299,8 @@
         private System.Windows.Forms.Label labelPrix;
         private System.Windows.Forms.Button boutonRetour;
         private System.Windows.Forms.LinkLabel linkLabelSite;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Button flecheGauche;
+        private System.Windows.Forms.Button flecheDroite;
     }
 }

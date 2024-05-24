@@ -94,9 +94,14 @@ namespace Fournisseurs_Reconnect
         }
 
         int NeufOuReconditionné;
+        static int  n = 0;
+        static List<Uri> listeSites = new List<Uri>();
+        static List<string> lesPrix = new List<string>();
 
         private void boutonRecherche_Click(object sender, EventArgs e)
         {
+            lesPrix.Clear();
+            listeSites.Clear();
             if (boutonNeuf.Checked)
             {
                 NeufOuReconditionné = 1;
@@ -105,9 +110,7 @@ namespace Fournisseurs_Reconnect
             {
                 NeufOuReconditionné = 0;
             }
-            try
-            {
-                string marqueSelectionnée = listeMarques.Text;
+            string marqueSelectionnée = listeMarques.Text;
                 string modèleSelectionné = listeModèles.Text;
                 string stockageSelectionné = listeTailleStockage.Text;
                 string requeteFinale = "SELECT `Prix` , `siteAppareilFourni` from appareil_fourni" +
@@ -119,31 +122,40 @@ namespace Fournisseurs_Reconnect
                 conn.Open();
                 MySqlCommand cmdFinale = new MySqlCommand(requeteFinale, conn);
                 MySqlDataReader drFinal = cmdFinale.ExecuteReader();
-                
 
-                if (drFinal.Read())
+
+                while (drFinal.Read())
+
                 {
-                    //MessageBox.Show(drFinal.GetUInt32("Prix") + " " + drFinal.GetString("siteAppareilFourni"));
-                    labelPrix.Text = drFinal.GetFloat("Prix").ToString() + " €";
-                    linkLabelSite.Text = "Lien du site";
-                    linkLabelSite.Links.Add(0,12, drFinal.GetString("siteAppareilFourni"));
+
+
+                //MessageBox.Show(drFinal.GetUInt32("Prix") + " " + drFinal.GetString("siteAppareilFourni"));
+                string unPrix = drFinal.GetFloat("Prix").ToString();
+                linkLabelSite.Text = "Lien du site";
+                linkLabelSite.Links.Clear();
+                linkLabelSite.Links.Add(0,12, drFinal.GetString("siteAppareilFourni"));
 
                     //string lienSite = drFinal.GetString("siteAppareilFourni");
                     //System.Diagnostics.Process.Start(lienSite);
-                    string siteAppareilFourni = drFinal.GetString("siteAppareilFourni");                    
-                    
+                string siteAppareilFourni = drFinal.GetString("siteAppareilFourni");
+                listeSites.Add(new Uri(siteAppareilFourni));
+                lesPrix.Add(unPrix);                    
                     
 
                     
 
 
                 }
+            webBrowser1.Url = listeSites[n];
+            labelPrix.Text = lesPrix[n] + " €";
+            flecheDroite.Enabled = true;
+            flecheGauche.Enabled = true;
+
+
+            drFinal.Close();
                 conn.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Il faut renseigner les paramètres","Recherche impossible",MessageBoxButtons.OK,MessageBoxIcon.Exclamation,MessageBoxDefaultButton.Button1);
-            }
+            
+            
             
         }
         
@@ -185,6 +197,30 @@ namespace Fournisseurs_Reconnect
         {
             this.Close();
         }
-        
+
+        private void flecheDroite_Click(object sender, EventArgs e)
+        {
+            int MaxN = listeSites.Count - 1;
+            n++;
+            if (n > MaxN)
+            {
+                n--;
+                return;
+            }
+            webBrowser1.Url = listeSites[n];
+            labelPrix.Text = lesPrix[n] + " €";
+        }
+
+        private void flecheGauche_Click(object sender, EventArgs e)
+        {
+            n--;
+            if(n< 0)
+            {
+                n++;
+                return;
+            }
+            webBrowser1.Url = listeSites[n];
+            labelPrix.Text = lesPrix[n] + " €";
+        }
     }
 }

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fournisseurs_Reconnect
+namespace Fournisseurs_Reconnect.Fournisseur
 {
-    public class Fournisseur
+    public class Fournisseurs
     {
         int idFournisseur;
         string nomFournisseur;
@@ -15,7 +15,7 @@ namespace Fournisseurs_Reconnect
 
 
 
-        public Fournisseur(int unId, string unNom, string unSite)
+        public Fournisseurs(int unId, string unNom, string unSite)
         {
             this.idFournisseur = unId;
             this.nomFournisseur = unNom;
@@ -26,5 +26,17 @@ namespace Fournisseurs_Reconnect
         {
             return idFournisseur;
         }
+
+        public string getNomFournisseur()
+        {
+            return nomFournisseur;
+        }
+
+        public string getSiteFournisseur()
+        {
+            return siteFournisseur;
+        }
+
+
     }
 }

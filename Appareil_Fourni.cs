@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fournisseurs_Reconnect.Appareil;
+using Fournisseurs_Reconnect.Fournisseur;
 
 namespace Fournisseurs_Reconnect
 {
     internal class Appareil_Fourni
     {
-        Fournisseur fournisseur;
+        Fournisseurs fournisseur;
         float prix;
         string siteAppareilFourni;
         Appareils Appareil;
         
-        public Appareil_Fourni(Fournisseur unFournisseur, float unPrix , string unSite, Appareils unAppareil)
+        public Appareil_Fourni(Fournisseurs unFournisseur, float unPrix , string unSite, Appareils unAppareil)
         {
             this.fournisseur = unFournisseur;
             this.prix = unPrix;

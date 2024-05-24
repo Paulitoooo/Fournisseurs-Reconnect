@@ -67,7 +67,7 @@
             this.buttonAJouterMarque.Name = "buttonAJouterMarque";
             this.buttonAJouterMarque.Size = new System.Drawing.Size(172, 35);
             this.buttonAJouterMarque.TabIndex = 2;
-            this.buttonAJouterMarque.Text = "Ajouter/Modifier/\r\nSupprimer une marque ";
+            this.buttonAJouterMarque.Text = "Ajouter/Modifier/\r\nSupprimer une marque\r\n";
             this.buttonAJouterMarque.UseVisualStyleBackColor = true;
             this.buttonAJouterMarque.Click += new System.EventHandler(this.buttonAJouterMarque_Click);
             // 
@@ -107,12 +107,14 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(560, 268);
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button4.Location = new System.Drawing.Point(560, 232);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(172, 35);
             this.button4.TabIndex = 6;
             this.button4.Text = "Affilier un fournisseur";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Formulaire1
             // 
