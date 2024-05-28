@@ -58,7 +58,7 @@ namespace Fournisseurs_Reconnect
         
         private void boutonModifier_Click(object sender, EventArgs e)
         {
-            Appareils appareilApresModif = new Appareils(appareilModif.getIdAppareil(), nomModele.Text, fonctions.lesFonctions.GetIdMarque(listeMarques.Text), GetIdType(listeTypes.Text), Int32.Parse(tailleStockage.Text), true);
+            Appareils appareilApresModif = new Appareils(appareilModif.getIdAppareil(), nomModele.Text, fonctions.lesFonctions.GetIdMarque(listeMarques.Text), GetIdType(listeTypes.Text), Int32.Parse(tailleStockage.Text), appareilModif.getNeuf());
             string requeteModif = "Update appareil set modele = '" + nomModele.Text + "' , idMarqueAppareil = (select idMarque from marque where nomMarque = '" + listeMarques.Text + "'), idTypeAppareil = (select idTypeAppareil from typeappareil where libelleTypeAppareil ='" + listeTypes.Text + "') , StockageAppareil = " + tailleStockage.Text + " where idAppareil = " + appareilModif.getIdAppareil() + ";";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
@@ -75,17 +75,26 @@ namespace Fournisseurs_Reconnect
             }
             while (drVerif.Read())
             {
-                if (drVerif.GetString("modele") == nomModele.Text && drVerif.GetUInt32("StockageAppareil") == Int32.Parse(tailleStockage.Text) && drVerif.GetUInt32("idMarqueAppareil") == appareilApresModif.getIdMarque() && drVerif.GetUInt32("idTypeAppareil") == appareilApresModif.getIdType())
+                if (drVerif.GetString("modele") == nomModele.Text && drVerif.GetUInt32("StockageAppareil") == Int32.Parse(tailleStockage.Text) && drVerif.GetUInt32("idMarqueAppareil") == appareilApresModif.getIdMarque() && drVerif.GetUInt32("idTypeAppareil") == appareilApresModif.getIdType() && drVerif.GetBoolean("Neuf") == appareilApresModif.getNeuf())
                 
                 {
                     MessageBox.Show("Il existe déjà un appareil " + nomModele.Text + " " + tailleStockage.Text + " Go enregistré dans la base de données ", "Modification impossible",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     return;
                 }
             }
+            string NR = "";
+            if (appareilModif.getNeuf())
+            {
+                NR = " neuf ";
+            }
+            else
+            {
+                NR = " d'occasion ";
+            }
             drVerif.Close();
             MySqlCommand cmdModif = new MySqlCommand(requeteModif, conn);
             MySqlDataReader drModif = cmdModif.ExecuteReader();
-            MessageBox.Show("L'appareil " + appareilModif.getModele() + " a bien été modifié");
+            MessageBox.Show("L'appareil " + appareilModif.getModele() + NR + "a bien été modifié");
             drModif.Close();
             conn.Close();
             laModifFinie = true;

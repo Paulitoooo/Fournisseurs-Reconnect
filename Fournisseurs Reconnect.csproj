@@ -152,6 +152,42 @@
     <Compile Include="Affiliation\AffilierFournisseurAppareil.Designer.cs">
       <DependentUpon>AffilierFournisseurAppareil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Affiliation\DesaffilierFournisseur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\DesaffilierFournisseur.Designer.cs">
+      <DependentUpon>DesaffilierFournisseur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Affiliation\DesaffilierFournisseurAppareil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\DesaffilierFournisseurAppareil.Designer.cs">
+      <DependentUpon>DesaffilierFournisseurAppareil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Affiliation\laModificationAffiliationAppareil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\laModificationAffiliationAppareil.Designer.cs">
+      <DependentUpon>laModificationAffiliationAppareil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Affiliation\ModifierAffiliation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\ModifierAffiliation.Designer.cs">
+      <DependentUpon>ModifierAffiliation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Affiliation\ModifierAffiliationAppareil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\ModifierAffiliationAppareil.Designer.cs">
+      <DependentUpon>ModifierAffiliationAppareil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PieceDetachee\AjouterModifierSupprimerPieceDetachee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PieceDetachee\AjouterModifierSupprimerPieceDetachee.Designer.cs">
+      <DependentUpon>AjouterModifierSupprimerPieceDetachee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Appareil\Appareils.cs" />
     <Compile Include="fonctions.cs" />
     <Compile Include="Marque\AjouterMarque.cs">
@@ -184,7 +220,7 @@
     <Compile Include="Fournisseur\AjouterModifierSupprimerFournisseur.Designer.cs">
       <DependentUpon>AjouterModifierSupprimerFournisseur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Appareil_Fourni.cs" />
+    <Compile Include="Affiliation\Appareil_Fourni.cs" />
     <Compile Include="Marque\Marque.cs" />
     <Compile Include="Fournisseur\ModifierSupprimerFournisseur.cs">
       <SubType>Form</SubType>
@@ -205,6 +241,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PieceDetachee\ModifierSupprimerPieceDetachee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PieceDetachee\ModifierSupprimerPieceDetachee.Designer.cs">
+      <DependentUpon>ModifierSupprimerPieceDetachee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PieceDetachee\PieceDetachee.cs" />
+    <Compile Include="PieceDetachee\ModifierPieceDetachee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PieceDetachee\ModifierPieceDetachee.Designer.cs">
+      <DependentUpon>ModifierPieceDetachee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Marque\ModifierSupprimerMarque.cs">
@@ -218,6 +267,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Affiliation\AffilierFournisseurAppareil.resx">
       <DependentUpon>AffilierFournisseurAppareil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\DesaffilierFournisseur.resx">
+      <DependentUpon>DesaffilierFournisseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\DesaffilierFournisseurAppareil.resx">
+      <DependentUpon>DesaffilierFournisseurAppareil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\laModificationAffiliationAppareil.resx">
+      <DependentUpon>laModificationAffiliationAppareil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\ModifierAffiliation.resx">
+      <DependentUpon>ModifierAffiliation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\ModifierAffiliationAppareil.resx">
+      <DependentUpon>ModifierAffiliationAppareil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PieceDetachee\AjouterModifierSupprimerPieceDetachee.resx">
+      <DependentUpon>AjouterModifierSupprimerPieceDetachee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Marque\AjouterMarque.resx">
       <DependentUpon>AjouterMarque.cs</DependentUpon>
@@ -239,6 +306,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fournisseur\ModifierSupprimerFournisseur.resx">
       <DependentUpon>ModifierSupprimerFournisseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PieceDetachee\ModifierSupprimerPieceDetachee.resx">
+      <DependentUpon>ModifierSupprimerPieceDetachee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PieceDetachee\ModifierPieceDetachee.resx">
+      <DependentUpon>ModifierPieceDetachee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

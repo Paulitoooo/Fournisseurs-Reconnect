@@ -27,6 +27,8 @@ namespace Fournisseurs_Reconnect
         public string leTypeSelectionné;
         public string leModeleSelectionné;
         public string leStockageSelectionné;
+        public int NeufOuReconditionnéModifAppareil = 0;
+        public bool NeufOuRecondBool = true;
         private void AjouterModifierSupprimerApareil_Load(object sender, EventArgs e)
         {
             string requeteMarques = "SELECT * FROM marque;";
@@ -63,7 +65,7 @@ namespace Fournisseurs_Reconnect
             {
                 listeAppareils.Items.Clear();
                 listeStockage.Items.Clear();
-                string requeteModele = "Select distinct modele from appareil where idMarqueAppareil = (select idMarque from marque where nomMarque = '" + listeMarques.Text + "') and idTypeAppareil = (select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + listeTypes.Text + "');";
+                string requeteModele = "Select distinct modele from appareil where idMarqueAppareil = (select idMarque from marque where nomMarque = '" + listeMarques.Text + "') and idTypeAppareil = (select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + listeTypes.Text + "') order by modele desc ;";
                 MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
                 conn.Open();
                 MySqlCommand cmdModele = new MySqlCommand(requeteModele, conn);
@@ -85,7 +87,7 @@ namespace Fournisseurs_Reconnect
             listeAppareils.Items.Clear();
             listeStockage.Items.Clear();
             typeSelectionné = true;
-            string requeteModele = "Select distinct modele from appareil where idMarqueAppareil = (select idMarque from marque where nomMarque = '" + listeMarques.Text + "') and idTypeAppareil = (select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + listeTypes.Text + "');";
+            string requeteModele = "Select distinct modele from appareil where idMarqueAppareil = (select idMarque from marque where nomMarque = '" + listeMarques.Text + "') and idTypeAppareil = (select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + listeTypes.Text + "') order by modele desc ;";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
             MySqlCommand cmdModele = new MySqlCommand(requeteModele, conn);
@@ -94,7 +96,7 @@ namespace Fournisseurs_Reconnect
             {
                 listeAppareils.Items.Add(drModele.GetString("modele"));
             }
-            if(listeTypes.Text != "")
+            if (listeTypes.Text != "")
             {
                 listeAppareils.Enabled = true;
             }
@@ -106,31 +108,19 @@ namespace Fournisseurs_Reconnect
         {
             boutonModifier.Enabled = false;
             boutonSupprimer.Enabled = false;
+            boutonNeuf.Checked = false;
+            BoutonReconditionné.Checked = false;
             listeStockage.Items.Clear();
-            MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
-            conn.Open();
-            string typeSelectionné = listeTypes.Text;
-            string modèleSelectionné = listeAppareils.Text;
-            string requeteTailleStockage = "Select StockageAppareil from appareil where modele='" + modèleSelectionné + "';";
-            MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
-            MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
-            while (drTailleStockage.Read())
-            {
-                listeStockage.Items.Add(drTailleStockage.GetUInt32("StockageAppareil"));
-            }
-            listeStockage.Enabled = true;
-            drTailleStockage.Close();
-            conn.Close();
         }
 
         private void listeStockage_Click(object sender, EventArgs e)
         {
             boutonModifier.Enabled = true;
             boutonSupprimer.Enabled = true;
-            
+
         }
         public static Appareils AppareilAModifier;
-        bool modifFinie = false ;
+        bool modifFinie = false;
 
         private void boutonModifier_Click(object sender, EventArgs e)
         {
@@ -138,12 +128,12 @@ namespace Fournisseurs_Reconnect
             leStockageSelectionné = listeStockage.Text;
             leTypeSelectionné = "( Select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + listeTypes.Text + "' )";
             laMarqueSelectionnée = "( Select idMarque from marque where nomMarque = '" + listeMarques.Text + "')";
-            string idAppareil = "Select idAppareil from appareil where modele = '" + leModeleSelectionné + "' and StockageAppareil = " + leStockageSelectionné + " and idTypeAppareil = " + leTypeSelectionné + " and idMarqueAppareil = " + laMarqueSelectionnée + " ;";
+            string idAppareil = "Select idAppareil from appareil where modele = '" + leModeleSelectionné + "' and StockageAppareil = " + leStockageSelectionné + " and idTypeAppareil = " + leTypeSelectionné + " and idMarqueAppareil = " + laMarqueSelectionnée + " and Neuf = " + NeufOuReconditionnéModifAppareil+ ";";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
             MySqlCommand cmdMarque = new MySqlCommand(laMarqueSelectionnée, conn);
             MySqlDataReader drMarque = cmdMarque.ExecuteReader();
-            int idMarque=0;
+            int idMarque = 0;
             if (drMarque.Read())
             {
                 idMarque = drMarque.GetInt32("idMarque");
@@ -161,7 +151,7 @@ namespace Fournisseurs_Reconnect
             MySqlDataReader drId = cmdId.ExecuteReader();
             if (drId.Read())
             {
-                AppareilAModifier = new Appareils(drId.GetInt32("idAppareil"),leModeleSelectionné,idMarque,idType,Int32.Parse(leStockageSelectionné),true);
+                AppareilAModifier = new Appareils(drId.GetInt32("idAppareil"), leModeleSelectionné, idMarque, idType, Int32.Parse(leStockageSelectionné), NeufOuRecondBool);
             }
             drId.Close();
             ModifierAppareil modifierAppareil = new ModifierAppareil();
@@ -192,8 +182,8 @@ namespace Fournisseurs_Reconnect
                 conn.Close();
                 modifFinie = false;
             }
-            
-            
+
+
 
         }
 
@@ -203,7 +193,7 @@ namespace Fournisseurs_Reconnect
             leStockageSelectionné = listeStockage.Text;
             leTypeSelectionné = "( Select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + listeTypes.Text + "' )";
             laMarqueSelectionnée = "( Select idMarque from marque where nomMarque = '" + listeMarques.Text + "')";
-            string idAppareil = "(Select idAppareil where modele = '" + leModeleSelectionné + "' and StockageAppareil = " + leStockageSelectionné + " and idTypeAppareil = " + leTypeSelectionné + " and idMarqueAppareil = " + laMarqueSelectionnée + " )";
+            string idAppareil = "(Select idAppareil where modele = '" + leModeleSelectionné + "' and StockageAppareil = " + leStockageSelectionné + " and idTypeAppareil = " + leTypeSelectionné + " and idMarqueAppareil = " + laMarqueSelectionnée + " and Neuf = " + NeufOuReconditionnéModifAppareil+ " )";
             string requeteSupprimer = "Delete from appareil where idAppareil = " + idAppareil + ";";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
@@ -214,6 +204,52 @@ namespace Fournisseurs_Reconnect
             conn.Close();
             listeAppareils.Items.Clear();
             listeStockage.Items.Clear();
+        }
+
+        private void boutonNeuf_CheckedChanged(object sender, EventArgs e)
+        {
+            if (boutonNeuf.Checked)
+            {
+                listeStockage.Items.Clear();
+                MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
+                conn.Open();
+                string typeSelectionné = listeTypes.Text;
+                string modèleSelectionné = listeAppareils.Text;
+                string requeteTailleStockage = "Select StockageAppareil from appareil where modele='" + modèleSelectionné + "' and Neuf = 1;";
+                MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
+                MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
+                while (drTailleStockage.Read())
+                {
+                    listeStockage.Items.Add(drTailleStockage.GetUInt32("StockageAppareil"));
+                }
+                listeStockage.Enabled = true;
+                NeufOuReconditionnéModifAppareil = 1;
+                NeufOuRecondBool = true;
+                conn.Close();
+            }
+        }
+
+        private void BoutonReconditionné_CheckedChanged(object sender, EventArgs e)
+        {
+            if (BoutonReconditionné.Checked)
+            {
+                listeStockage.Items.Clear();
+                MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
+                conn.Open();
+                string typeSelectionné = listeTypes.Text;
+                string modèleSelectionné = listeAppareils.Text;
+                string requeteTailleStockage = "Select StockageAppareil from appareil where modele='" + modèleSelectionné + "' and Neuf = 0;";
+                MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
+                MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
+                while (drTailleStockage.Read())
+                {
+                    listeStockage.Items.Add(drTailleStockage.GetUInt32("StockageAppareil"));
+                }
+                listeStockage.Enabled = true;
+                NeufOuReconditionnéModifAppareil = 0;
+                NeufOuRecondBool = false;
+                conn.Close();
+            }
         }
     }
 }

@@ -38,6 +38,10 @@
             this.listeTypes = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.listeStockage = new System.Windows.Forms.ListBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BoutonReconditionné = new System.Windows.Forms.RadioButton();
+            this.boutonNeuf = new System.Windows.Forms.RadioButton();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // boutonModifier
@@ -135,11 +139,44 @@
             // 
             this.listeStockage.Enabled = false;
             this.listeStockage.FormattingEnabled = true;
-            this.listeStockage.Location = new System.Drawing.Point(422, 151);
+            this.listeStockage.Location = new System.Drawing.Point(417, 108);
             this.listeStockage.Name = "listeStockage";
             this.listeStockage.Size = new System.Drawing.Size(120, 56);
             this.listeStockage.TabIndex = 26;
             this.listeStockage.Click += new System.EventHandler(this.listeStockage_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.BoutonReconditionné);
+            this.groupBox1.Controls.Add(this.boutonNeuf);
+            this.groupBox1.Location = new System.Drawing.Point(371, 29);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 52);
+            this.groupBox1.TabIndex = 63;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Neuf ou reconditionné ?";
+            // 
+            // BoutonReconditionné
+            // 
+            this.BoutonReconditionné.AutoSize = true;
+            this.BoutonReconditionné.Location = new System.Drawing.Point(99, 20);
+            this.BoutonReconditionné.Name = "BoutonReconditionné";
+            this.BoutonReconditionné.Size = new System.Drawing.Size(94, 17);
+            this.BoutonReconditionné.TabIndex = 10;
+            this.BoutonReconditionné.Text = "Reconditionné";
+            this.BoutonReconditionné.UseVisualStyleBackColor = true;
+            this.BoutonReconditionné.CheckedChanged += new System.EventHandler(this.BoutonReconditionné_CheckedChanged);
+            // 
+            // boutonNeuf
+            // 
+            this.boutonNeuf.AutoSize = true;
+            this.boutonNeuf.Location = new System.Drawing.Point(18, 20);
+            this.boutonNeuf.Name = "boutonNeuf";
+            this.boutonNeuf.Size = new System.Drawing.Size(48, 17);
+            this.boutonNeuf.TabIndex = 9;
+            this.boutonNeuf.Text = "Neuf";
+            this.boutonNeuf.UseVisualStyleBackColor = true;
+            this.boutonNeuf.CheckedChanged += new System.EventHandler(this.boutonNeuf_CheckedChanged);
             // 
             // ModifierSupprimerApareil
             // 
@@ -149,6 +186,7 @@
             this.CancelButton = this.boutonRetour;
             this.ClientSize = new System.Drawing.Size(582, 272);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listeStockage);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listeTypes);
@@ -165,6 +203,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modifier/Supprimer un appareil";
             this.Load += new System.EventHandler(this.AjouterModifierSupprimerApareil_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +222,8 @@
         private System.Windows.Forms.ListBox listeTypes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listeStockage;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton BoutonReconditionné;
+        private System.Windows.Forms.RadioButton boutonNeuf;
     }
 }

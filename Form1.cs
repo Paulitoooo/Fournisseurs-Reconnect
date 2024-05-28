@@ -10,6 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Fournisseurs_Reconnect.Affiliation;
 
 namespace Fournisseurs_Reconnect
 {
@@ -65,7 +66,25 @@ namespace Fournisseurs_Reconnect
         private void button4_Click(object sender, EventArgs e)
         {
             AffilierFournisseur affilierFournisseur = new AffilierFournisseur();
-            affilierFournisseur.Show();
+            affilierFournisseur.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DesaffilierFournisseur desaffilierFournisseur = new DesaffilierFournisseur();
+            desaffilierFournisseur.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ModifierAffiliation modifierAffiliation = new ModifierAffiliation();
+            modifierAffiliation.ShowDialog();
+        }
+
+        private void boutonPieceDetachee_Click(object sender, EventArgs e)
+        {
+            AjouterModifierSupprimerPieceDetachee ajouterModifierSupprimerPieceDetachee = new AjouterModifierSupprimerPieceDetachee();
+            ajouterModifierSupprimerPieceDetachee.ShowDialog();
         }
     }
     }

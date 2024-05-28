@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RechercheAppareil));
             this.label1 = new System.Windows.Forms.Label();
             this.listeMarques = new System.Windows.Forms.ListBox();
@@ -41,12 +42,16 @@
             this.boutonRecherche = new System.Windows.Forms.Button();
             this.listeType = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.labelPrix = new System.Windows.Forms.Label();
             this.boutonRetour = new System.Windows.Forms.Button();
             this.linkLabelSite = new System.Windows.Forms.LinkLabel();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.flecheGauche = new System.Windows.Forms.Button();
             this.flecheDroite = new System.Windows.Forms.Button();
+            this.labelPrix = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.nbrFournisseur = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,8 +71,9 @@
             this.listeMarques.Name = "listeMarques";
             this.listeMarques.Size = new System.Drawing.Size(141, 43);
             this.listeMarques.Sorted = true;
-            this.listeMarques.TabIndex = 2;
+            this.listeMarques.TabIndex = 1;
             this.listeMarques.Click += new System.EventHandler(this.listeMarques_Click);
+            this.listeMarques.SelectedIndexChanged += new System.EventHandler(this.listeMarques_Click);
             // 
             // listeModèles
             // 
@@ -78,6 +84,7 @@
             this.listeModèles.Size = new System.Drawing.Size(142, 43);
             this.listeModèles.TabIndex = 3;
             this.listeModèles.Click += new System.EventHandler(this.listeModèles_Click);
+            this.listeModèles.SelectedIndexChanged += new System.EventHandler(this.listeModèles_Click);
             // 
             // label2
             // 
@@ -92,15 +99,16 @@
             // 
             this.listeTailleStockage.Enabled = false;
             this.listeTailleStockage.FormattingEnabled = true;
-            this.listeTailleStockage.Location = new System.Drawing.Point(169, 278);
+            this.listeTailleStockage.Location = new System.Drawing.Point(170, 332);
             this.listeTailleStockage.Name = "listeTailleStockage";
             this.listeTailleStockage.Size = new System.Drawing.Size(142, 43);
-            this.listeTailleStockage.TabIndex = 5;
+            this.listeTailleStockage.Sorted = true;
+            this.listeTailleStockage.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 278);
+            this.label3.Location = new System.Drawing.Point(41, 332);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 13);
             this.label3.TabIndex = 6;
@@ -110,7 +118,7 @@
             // 
             this.groupBox1.Controls.Add(this.BoutonReconditionné);
             this.groupBox1.Controls.Add(this.boutonNeuf);
-            this.groupBox1.Location = new System.Drawing.Point(70, 347);
+            this.groupBox1.Location = new System.Drawing.Point(111, 259);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 52);
             this.groupBox1.TabIndex = 7;
@@ -123,21 +131,21 @@
             this.BoutonReconditionné.Location = new System.Drawing.Point(99, 20);
             this.BoutonReconditionné.Name = "BoutonReconditionné";
             this.BoutonReconditionné.Size = new System.Drawing.Size(94, 17);
-            this.BoutonReconditionné.TabIndex = 1;
+            this.BoutonReconditionné.TabIndex = 10;
             this.BoutonReconditionné.Text = "Reconditionné";
             this.BoutonReconditionné.UseVisualStyleBackColor = true;
+            this.BoutonReconditionné.CheckedChanged += new System.EventHandler(this.BoutonReconditionné_CheckedChanged);
             // 
             // boutonNeuf
             // 
             this.boutonNeuf.AutoSize = true;
-            this.boutonNeuf.Checked = true;
             this.boutonNeuf.Location = new System.Drawing.Point(18, 20);
             this.boutonNeuf.Name = "boutonNeuf";
             this.boutonNeuf.Size = new System.Drawing.Size(48, 17);
-            this.boutonNeuf.TabIndex = 0;
-            this.boutonNeuf.TabStop = true;
+            this.boutonNeuf.TabIndex = 9;
             this.boutonNeuf.Text = "Neuf";
             this.boutonNeuf.UseVisualStyleBackColor = true;
+            this.boutonNeuf.CheckedChanged += new System.EventHandler(this.boutonNeuf_CheckedChanged);
             // 
             // boutonRecherche
             // 
@@ -147,7 +155,7 @@
             this.boutonRecherche.Location = new System.Drawing.Point(296, 527);
             this.boutonRecherche.Name = "boutonRecherche";
             this.boutonRecherche.Size = new System.Drawing.Size(75, 23);
-            this.boutonRecherche.TabIndex = 8;
+            this.boutonRecherche.TabIndex = 11;
             this.boutonRecherche.Text = "Rechercher";
             this.boutonRecherche.UseVisualStyleBackColor = true;
             this.boutonRecherche.Click += new System.EventHandler(this.boutonRecherche_Click);
@@ -160,8 +168,9 @@
             this.listeType.Location = new System.Drawing.Point(170, 122);
             this.listeType.Name = "listeType";
             this.listeType.Size = new System.Drawing.Size(141, 43);
-            this.listeType.TabIndex = 9;
+            this.listeType.TabIndex = 2;
             this.listeType.Click += new System.EventHandler(this.listeType_Click);
+            this.listeType.SelectedIndexChanged += new System.EventHandler(this.listeType_Click);
             // 
             // label4
             // 
@@ -171,16 +180,6 @@
             this.label4.Size = new System.Drawing.Size(154, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Selectionnez un type d\'appareil";
-            // 
-            // labelPrix
-            // 
-            this.labelPrix.AutoSize = true;
-            this.labelPrix.Location = new System.Drawing.Point(327, 20);
-            this.labelPrix.MaximumSize = new System.Drawing.Size(100, 100);
-            this.labelPrix.Name = "labelPrix";
-            this.labelPrix.Size = new System.Drawing.Size(36, 13);
-            this.labelPrix.TabIndex = 11;
-            this.labelPrix.Text = "Prix ...";
             // 
             // boutonRetour
             // 
@@ -201,7 +200,7 @@
             this.linkLabelSite.Location = new System.Drawing.Point(327, 45);
             this.linkLabelSite.Name = "linkLabelSite";
             this.linkLabelSite.Size = new System.Drawing.Size(61, 13);
-            this.linkLabelSite.TabIndex = 12;
+            this.linkLabelSite.TabIndex = 20;
             this.linkLabelSite.TabStop = true;
             this.linkLabelSite.Text = "Lien du site";
             this.linkLabelSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSite_LinkClicked);
@@ -246,6 +245,43 @@
             this.flecheDroite.UseVisualStyleBackColor = true;
             this.flecheDroite.Click += new System.EventHandler(this.flecheDroite_Click);
             // 
+            // labelPrix
+            // 
+            this.labelPrix.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.labelPrix.Location = new System.Drawing.Point(311, 12);
+            this.labelPrix.Name = "labelPrix";
+            this.labelPrix.Size = new System.Drawing.Size(58, 20);
+            this.labelPrix.TabIndex = 21;
+            this.labelPrix.TextChanged += new System.EventHandler(this.labelPrix_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(375, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(13, 13);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "€";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // nbrFournisseur
+            // 
+            this.nbrFournisseur.AutoSize = true;
+            this.nbrFournisseur.Location = new System.Drawing.Point(311, 66);
+            this.nbrFournisseur.Name = "nbrFournisseur";
+            this.nbrFournisseur.Size = new System.Drawing.Size(75, 26);
+            this.nbrFournisseur.TabIndex = 23;
+            this.nbrFournisseur.Text = "Nombre de\r\n fournisseurs : ";
+            // 
             // RechercheAppareil
             // 
             this.AcceptButton = this.boutonRecherche;
@@ -254,12 +290,14 @@
             this.CancelButton = this.boutonRetour;
             this.ClientSize = new System.Drawing.Size(1163, 567);
             this.ControlBox = false;
+            this.Controls.Add(this.nbrFournisseur);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelPrix);
             this.Controls.Add(this.flecheDroite);
             this.Controls.Add(this.flecheGauche);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.boutonRetour);
             this.Controls.Add(this.linkLabelSite);
-            this.Controls.Add(this.labelPrix);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.listeType);
             this.Controls.Add(this.boutonRecherche);
@@ -296,11 +334,15 @@
         private System.Windows.Forms.Button boutonRecherche;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listeType;
-        private System.Windows.Forms.Label labelPrix;
         private System.Windows.Forms.Button boutonRetour;
         private System.Windows.Forms.LinkLabel linkLabelSite;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button flecheGauche;
         private System.Windows.Forms.Button flecheDroite;
+        private System.Windows.Forms.TextBox labelPrix;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label nbrFournisseur;
     }
 }

@@ -83,8 +83,16 @@ namespace Fournisseurs_Reconnect
                 MessageBox.Show("Il faut rensiegner un stockage", "Ajout de l'appareil impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
-            string requeteVerif = "select modele , StockageAppareil from appareil;";
+            int NeufOuReconditionné = 1;
+            if (boutonNeuf.Checked)
+            {
+                NeufOuReconditionné = 1;
+            }
+            if (BoutonReconditionné.Checked)
+            {
+                NeufOuReconditionné = 0;
+            }
+            string requeteVerif = "select * from appareil;";
             int prochainId;
             string requeteId = "SELECT count(idAppareil) from appareil;";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
@@ -100,7 +108,7 @@ namespace Fournisseurs_Reconnect
             MySqlDataReader drVerif = cmdVerif.ExecuteReader();
             while (drVerif.Read())
             {
-                if(drVerif.GetString("modele") == textBoxNomModèle.Text && drVerif.GetUInt32("StockageAppareil").ToString() == textBoxStockage.Text)
+                if(drVerif.GetString("modele") == textBoxNomModèle.Text && drVerif.GetUInt32("StockageAppareil").ToString() == textBoxStockage.Text && NeufOuReconditionné == drVerif.GetInt32("Neuf"))
                 {
                     MessageBox.Show(textBoxNomModèle.Text + " " + textBoxStockage.Text + " existe déjà dans la base de données");
                     return;
@@ -127,7 +135,7 @@ namespace Fournisseurs_Reconnect
                 drVerifId.Close();
                 try
                 {
-                    string requeteAppareil = "INSERT INTO `appareil` VALUES (" + prochainId + ", '" + textBoxNomModèle.Text + "', (Select idMarque from marque where nomMarque = '" + listeMarques.Text + "') , (select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + listeTypes.Text + "') , " + textBoxStockage.Text + " , 1);";
+                    string requeteAppareil = "INSERT INTO `appareil` VALUES (" + prochainId + ", '" + textBoxNomModèle.Text + "', (Select idMarque from marque where nomMarque = '" + listeMarques.Text + "') , (select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + listeTypes.Text + "') , " + textBoxStockage.Text + " , + " + NeufOuReconditionné + "); ";
 
 
                     MySqlCommand cmdAppareil = new MySqlCommand(requeteAppareil, conn);

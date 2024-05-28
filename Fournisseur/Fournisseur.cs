@@ -22,6 +22,12 @@ namespace Fournisseurs_Reconnect.Fournisseur
             this.siteFournisseur = unSite;
         }
 
+        public Fournisseurs(int unId, string unNom)
+        {
+            this.idFournisseur = unId;
+            this.nomFournisseur = unNom;
+        }
+
         public int getIdFournisseur()
         {
             return idFournisseur;

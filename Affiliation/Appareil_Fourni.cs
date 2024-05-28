@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Fournisseurs_Reconnect.Appareil;
@@ -8,7 +9,7 @@ using Fournisseurs_Reconnect.Fournisseur;
 
 namespace Fournisseurs_Reconnect
 {
-    internal class Appareil_Fourni
+    public class Appareil_Fourni
     {
         Fournisseurs fournisseur;
         float prix;
@@ -28,6 +29,8 @@ namespace Fournisseurs_Reconnect
         public float getPrix() { return prix; }
 
         public int getIdAppareil() { return Appareil.getIdAppareil(); }
+
+        public int getIdFourisseur() { return fournisseur.getIdFournisseur(); }
 
 
 

@@ -120,7 +120,7 @@
             // 
             // boutonModifier
             // 
-            this.boutonModifier.Location = new System.Drawing.Point(449, 243);
+            this.boutonModifier.Location = new System.Drawing.Point(474, 253);
             this.boutonModifier.Name = "boutonModifier";
             this.boutonModifier.Size = new System.Drawing.Size(75, 23);
             this.boutonModifier.TabIndex = 22;
@@ -133,6 +133,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CancelButton = this.boutonRetour;
             this.ClientSize = new System.Drawing.Size(668, 329);
             this.ControlBox = false;
             this.Controls.Add(this.boutonModifier);
