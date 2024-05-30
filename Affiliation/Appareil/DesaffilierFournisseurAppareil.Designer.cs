@@ -229,7 +229,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(776, 426);
+            this.ClientSize = new System.Drawing.Size(772, 422);
             this.ControlBox = false;
             this.Controls.Add(this.boutonAffilier);
             this.Controls.Add(this.listeFournisseur);
@@ -239,6 +239,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DesaffilierFournisseurAppareil";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Désaffilier un fournisseur et un appareil";
             this.Load += new System.EventHandler(this.DesaffilierFournisseurAppareil_Load);

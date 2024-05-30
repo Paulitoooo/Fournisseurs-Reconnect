@@ -58,7 +58,7 @@ namespace Fournisseurs_Reconnect
         
         private void boutonModifier_Click(object sender, EventArgs e)
         {
-            Appareils appareilApresModif = new Appareils(appareilModif.getIdAppareil(), nomModele.Text, fonctions.lesFonctions.GetIdMarque(listeMarques.Text), GetIdType(listeTypes.Text), Int32.Parse(tailleStockage.Text), appareilModif.getNeuf());
+            Appareils appareilApresModif = new Appareils(appareilModif.getIdAppareil(), nomModele.Text, fonctions.lesFonctions.GetIdMarque(listeMarques.Text), GetIdTypeAppareil(listeTypes.Text), Int32.Parse(tailleStockage.Text), appareilModif.getNeuf());
             string requeteModif = "Update appareil set modele = '" + nomModele.Text + "' , idMarqueAppareil = (select idMarque from marque where nomMarque = '" + listeMarques.Text + "'), idTypeAppareil = (select idTypeAppareil from typeappareil where libelleTypeAppareil ='" + listeTypes.Text + "') , StockageAppareil = " + tailleStockage.Text + " where idAppareil = " + appareilModif.getIdAppareil() + ";";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();

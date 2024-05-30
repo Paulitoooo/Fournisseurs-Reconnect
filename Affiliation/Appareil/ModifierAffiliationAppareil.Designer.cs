@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BoutonReconditionné = new System.Windows.Forms.RadioButton();
+            this.boutonNeuf = new System.Windows.Forms.RadioButton();
             this.listeMarques = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,9 +44,6 @@
             this.listeFournisseur = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.boutonModifier = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.BoutonReconditionné = new System.Windows.Forms.RadioButton();
-            this.boutonNeuf = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +65,39 @@
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selectionnez un appareil";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.BoutonReconditionné);
+            this.groupBox2.Controls.Add(this.boutonNeuf);
+            this.groupBox2.Location = new System.Drawing.Point(122, 249);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 52);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Neuf ou reconditionné ?";
+            // 
+            // BoutonReconditionné
+            // 
+            this.BoutonReconditionné.AutoSize = true;
+            this.BoutonReconditionné.Location = new System.Drawing.Point(99, 20);
+            this.BoutonReconditionné.Name = "BoutonReconditionné";
+            this.BoutonReconditionné.Size = new System.Drawing.Size(94, 17);
+            this.BoutonReconditionné.TabIndex = 10;
+            this.BoutonReconditionné.Text = "Reconditionné";
+            this.BoutonReconditionné.UseVisualStyleBackColor = true;
+            this.BoutonReconditionné.CheckedChanged += new System.EventHandler(this.BoutonReconditionné_CheckedChanged);
+            // 
+            // boutonNeuf
+            // 
+            this.boutonNeuf.AutoSize = true;
+            this.boutonNeuf.Location = new System.Drawing.Point(18, 20);
+            this.boutonNeuf.Name = "boutonNeuf";
+            this.boutonNeuf.Size = new System.Drawing.Size(48, 17);
+            this.boutonNeuf.TabIndex = 9;
+            this.boutonNeuf.Text = "Neuf";
+            this.boutonNeuf.UseVisualStyleBackColor = true;
+            this.boutonNeuf.CheckedChanged += new System.EventHandler(this.boutonNeuf_CheckedChanged);
             // 
             // listeMarques
             // 
@@ -192,46 +225,13 @@
             this.boutonModifier.UseVisualStyleBackColor = true;
             this.boutonModifier.Click += new System.EventHandler(this.boutonAffilier_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.BoutonReconditionné);
-            this.groupBox2.Controls.Add(this.boutonNeuf);
-            this.groupBox2.Location = new System.Drawing.Point(122, 249);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 52);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Neuf ou reconditionné ?";
-            // 
-            // BoutonReconditionné
-            // 
-            this.BoutonReconditionné.AutoSize = true;
-            this.BoutonReconditionné.Location = new System.Drawing.Point(99, 20);
-            this.BoutonReconditionné.Name = "BoutonReconditionné";
-            this.BoutonReconditionné.Size = new System.Drawing.Size(94, 17);
-            this.BoutonReconditionné.TabIndex = 10;
-            this.BoutonReconditionné.Text = "Reconditionné";
-            this.BoutonReconditionné.UseVisualStyleBackColor = true;
-            this.BoutonReconditionné.CheckedChanged += new System.EventHandler(this.BoutonReconditionné_CheckedChanged);
-            // 
-            // boutonNeuf
-            // 
-            this.boutonNeuf.AutoSize = true;
-            this.boutonNeuf.Location = new System.Drawing.Point(18, 20);
-            this.boutonNeuf.Name = "boutonNeuf";
-            this.boutonNeuf.Size = new System.Drawing.Size(48, 17);
-            this.boutonNeuf.TabIndex = 9;
-            this.boutonNeuf.Text = "Neuf";
-            this.boutonNeuf.UseVisualStyleBackColor = true;
-            this.boutonNeuf.CheckedChanged += new System.EventHandler(this.boutonNeuf_CheckedChanged);
-            // 
             // ModifierAffiliationAppareil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(788, 438);
+            this.ClientSize = new System.Drawing.Size(784, 434);
             this.ControlBox = false;
             this.Controls.Add(this.boutonModifier);
             this.Controls.Add(this.label1);
@@ -241,6 +241,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ModifierAffiliationAppareil";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Modifier l\'affiliation d\'un appareil";
             this.Load += new System.EventHandler(this.ModifierAffiliationAppareil_Load);

@@ -158,7 +158,7 @@ namespace Fournisseurs_Reconnect.Affiliation
             Appareils appareilsAffilié = new Appareils(GetIdAppareil(listeModèles.Text, listeMarques.Text, listeType.Text, Int32.Parse(listeTailleStockage.Text),NeufOuReconditionné),
                 listeModèles.Text,
                 GetIdMarque(listeMarques.Text),
-                GetIdType(listeType.Text),
+                GetIdTypeAppareil(listeType.Text),
                 Int32.Parse(listeTailleStockage.Text),
                 true);
             Fournisseurs fournisseurAffilié = new Fournisseurs(GetIdFournisseur(listeFournisseur.Text),

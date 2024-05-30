@@ -111,7 +111,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(737, 367);
+            this.ClientSize = new System.Drawing.Size(733, 363);
             this.ControlBox = false;
             this.Controls.Add(this.bouronRetablir);
             this.Controls.Add(this.boutonModifier);
@@ -123,6 +123,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "laModificationAffiliationAppareil";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Modifier l\'affiliation d\'un appareil";
             this.Load += new System.EventHandler(this.laModificationAffiliationAppareil_Load);

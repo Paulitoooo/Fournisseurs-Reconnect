@@ -26,7 +26,7 @@ namespace fonctions
             conn.Close();
         }
 
-        public static int GetIdType(string unNom)
+        public static int GetIdTypeAppareil(string unNom)
         {
             int id = 0;
             string requete = "select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + unNom + "';";
@@ -45,7 +45,7 @@ namespace fonctions
 
         public static int GetIdAppareil(string unModele , string uneMarque , string unType, int unStockage, int Neuf)
         {
-            string requete = "select idAppareil from appareil where modele = '" + unModele + "' and idMarqueAppareil = " + GetIdMarque(uneMarque) + " and idTypeAppareil = " + GetIdType(unType) + " and StockageAppareil = " + unStockage + " and Neuf = "+ Neuf + ";";
+            string requete = "select idAppareil from appareil where modele = '" + unModele + "' and idMarqueAppareil = " + GetIdMarque(uneMarque) + " and idTypeAppareil = " + GetIdTypeAppareil(unType) + " and StockageAppareil = " + unStockage + " and Neuf = "+ Neuf + ";";
             int id = 0;
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
@@ -142,10 +142,10 @@ namespace fonctions
             conn.Close();
         }
 
-        public static int getIdPieceDetachee(string nomPiece)
+        public static int getIdPieceDetachee(string nomPiece,string nomModele)
         {
             int id = 0;
-            string requete = "select idPieceDetachee from piecedetachee where nomPieceDetachee = '" + nomPiece + "' ;";
+            string requete = "select idPieceDetachee from piecedetachee where nomPieceDetachee = '" + nomPiece + "' and nomModeleAppareil = '" + nomModele + "' ;";
             MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(requete, conn);

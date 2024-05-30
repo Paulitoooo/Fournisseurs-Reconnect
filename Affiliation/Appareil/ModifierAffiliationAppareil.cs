@@ -165,7 +165,7 @@ namespace Fournisseurs_Reconnect.Affiliation
             {
                 neufOuReconditioné = false;
             }
-            Appareil.Appareils appareil = new Fournisseurs_Reconnect.Appareil.Appareils(GetIdAppareil(listeModèles.Text, listeMarques.Text, listeType.Text, Int32.Parse(listeTailleStockage.Text),NeufOuReconditionné), listeModèles.Text, GetIdMarque(listeMarques.Text), GetIdType(listeType.Text), Int32.Parse(listeTailleStockage.Text), neufOuReconditioné);
+            Appareil.Appareils appareil = new Fournisseurs_Reconnect.Appareil.Appareils(GetIdAppareil(listeModèles.Text, listeMarques.Text, listeType.Text, Int32.Parse(listeTailleStockage.Text),NeufOuReconditionné), listeModèles.Text, GetIdMarque(listeMarques.Text), GetIdTypeAppareil(listeType.Text), Int32.Parse(listeTailleStockage.Text), neufOuReconditioné);
             affiliationAModif = new Appareil_Fourni(new Fournisseur.Fournisseurs(GetIdFournisseur(listeFournisseur.Text), listeFournisseur.Text), GetPrixAppareilFourni(appareil.getIdAppareil(), GetIdFournisseur(listeFournisseur.Text)),GetSiteAppareilFourni(appareil.getIdAppareil(),GetIdFournisseur(listeFournisseur.Text)),appareil);
             laModificationAffiliationAppareil laModificationAffiliationAppareil = new laModificationAffiliationAppareil();
             laModificationAffiliationAppareil.ShowDialog();

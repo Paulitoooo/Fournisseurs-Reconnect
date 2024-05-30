@@ -1,4 +1,5 @@
 ﻿using Fournisseurs_Reconnect.Affiliation;
+using Fournisseurs_Reconnect.Affiliation.Pièce_détachée;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,12 @@ namespace Fournisseurs_Reconnect
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AffilierFournisseurPieceDetachee affilierFournisseurPieceDetachee = new AffilierFournisseurPieceDetachee();
+            affilierFournisseurPieceDetachee.ShowDialog();
         }
     }
 }

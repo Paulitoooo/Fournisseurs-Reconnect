@@ -54,9 +54,20 @@ namespace Fournisseurs_Reconnect
                 return;
             }
             int leProchainId = 0;
-            string prochainId = "Select count(idPieceDetachee) from piecedetachee";
+            string prochainId = "Select count(idPieceDetachee) from piecedetachee;";
+            string requeteVerif = " Select * from piecedetachee;";
             MySqlConnection Conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             Conn.Open();
+            MySqlCommand cmdVerif = new MySqlCommand(requeteVerif, Conn);
+            MySqlDataReader drverif = cmdVerif.ExecuteReader();
+            while (drverif.Read())
+            {
+                if (textBoxNomPiece.Text == drverif.GetString("nomPieceDetachee") && listeAppareil.Text == drverif.GetString("nomModeleAppareil"))
+                {
+                    MessageBox.Show("Il existe déjà une pièce détachée " + textBoxNomPiece.Text + " pour l'appareil " + listeAppareil.Text, "Ajout de pièce détachée impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
             MySqlCommand cmdProchainId = new MySqlCommand(prochainId, Conn);
             MySqlDataReader drProchainId = cmdProchainId.ExecuteReader();
             if (drProchainId.Read())

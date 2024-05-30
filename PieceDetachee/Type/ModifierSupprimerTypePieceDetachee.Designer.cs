@@ -65,6 +65,7 @@
             // 
             // boutonModifier
             // 
+            this.boutonModifier.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.boutonModifier.Location = new System.Drawing.Point(226, 167);
             this.boutonModifier.Name = "boutonModifier";
             this.boutonModifier.Size = new System.Drawing.Size(75, 23);
@@ -87,6 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.boutonRetour;
             this.ClientSize = new System.Drawing.Size(632, 284);
             this.ControlBox = false;
             this.Controls.Add(this.boutonSupprimer);
@@ -96,9 +98,11 @@
             this.Controls.Add(this.listeType);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ModifierSupprimerTypePieceDetachee";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ModifierSupprimerTypePieceDetachee";
+            this.Text = "Modifier/Supprimer un type de pièce détachée";
             this.Load += new System.EventHandler(this.ModifierSupprimerTypePieceDetachee_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

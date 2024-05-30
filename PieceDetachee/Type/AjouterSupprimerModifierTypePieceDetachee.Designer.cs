@@ -98,6 +98,8 @@
             this.Controls.Add(this.textBoxLibelleType);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AjouterSupprimerModifierTypePieceDetachee";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ajouter/Modifier/Supprimer un type de piece détachée";

@@ -71,7 +71,7 @@ namespace Fournisseurs_Reconnect
 
         private void button2_Click(object sender, EventArgs e)
         {
-            pieceASupprimer = new PieceDetachees(getIdPieceDetachee(listePieces.Text), getIdTypePieceDetachee(listeType.Text), listeAppareil.Text, listePieces.Text);
+            pieceASupprimer = new PieceDetachees(getIdPieceDetachee(listePieces.Text,listeAppareil.Text), getIdTypePieceDetachee(listeType.Text), listeAppareil.Text, listePieces.Text);
             string requeteSupprimer = "Delete from piecedetachee where idPieceDetachee = " + pieceASupprimer.getIdPieceDetachee() + " ;";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
@@ -99,7 +99,7 @@ namespace Fournisseurs_Reconnect
 
         private void button1_Click(object sender, EventArgs e)
         {
-            pieceAModifier = new PieceDetachees(getIdPieceDetachee(listePieces.Text), getIdTypePieceDetachee(listeType.Text), listeAppareil.Text, listePieces.Text);
+            pieceAModifier = new PieceDetachees(getIdPieceDetachee(listePieces.Text, listeAppareil.Text), getIdTypePieceDetachee(listeType.Text), listeAppareil.Text, listePieces.Text);
             ModifierPieceDetachee modifierPieceDetachee = new ModifierPieceDetachee();
             modifierPieceDetachee.ShowDialog();
         }

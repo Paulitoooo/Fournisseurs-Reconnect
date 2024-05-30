@@ -139,9 +139,11 @@
             this.Controls.Add(this.boutonRetour);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AjouterModifierSupprimerPieceDetachee";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AjouterModifierSupprimerPieceDetachee";
+            this.Text = "Ajouter/Modifier/Supprimer une pièce détachée";
             this.Load += new System.EventHandler(this.AjouterModifierSupprimerPieceDetachee_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
