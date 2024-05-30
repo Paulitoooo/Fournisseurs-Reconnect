@@ -59,7 +59,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.listeTailleStockage);
-            this.groupBox1.Location = new System.Drawing.Point(33, 12);
+            this.groupBox1.Location = new System.Drawing.Point(395, 18);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(358, 381);
             this.groupBox1.TabIndex = 20;
@@ -185,7 +185,7 @@
             this.boutonRetour.Cursor = System.Windows.Forms.Cursors.Hand;
             this.boutonRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.boutonRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boutonRetour.Location = new System.Drawing.Point(23, 399);
+            this.boutonRetour.Location = new System.Drawing.Point(12, 383);
             this.boutonRetour.Name = "boutonRetour";
             this.boutonRetour.Size = new System.Drawing.Size(114, 31);
             this.boutonRetour.TabIndex = 21;
@@ -197,16 +197,17 @@
             // listeFournisseur
             // 
             this.listeFournisseur.FormattingEnabled = true;
-            this.listeFournisseur.Location = new System.Drawing.Point(574, 147);
+            this.listeFournisseur.Location = new System.Drawing.Point(175, 123);
             this.listeFournisseur.Name = "listeFournisseur";
             this.listeFournisseur.Size = new System.Drawing.Size(141, 43);
             this.listeFournisseur.Sorted = true;
             this.listeFournisseur.TabIndex = 5;
+            this.listeFournisseur.Click += new System.EventHandler(this.listeFournisseur_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(431, 147);
+            this.label1.Location = new System.Drawing.Point(32, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 13);
             this.label1.TabIndex = 22;
@@ -214,7 +215,7 @@
             // 
             // boutonAffilier
             // 
-            this.boutonAffilier.Location = new System.Drawing.Point(596, 304);
+            this.boutonAffilier.Location = new System.Drawing.Point(175, 213);
             this.boutonAffilier.Name = "boutonAffilier";
             this.boutonAffilier.Size = new System.Drawing.Size(87, 37);
             this.boutonAffilier.TabIndex = 24;
@@ -228,7 +229,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(780, 430);
+            this.ClientSize = new System.Drawing.Size(776, 426);
             this.ControlBox = false;
             this.Controls.Add(this.boutonAffilier);
             this.Controls.Add(this.listeFournisseur);

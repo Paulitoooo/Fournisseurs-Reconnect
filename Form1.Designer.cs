@@ -35,11 +35,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.boutonPieceDetachee = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.boutonPieceDetachee = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -100,16 +101,27 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.boutonPieceDetachee);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.buttonAJouterMarque);
             this.groupBox1.Location = new System.Drawing.Point(510, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 238);
+            this.groupBox1.Size = new System.Drawing.Size(265, 341);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gestion";
+            // 
+            // boutonPieceDetachee
+            // 
+            this.boutonPieceDetachee.Location = new System.Drawing.Point(50, 188);
+            this.boutonPieceDetachee.Name = "boutonPieceDetachee";
+            this.boutonPieceDetachee.Size = new System.Drawing.Size(172, 35);
+            this.boutonPieceDetachee.TabIndex = 5;
+            this.boutonPieceDetachee.Text = "Ajouter/Modifier/Supprimmer une pièce détachée";
+            this.boutonPieceDetachee.UseVisualStyleBackColor = true;
+            this.boutonPieceDetachee.Click += new System.EventHandler(this.boutonPieceDetachee_Click);
             // 
             // button4
             // 
@@ -156,15 +168,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Affiliations";
             // 
-            // boutonPieceDetachee
+            // button7
             // 
-            this.boutonPieceDetachee.Location = new System.Drawing.Point(50, 184);
-            this.boutonPieceDetachee.Name = "boutonPieceDetachee";
-            this.boutonPieceDetachee.Size = new System.Drawing.Size(172, 35);
-            this.boutonPieceDetachee.TabIndex = 5;
-            this.boutonPieceDetachee.Text = "Ajouter/Modifier/Supprimmer une pièce détachée";
-            this.boutonPieceDetachee.UseVisualStyleBackColor = true;
-            this.boutonPieceDetachee.Click += new System.EventHandler(this.boutonPieceDetachee_Click);
+            this.button7.Location = new System.Drawing.Point(50, 242);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(172, 35);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "Ajouter/Modifier/Supprimmer un type de pièce détachée";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Formulaire1
             // 
@@ -198,6 +210,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button boutonPieceDetachee;
+        private System.Windows.Forms.Button button7;
     }
 }
 

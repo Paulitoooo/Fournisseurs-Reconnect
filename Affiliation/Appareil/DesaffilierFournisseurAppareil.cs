@@ -32,22 +32,17 @@ namespace Fournisseurs_Reconnect.Affiliation
         {
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
-            string requeteMarques = "SELECT * FROM marque;";
-            string requeteType = "SELECT `libelleTypeAppareil` FROM `typeappareil`;";
-            MySqlCommand cmdMarques = new MySqlCommand(requeteMarques, conn);
-            MySqlCommand cmdType = new MySqlCommand(requeteType, conn);
-            MySqlDataReader drMarques = cmdMarques.ExecuteReader();
-            while (drMarques.Read())
+
+            string requeteFournisseur = "Select * from fournisseur;";
+            MySqlCommand cmdFournisseur = new MySqlCommand(requeteFournisseur, conn);
+            MySqlDataReader drFournisseur = cmdFournisseur.ExecuteReader();
+            while (drFournisseur.Read())
             {
-                this.listeMarques.Items.Add(drMarques.GetString("nomMarque"));
+                string leFournisseur = GetNomFournisseur(drFournisseur.GetInt32("idFournisseur"));
+                listeFournisseur.Items.Add(leFournisseur);
             }
-            drMarques.Close();
-            MySqlDataReader drType = cmdType.ExecuteReader();
-            while (drType.Read())
-            {
-                listeType.Items.Add(drType.GetString("libelleTypeAppareil"));
-            }
-            drType.Close();
+
+            
             conn.Close();
         }
 
@@ -57,7 +52,6 @@ namespace Fournisseurs_Reconnect.Affiliation
         {
             listeModèles.Items.Clear();
             listeTailleStockage.Items.Clear();
-            listeFournisseur.Items.Clear();
             if (listeMarques.Text == "")
             {
                 return;
@@ -92,7 +86,6 @@ namespace Fournisseurs_Reconnect.Affiliation
         {
             listeModèles.Items.Clear();
             listeTailleStockage.Items.Clear();
-            listeFournisseur.Items.Clear();
             leTypeEstSelectionné = 1;
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
@@ -105,8 +98,8 @@ namespace Fournisseurs_Reconnect.Affiliation
 
             string typeSelectionné = listeType.SelectedItem.ToString();
             string requeteModeles = "SELECT distinct modele FROM appareil inner join marque on appareil.idMarqueAppareil " +
-                "= marque.idMarque WHERE idMarqueAppareil = " +
-                    "(SELECT marque.idMarque from marque where marque.nomMarque ='" + marqueSelectionnée + "') and idTypeAppareil = (Select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + typeSelectionné + "'  ) order by modele desc;";
+                "= marque.idMarque inner join appareil_fourni on appareil.idAppareil = appareil_fourni.idAppareil WHERE idMarqueAppareil = " +
+                    "(SELECT marque.idMarque from marque where marque.nomMarque ='" + marqueSelectionnée + "') and idTypeAppareil = (Select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + typeSelectionné + "'  ) and idFournisseur = " + GetIdFournisseur(listeFournisseur.Text)+ " order by modele desc;";
             MySqlCommand cmdModele = new MySqlCommand(requeteModeles, conn);
             MySqlDataReader drModele = cmdModele.ExecuteReader();
             while (drModele.Read())
@@ -126,7 +119,6 @@ namespace Fournisseurs_Reconnect.Affiliation
                 return;
             }
             listeTailleStockage.Items.Clear();
-            listeFournisseur.Items.Clear();
             boutonNeuf.Checked = false;
             BoutonReconditionné.Checked = false;
             
@@ -134,21 +126,11 @@ namespace Fournisseurs_Reconnect.Affiliation
 
         private void listeTailleStockage_Click(object sender, EventArgs e)
         {
-            listeFournisseur.Items.Clear();
             if (listeTailleStockage.Text == "")
             {
                 return;
             }
-            string requeteFournisseur = "Select * from appareil_fourni where idAppareil =" + fonctions.lesFonctions.GetIdAppareil(listeModèles.Text, listeMarques.Text, listeType.Text, Int32.Parse(listeTailleStockage.Text), NeufOuReconditionné) + " ;";
-            MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
-            conn.Open();
-            MySqlCommand cmdFournisseur = new MySqlCommand(requeteFournisseur, conn);
-            MySqlDataReader drFournisseur = cmdFournisseur.ExecuteReader();
-            while (drFournisseur.Read())
-            {
-                string leFournisseur = GetNomFournisseur(drFournisseur.GetInt32("idFournisseur"));
-                listeFournisseur.Items.Add(leFournisseur);
-            }
+            
         }
 
         private void boutonAffilier_Click(object sender, EventArgs e)
@@ -181,16 +163,6 @@ namespace Fournisseurs_Reconnect.Affiliation
             }
             MessageBox.Show("L'appareil " + listeModèles.Text + " " + listeTailleStockage.Text + " Go" + NR +"et le fournisseur " + listeFournisseur.Text + " ont bien été désaffiliés .");
             drDesaffilier.Close();
-            listeFournisseur.Items.Clear();
-            string requeteFournisseur = "Select * from appareil_fourni where idAppareil =" + fonctions.lesFonctions.GetIdAppareil(listeModèles.Text, listeMarques.Text, listeType.Text, Int32.Parse(listeTailleStockage.Text), NeufOuReconditionné) + " ;";
-            MySqlCommand cmdFournisseur = new MySqlCommand(requeteFournisseur, conn);
-            MySqlDataReader drFournisseur = cmdFournisseur.ExecuteReader();
-            while (drFournisseur.Read())
-            {
-                string leFournisseur = GetNomFournisseur(drFournisseur.GetInt32("idFournisseur"));
-                listeFournisseur.Items.Add(leFournisseur);
-            }
-            drFournisseur.Close();
             conn.Close();
 
         }
@@ -202,7 +174,7 @@ namespace Fournisseurs_Reconnect.Affiliation
             conn.Open();
             string typeSelectionné = listeType.Text;
             string modèleSelectionné = listeModèles.Text;
-            string requeteTailleStockage = "Select StockageAppareil from appareil where modele='" + modèleSelectionné + "' and Neuf = 1;";
+            string requeteTailleStockage = "Select StockageAppareil from appareil inner join appareil_fourni on appareil.idAppareil = appareil_fourni.idAppareil where modele='" + modèleSelectionné + "' and Neuf = 1 and idFournisseur = " + GetIdFournisseur(listeFournisseur.Text) + " ;";
             MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
             MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
             while (drTailleStockage.Read())
@@ -221,7 +193,7 @@ namespace Fournisseurs_Reconnect.Affiliation
             conn.Open();
             string typeSelectionné = listeType.Text;
             string modèleSelectionné = listeModèles.Text;
-            string requeteTailleStockage = "Select StockageAppareil from appareil where modele='" + modèleSelectionné + "' and Neuf = 0;";
+            string requeteTailleStockage = "Select StockageAppareil from appareil inner join appareil_fourni on appareil.idAppareil = appareil_fourni.idAppareil where modele='" + modèleSelectionné + "' and Neuf = 0  and idFournisseur = " + GetIdFournisseur(listeFournisseur.Text) + " ;";
             MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
             MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
             while (drTailleStockage.Read())
@@ -230,6 +202,31 @@ namespace Fournisseurs_Reconnect.Affiliation
             }
             listeTailleStockage.Enabled = true;
             NeufOuReconditionné = 0;
+            conn.Close();
+        }
+
+        private void listeFournisseur_Click(object sender, EventArgs e)
+        {
+            listeMarques.Items.Clear();
+            listeType.Items.Clear();
+            MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            string requeteMarques = "SELECT DISTINCT appareil.idMarqueAppareil FROM appareil_fourni inner join appareil on appareil_fourni.idAppareil = appareil.idAppareil where idFournisseur = " + GetIdFournisseur(listeFournisseur.Text) + " ;";
+            string requeteType = "SELECT `libelleTypeAppareil` FROM `typeappareil`;";
+            MySqlCommand cmdMarques = new MySqlCommand(requeteMarques, conn);
+            MySqlCommand cmdType = new MySqlCommand(requeteType, conn);
+            MySqlDataReader drMarques = cmdMarques.ExecuteReader();
+            while (drMarques.Read())
+            {
+                this.listeMarques.Items.Add(GetNomMarque( drMarques.GetInt32("idMarqueAppareil")));
+            }
+            drMarques.Close();
+            MySqlDataReader drType = cmdType.ExecuteReader();
+            while (drType.Read())
+            {
+                listeType.Items.Add(drType.GetString("libelleTypeAppareil"));
+            }
+            drType.Close();
             conn.Close();
         }
     }

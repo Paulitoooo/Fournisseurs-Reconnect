@@ -3,6 +3,7 @@ using HtmlAgilityPack;
 
 namespace fonctions
 {
+    using Org.BouncyCastle.Asn1.Mozilla;
     using System;
     using System.Windows.Forms;
 
@@ -161,7 +162,7 @@ namespace fonctions
         public static string getLibelleTypePieceDetachee(int unId) 
         {
             string libelle = "";
-            string requete = "select * from typepiecedetachee ;";
+            string requete = "select * from typepiecedetachee where idTypePieceDetachee = " + unId + " ;";
             MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(requete, conn);
@@ -171,6 +172,57 @@ namespace fonctions
                 libelle = dr.GetString("libelleTypePiece");
             }
             return libelle;
+            dr.Close();
+            conn.Close();
+        }
+
+        public static string GetNomMarque(int unId)
+        {
+            string nomMarque = "";
+            string requete = "select * from marque where idMarque = " + unId + " ;";
+            MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                nomMarque = dr.GetString("nomMarque");
+            }
+            return nomMarque;
+            dr.Close();
+            conn.Close();
+        }
+
+        public static int GetUnIdTypePourUnePiece(int idPiece)
+        {
+            int id = 0;
+            string requete = "select idTypePieceDetachee from piecedetachee where idPieceDetachee = " + idPiece + " ;";
+            MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                id = dr.GetInt32(0);
+            }
+            return id;
+            dr.Close();
+            conn.Close();
+        }
+
+        public static string GetUnModelePourUnePiece(int idPiece)
+        {
+            string modele = "";
+            string requete = "Select nomModeleAppareil from piecedetachee where idPieceDetachee = " + idPiece + " ;";
+            MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                modele = dr.GetString("nomModeleAppareil");
+            }
+            return modele;
             dr.Close();
             conn.Close();
         }

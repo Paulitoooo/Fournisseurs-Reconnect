@@ -70,7 +70,7 @@ namespace Fournisseurs_Reconnect
                 {
 
                     if (drVerifId.GetUInt32(0) == leProchainId)
-                    {:
+                    {
                         leProchainId--;
                     }
                 }
@@ -81,6 +81,7 @@ namespace Fournisseurs_Reconnect
             MySqlCommand cmdAjouter = new MySqlCommand(ajouter, Conn);
             MySqlDataReader drAjouter = cmdAjouter.ExecuteReader();
             MessageBox.Show("La piece détachée à bien été ajoutée");
+            textBoxNomPiece.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)

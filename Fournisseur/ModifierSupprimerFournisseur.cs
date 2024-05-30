@@ -5,9 +5,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static fonctions.lesFonctions;
 
 namespace Fournisseurs_Reconnect
 {
@@ -26,20 +28,51 @@ namespace Fournisseurs_Reconnect
         private void boutonSupprimer_Click(object sender, EventArgs e)
         {
             string fournisseurASupprimer = listeFournisseur.Text;
+            int idFournisseurASupprimer = GetIdFournisseur(fournisseurASupprimer);
             if(fournisseurASupprimer == "")
             {
                 MessageBox.Show("Il faut selectionner un fournisseur", "Suppresion du fournisseur impossible",MessageBoxButtons.OK,MessageBoxIcon.Warning) ;
                 return;
             }
-            string requeteSuppression = "DELETE FROM `fournisseur` WHERE idFournisseur = (Select idFournisseur where nomFournisseur ='" + fournisseurASupprimer + "');";
+            int compteurSécurité = 0;
+            string requeteSecurité = "Select count(*) from appareil_fourni where idFournisseur = " + idFournisseurASupprimer + " ;";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             try
             {
                 conn.Open();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            MySqlCommand cmdSécurité = new MySqlCommand(requeteSecurité, conn);
+            MySqlDataReader drSecurité = cmdSécurité.ExecuteReader();
+            if (drSecurité.Read())
+            {
+                compteurSécurité += drSecurité.GetInt32(0);
+            }
+            drSecurité.Close();
+            requeteSecurité = "select count(*) from accessoire where idFournisseur = " + idFournisseurASupprimer + " ;";
+            cmdSécurité = new MySqlCommand(requeteSecurité, conn);
+            drSecurité = cmdSécurité.ExecuteReader();
+            if (drSecurité.Read())
+            {
+                compteurSécurité += drSecurité.GetInt32(0);
+            }
+            drSecurité.Close();
+            requeteSecurité = "select count(*) from piecedetachee_fourni where idfournisseur = " + idFournisseurASupprimer + " ;";
+            string requeteSuppression = "DELETE FROM `fournisseur` WHERE idFournisseur = (Select idFournisseur where nomFournisseur ='" + fournisseurASupprimer + "');";
+            cmdSécurité = new MySqlCommand(requeteSecurité, conn);
+            drSecurité = cmdSécurité.ExecuteReader();
+            if (drSecurité.Read())
+            {
+                compteurSécurité += drSecurité.GetInt32(0);
+            }
+            drSecurité.Close();
+            if(compteurSécurité > 0)
+            {
+                MessageBox.Show("Vous ne pouvez pas supprimer ce fournisseur car il est affilié à des appareils/accessoire/pièces détachées . Vous devez d'abord désaffilier ces derniers pour pouvoir supprimer ce fournisseur .", "Suppression de fournisseur impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             DialogResult dialog = MessageBox.Show("Voulez vous vraiment supprimer le fournisseur " + fournisseurASupprimer + " ?", "", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
