@@ -68,6 +68,7 @@ namespace Fournisseurs_Reconnect
                     return;
                 }
             }
+            drverif.Close();
             MySqlCommand cmdProchainId = new MySqlCommand(prochainId, Conn);
             MySqlDataReader drProchainId = cmdProchainId.ExecuteReader();
             if (drProchainId.Read())

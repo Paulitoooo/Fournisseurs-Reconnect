@@ -52,7 +52,7 @@ namespace Fournisseurs_Reconnect
                 compteurSécurité += drSecurité.GetInt32(0);
             }
             drSecurité.Close();
-            requeteSecurité = "select count(*) from accessoire where idFournisseur = " + idFournisseurASupprimer + " ;";
+            requeteSecurité = "select count(*) from accessoire_fourni where idFournisseur = " + idFournisseurASupprimer + " ;";
             cmdSécurité = new MySqlCommand(requeteSecurité, conn);
             drSecurité = cmdSécurité.ExecuteReader();
             if (drSecurité.Read())
@@ -60,7 +60,7 @@ namespace Fournisseurs_Reconnect
                 compteurSécurité += drSecurité.GetInt32(0);
             }
             drSecurité.Close();
-            requeteSecurité = "select count(*) from piecedetachee_fourni where idfournisseur = " + idFournisseurASupprimer + " ;";
+            requeteSecurité = "select count(*) from piecedetachee_fournie where idfournisseur = " + idFournisseurASupprimer + " ;";
             string requeteSuppression = "DELETE FROM `fournisseur` WHERE idFournisseur = (Select idFournisseur where nomFournisseur ='" + fournisseurASupprimer + "');";
             cmdSécurité = new MySqlCommand(requeteSecurité, conn);
             drSecurité = cmdSécurité.ExecuteReader();

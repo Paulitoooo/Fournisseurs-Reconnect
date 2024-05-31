@@ -24,8 +24,8 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -188,6 +188,12 @@
     <Compile Include="Affiliation\Pièce détachée\AffilierFournisseurPieceDetachee.Designer.cs">
       <DependentUpon>AffilierFournisseurPieceDetachee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Affiliation\Pièce détachée\DesaffilierFournisseurPieceDetachee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\Pièce détachée\DesaffilierFournisseurPieceDetachee.Designer.cs">
+      <DependentUpon>DesaffilierFournisseurPieceDetachee.cs</DependentUpon>
+    </Compile>
     <Compile Include="PieceDetachee\AjouterModifierSupprimerPieceDetachee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Affiliation\Pièce détachée\AffilierFournisseurPieceDetachee.resx">
       <DependentUpon>AffilierFournisseurPieceDetachee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\Pièce détachée\DesaffilierFournisseurPieceDetachee.resx">
+      <DependentUpon>DesaffilierFournisseurPieceDetachee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PieceDetachee\AjouterModifierSupprimerPieceDetachee.resx">
       <DependentUpon>AjouterModifierSupprimerPieceDetachee.cs</DependentUpon>

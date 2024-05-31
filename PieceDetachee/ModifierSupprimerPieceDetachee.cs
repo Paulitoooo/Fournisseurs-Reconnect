@@ -73,8 +73,22 @@ namespace Fournisseurs_Reconnect
         {
             pieceASupprimer = new PieceDetachees(getIdPieceDetachee(listePieces.Text,listeAppareil.Text), getIdTypePieceDetachee(listeType.Text), listeAppareil.Text, listePieces.Text);
             string requeteSupprimer = "Delete from piecedetachee where idPieceDetachee = " + pieceASupprimer.getIdPieceDetachee() + " ;";
+            int securite = 0;
+            string requeteSecurite = "select count(*) from piecedetachee_fournie where idPieceDetachee = " + pieceASupprimer.getIdPieceDetachee() + " ;";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
+            MySqlCommand cmdSecurite = new MySqlCommand(requeteSecurite, conn);
+            MySqlDataReader drSecurite = cmdSecurite.ExecuteReader();
+            if (drSecurite.Read())
+            {
+                securite += drSecurite.GetInt32("count(*)");
+            }
+            drSecurite.Close();
+            if (securite > 0)
+            {
+                MessageBox.Show("Cette pièce détachée est affiliée à un fournisseur , veuillez d'abord les désaffilier avant de supprimer cette pièce détachée", "Suppression de pièce détachée impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             MySqlCommand cmdSuppression = new MySqlCommand(requeteSupprimer, conn);
             
             DialogResult dialogResult = MessageBox.Show("Voulez vous vraiment suppprimer la piece : " + pieceASupprimer.getNomPieceDetachee() + " ?", "", MessageBoxButtons.YesNo);

@@ -227,6 +227,11 @@ namespace fonctions
             conn.Close();
         }
      }
+
+    public struct connexionServeur
+    {
+        public static string connexion = "server=localhost;database=fournisseur_reconnect;user=root;pwd=";
+    }
     
 
 }

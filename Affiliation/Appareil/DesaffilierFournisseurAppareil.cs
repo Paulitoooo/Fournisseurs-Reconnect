@@ -59,8 +59,8 @@ namespace Fournisseurs_Reconnect.Affiliation
             string typeSelectionné;
             if (leTypeEstSelectionné == 1)
             {
-                typeSelectionné = listeType.SelectedItem.ToString();
-                string marqueSelectionnée = listeMarques.SelectedItem.ToString();
+                typeSelectionné = listeType.Text;
+                string marqueSelectionnée = listeMarques.Text;
                 string requeteModeles = "SELECT distinct modele FROM appareil inner join marque on appareil.idMarqueAppareil " +
                    "= marque.idMarque WHERE idMarqueAppareil = " +
                    "(SELECT marque.idMarque from marque where marque.nomMarque ='" + marqueSelectionnée + "') " +
@@ -93,10 +93,10 @@ namespace Fournisseurs_Reconnect.Affiliation
             {
                 return;
             }
-            string marqueSelectionnée = listeMarques.SelectedItem.ToString();
+            string marqueSelectionnée = listeMarques.Text;
 
 
-            string typeSelectionné = listeType.SelectedItem.ToString();
+            string typeSelectionné = listeType.Text;
             string requeteModeles = "SELECT distinct modele FROM appareil inner join marque on appareil.idMarqueAppareil " +
                 "= marque.idMarque inner join appareil_fourni on appareil.idAppareil = appareil_fourni.idAppareil WHERE idMarqueAppareil = " +
                     "(SELECT marque.idMarque from marque where marque.nomMarque ='" + marqueSelectionnée + "') and idTypeAppareil = (Select idTypeAppareil from typeappareil where libelleTypeAppareil = '" + typeSelectionné + "'  ) and idFournisseur = " + GetIdFournisseur(listeFournisseur.Text)+ " order by modele desc;";
@@ -209,6 +209,10 @@ namespace Fournisseurs_Reconnect.Affiliation
         {
             listeMarques.Items.Clear();
             listeType.Items.Clear();
+            listeModèles.Items.Clear();
+            boutonNeuf.Checked = false;
+            BoutonReconditionné.Checked = false;
+            listeTailleStockage.Items.Clear();
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
             string requeteMarques = "SELECT DISTINCT appareil.idMarqueAppareil FROM appareil_fourni inner join appareil on appareil_fourni.idAppareil = appareil.idAppareil where idFournisseur = " + GetIdFournisseur(listeFournisseur.Text) + " ;";
