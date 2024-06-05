@@ -57,6 +57,7 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
         {
             listeAppareil.Items.Clear();
             listePieces.Items.Clear();
+            listeTypePieceDetachee.Items.Clear();
             if (listeTypeAppareil.Text == "")
             {
                 return;
@@ -118,7 +119,6 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
             listePieces.Items.Clear();
             typePieceDetacheeSelectionne = 1;
             string requetePieceDetachee = "select nomPieceDetachee from piecedetachee inner join piecedetachee_fournie on piecedetachee.idPieceDetachee = piecedetachee_fournie.idPieceDetachee where idTypePieceDetachee = " + getIdTypePieceDetachee(listeTypePieceDetachee.Text) + " and nomModeleAppareil = '" + listeAppareil.Text + "' and idFournisseur = " + GetIdFournisseur(listeFournisseur.Text) + " ;";
-            MessageBox.Show(requetePieceDetachee);
             MySqlConnection conn = new MySqlConnection(connexion);
             conn.Open();
             MySqlCommand cmdPieceDetachee = new MySqlCommand(requetePieceDetachee, conn);
@@ -128,6 +128,8 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
                 listePieces.Items.Add(drPieceDetachee.GetString("nomPieceDetachee"));
             }
             drPieceDetachee.Close();
+            conn.Close();
+
         }
 
         private void listeAppareil_Click(object sender, EventArgs e)
@@ -137,7 +139,7 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
             listeTypePieceDetachee.Enabled = true;
             MySqlConnection conn = new MySqlConnection(connexion);
             conn.Open();
-            string requeteTypePieceDetachee = "select distinct libelleTypePiece from typepiecedetachee inner join piecedetachee on typepiecedetachee.idTypePieceDetachee = piecedetachee.idTypePieceDetachee inner join piecedetachee_fournie on piecedetachee_fournie.idPieceDetachee = piecedetachee.idPieceDetachee where piecedetachee.nomModeleAppareil = '" + listeAppareil.Text + "' and piecedetachee_fournie.idFournisseur =" + GetIdFournisseur(listeFournisseur.Text) + ";";
+            string requeteTypePieceDetachee = "select distinct libelleTypePiece from typepiecedetachee inner join piecedetachee on typepiecedetachee.idTypePieceDetachee = piecedetachee.idTypePieceDetachee inner join piecedetachee_fournie on piecedetachee_fournie.idPieceDetachee = piecedetachee.idPieceDetachee where piecedetachee.nomModeleAppareil = '" + listeAppareil.Text + "' and piecedetachee_fournie.idFournisseur =" + GetIdFournisseur(listeFournisseur.Text) + " order by libelleTypePiece desc ;";
             MySqlCommand cmdTypePieceDetachee = new MySqlCommand(requeteTypePieceDetachee, conn);
             MySqlDataReader drTypePieceDetachee = cmdTypePieceDetachee.ExecuteReader();
             while (drTypePieceDetachee.Read())
@@ -145,6 +147,8 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
                 listeTypePieceDetachee.Items.Add(drTypePieceDetachee.GetString("libelleTypePiece"));
             }
             drTypePieceDetachee.Close();
+            conn.Close();
+
         }
 
         private void boutonDesaffilier_Click(object sender, EventArgs e)
@@ -161,12 +165,29 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
             {
                 MySqlDataReader drDesaffiliation = cmdDesaffiliation.ExecuteReader();
                 MessageBox.Show("La piece détachée " + listePieces.Text + " et le fournisseur " + listeFournisseur.Text + " ont bien été désaffiliés");
+                listeMarques.Items.Clear();
+                listeTypeAppareil.Enabled = false;
+                listeAppareil.Items.Clear();
+                listeTypePieceDetachee.Items.Clear();
+                listePieces.Items.Clear();
+                drDesaffiliation.Close();
+                string requeteMarque = "select distinct nomMarque from piecedetachee inner join  appareil on piecedetachee.nomModeleAppareil = appareil.modele inner join marque on appareil.idMarqueAppareil = marque.idMarque INNER join piecedetachee_fournie on piecedetachee_fournie.idPieceDetachee = piecedetachee.idPieceDetachee INNER JOIN fournisseur on piecedetachee_fournie.idFournisseur = fournisseur.idFournisseur where fournisseur.idFournisseur = " + GetIdFournisseur(listeFournisseur.Text) + " ;";
+                MySqlCommand cmdMarque = new MySqlCommand(requeteMarque, conn);
+                MySqlDataReader drMarque = cmdMarque.ExecuteReader();
+                while (drMarque.Read())
+                {
+                    listeMarques.Items.Add(drMarque.GetString("nomMarque"));
+                }
+                drMarque.Close();
+                conn.Close();
+
             }
             catch
             {
                 MessageBox.Show("La pièce détachée " + listePieces.Text + " et le fournisseur " + listeFournisseur.Text + "ne sont pas affiliés");
                 return;
             }
+            conn.Close();
 
 
         }
@@ -174,6 +195,7 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
         private void listeFournisseur_Click(object sender, EventArgs e)
         {
             listeMarques.Items.Clear();
+            listeTypeAppareil.ClearSelected();
             listeTypeAppareil.Enabled = false;
             listeAppareil.Items.Clear();
             listeTypePieceDetachee.Items.Clear();
@@ -188,7 +210,15 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
                 listeMarques.Items.Add(drMarque.GetString("nomMarque"));
             }
             drMarque.Close();
-            
+            string requeteTypeAppareil = "Select * from typeappareil;";
+            MySqlCommand cmdTypeAppareil = new MySqlCommand(requeteTypeAppareil, conn);
+            MySqlDataReader drTypeAppareil = cmdTypeAppareil.ExecuteReader();
+            while (drTypeAppareil.Read())
+            {
+                listeTypeAppareil.Items.Add(drTypeAppareil.GetString("libelleTypeAppareil"));
+            }
+            drTypeAppareil.Close();
+
         }
     }
 }

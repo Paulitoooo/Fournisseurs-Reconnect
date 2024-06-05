@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fournisseurs_Reconnect.Affiliation.Pièce_détachée;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,12 @@ namespace Fournisseurs_Reconnect.Affiliation
         {
             ModifierAffiliationAppareil modifierAffiliationAppareil = new ModifierAffiliationAppareil();
             modifierAffiliationAppareil.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ModifierAffiliationPieceDetachee modifierAffiliationPieceDetachee = new ModifierAffiliationPieceDetachee();
+            modifierAffiliationPieceDetachee.ShowDialog();
         }
     }
 }

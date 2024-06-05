@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Gresset Paul\Desktop\</PublishUrl>
+    <PublishUrl>C:\Users\Gresset Paul\Documents\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,9 +23,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>fr</TargetCulture>
+    <PublisherName>Gresset Paul</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -69,6 +71,23 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>logoreconnect.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'test|AnyCPU'">
+    <OutputPath>bin\test\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'test|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\test\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
@@ -182,6 +201,12 @@
     <Compile Include="Affiliation\Appareil\ModifierAffiliationAppareil.Designer.cs">
       <DependentUpon>ModifierAffiliationAppareil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Affiliation\Objet Connecté\AffilierObjetConnecte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\Objet Connecté\AffilierObjetConnecte.Designer.cs">
+      <DependentUpon>AffilierObjetConnecte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Affiliation\Pièce détachée\AffilierFournisseurPieceDetachee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +219,38 @@
     <Compile Include="Affiliation\Pièce détachée\DesaffilierFournisseurPieceDetachee.Designer.cs">
       <DependentUpon>DesaffilierFournisseurPieceDetachee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Affiliation\Pièce détachée\laModificationnAffiliationPieceDetachee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\Pièce détachée\laModificationnAffiliationPieceDetachee.Designer.cs">
+      <DependentUpon>laModificationnAffiliationPieceDetachee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Affiliation\Pièce détachée\ModifierAffiliationPieceDetachee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\Pièce détachée\ModifierAffiliationPieceDetachee.Designer.cs">
+      <DependentUpon>ModifierAffiliationPieceDetachee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Affiliation\Pièce détachée\PieceDetacheeFournie.cs" />
+    <Compile Include="Objet connecté\AjouterModifierSupprimerObjetConnecte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Objet connecté\AjouterModifierSupprimerObjetConnecte.Designer.cs">
+      <DependentUpon>AjouterModifierSupprimerObjetConnecte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objet connecté\ModifierObjetConnecte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Objet connecté\ModifierObjetConnecte.Designer.cs">
+      <DependentUpon>ModifierObjetConnecte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objet connecté\ModifierSupprimerObjetConnecte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Objet connecté\ModifierSupprimerObjetConnecte.Designer.cs">
+      <DependentUpon>ModifierSupprimerObjetConnecte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objet connecté\objetConnecte.cs" />
     <Compile Include="PieceDetachee\AjouterModifierSupprimerPieceDetachee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,7 +289,7 @@
     <Compile Include="Fournisseur\AjouterModifierSupprimerFournisseur.Designer.cs">
       <DependentUpon>AjouterModifierSupprimerFournisseur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Affiliation\Appareil_Fourni.cs" />
+    <Compile Include="Affiliation\Appareil\Appareil_Fourni.cs" />
     <Compile Include="Marque\Marque.cs" />
     <Compile Include="Fournisseur\ModifierSupprimerFournisseur.cs">
       <SubType>Form</SubType>
@@ -252,6 +309,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PieceDetachee\RecherchePieceDetachee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PieceDetachee\RecherchePieceDetachee.Designer.cs">
+      <DependentUpon>RecherchePieceDetachee.cs</DependentUpon>
     </Compile>
     <Compile Include="PieceDetachee\Type\AjouterSupprimerModifierTypePieceDetachee.cs">
       <SubType>Form</SubType>
@@ -314,11 +377,29 @@
     <EmbeddedResource Include="Affiliation\Appareil\ModifierAffiliationAppareil.resx">
       <DependentUpon>ModifierAffiliationAppareil.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\Objet Connecté\AffilierObjetConnecte.resx">
+      <DependentUpon>AffilierObjetConnecte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Affiliation\Pièce détachée\AffilierFournisseurPieceDetachee.resx">
       <DependentUpon>AffilierFournisseurPieceDetachee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Affiliation\Pièce détachée\DesaffilierFournisseurPieceDetachee.resx">
       <DependentUpon>DesaffilierFournisseurPieceDetachee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\Pièce détachée\laModificationnAffiliationPieceDetachee.resx">
+      <DependentUpon>laModificationnAffiliationPieceDetachee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\Pièce détachée\ModifierAffiliationPieceDetachee.resx">
+      <DependentUpon>ModifierAffiliationPieceDetachee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Objet connecté\AjouterModifierSupprimerObjetConnecte.resx">
+      <DependentUpon>AjouterModifierSupprimerObjetConnecte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Objet connecté\ModifierObjetConnecte.resx">
+      <DependentUpon>ModifierObjetConnecte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Objet connecté\ModifierSupprimerObjetConnecte.resx">
+      <DependentUpon>ModifierSupprimerObjetConnecte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PieceDetachee\AjouterModifierSupprimerPieceDetachee.resx">
       <DependentUpon>AjouterModifierSupprimerPieceDetachee.cs</DependentUpon>
@@ -343,6 +424,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fournisseur\ModifierSupprimerFournisseur.resx">
       <DependentUpon>ModifierSupprimerFournisseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PieceDetachee\RecherchePieceDetachee.resx">
+      <DependentUpon>RecherchePieceDetachee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PieceDetachee\Type\AjouterSupprimerModifierTypePieceDetachee.resx">
       <DependentUpon>AjouterSupprimerModifierTypePieceDetachee.cs</DependentUpon>

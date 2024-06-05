@@ -42,7 +42,7 @@
             // boutonRetour
             // 
             this.boutonRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.boutonRetour.Location = new System.Drawing.Point(12, 401);
+            this.boutonRetour.Location = new System.Drawing.Point(12, 303);
             this.boutonRetour.Name = "boutonRetour";
             this.boutonRetour.Size = new System.Drawing.Size(103, 37);
             this.boutonRetour.TabIndex = 1;
@@ -53,7 +53,7 @@
             // listeAppareil
             // 
             this.listeAppareil.FormattingEnabled = true;
-            this.listeAppareil.Location = new System.Drawing.Point(414, 85);
+            this.listeAppareil.Location = new System.Drawing.Point(259, 12);
             this.listeAppareil.Name = "listeAppareil";
             this.listeAppareil.Size = new System.Drawing.Size(120, 69);
             this.listeAppareil.TabIndex = 2;
@@ -62,7 +62,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(285, 85);
+            this.label1.Location = new System.Drawing.Point(130, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 13);
             this.label1.TabIndex = 3;
@@ -71,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(210, 186);
+            this.label2.Location = new System.Drawing.Point(55, 113);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(198, 13);
             this.label2.TabIndex = 6;
@@ -81,7 +81,7 @@
             // 
             this.listeType.Enabled = false;
             this.listeType.FormattingEnabled = true;
-            this.listeType.Location = new System.Drawing.Point(414, 186);
+            this.listeType.Location = new System.Drawing.Point(259, 113);
             this.listeType.Name = "listeType";
             this.listeType.Size = new System.Drawing.Size(120, 43);
             this.listeType.TabIndex = 5;
@@ -91,7 +91,7 @@
             // 
             this.listePieces.Enabled = false;
             this.listePieces.FormattingEnabled = true;
-            this.listePieces.Location = new System.Drawing.Point(414, 265);
+            this.listePieces.Location = new System.Drawing.Point(259, 192);
             this.listePieces.Name = "listePieces";
             this.listePieces.Size = new System.Drawing.Size(120, 56);
             this.listePieces.TabIndex = 7;
@@ -99,7 +99,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(242, 265);
+            this.label3.Location = new System.Drawing.Point(87, 192);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 13);
             this.label3.TabIndex = 8;
@@ -107,7 +107,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(359, 367);
+            this.button1.Location = new System.Drawing.Point(226, 288);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
@@ -117,7 +117,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(459, 367);
+            this.button2.Location = new System.Drawing.Point(326, 288);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 10;
@@ -131,7 +131,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(590, 352);
             this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

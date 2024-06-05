@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fournisseurs_Reconnect.Appareil;
+using static fonctions.lesFonctions;
 namespace Fournisseurs_Reconnect
 {
     public partial class ModifierSupprimerApareil : Form
@@ -195,12 +196,16 @@ namespace Fournisseurs_Reconnect
             laMarqueSelectionnée = "( Select idMarque from marque where nomMarque = '" + listeMarques.Text + "')";
             string idAppareil = "(Select idAppareil where modele = '" + leModeleSelectionné + "' and StockageAppareil = " + leStockageSelectionné + " and idTypeAppareil = " + leTypeSelectionné + " and idMarqueAppareil = " + laMarqueSelectionnée + " and Neuf = " + NeufOuReconditionnéModifAppareil+ " )";
             string requeteSupprimer = "Delete from appareil where idAppareil = " + idAppareil + ";";
+            string requeteSupprimer2 = "delete from appareil_fourni where idAppareil = " + GetIdAppareil(listeAppareils.Text, listeMarques.Text, listeTypes.Text, Int32.Parse(listeStockage.Text), NeufOuReconditionnéModifAppareil) + " ;";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
             MySqlCommand cmdSupprimer = new MySqlCommand(requeteSupprimer, conn);
             MySqlDataReader drSupprimer = cmdSupprimer.ExecuteReader();
-            MessageBox.Show("L'appareil " + leModeleSelectionné + " a bien été supprimé");
             drSupprimer.Close();
+            cmdSupprimer = new MySqlCommand(requeteSupprimer2, conn);
+            MySqlDataReader drSupprimer2 = cmdSupprimer.ExecuteReader();
+            MessageBox.Show("L'appareil " + leModeleSelectionné + " a bien été supprimé");
+            drSupprimer2.Close();
             conn.Close();
             listeAppareils.Items.Clear();
             listeStockage.Items.Clear();

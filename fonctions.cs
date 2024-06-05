@@ -226,6 +226,90 @@ namespace fonctions
             dr.Close();
             conn.Close();
         }
+
+        public static float getPrixPieceDetacheeFournie(int idPiece,int idFounisseur)
+        {
+            float lePrix = 0F;
+            string requete = "select Prix from piecedetachee_fournie where idFournisseur = " + idFounisseur + " and idPieceDetachee = " + idPiece + "; ";
+            MySqlConnection conn = new MySqlConnection("server =localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                lePrix = dr.GetFloat(0);
+            }
+            return lePrix;
+            dr.Close();
+            conn.Close();
+        }
+
+        public static string getSitePieceDetacheeFournie(int idPiece, int idFournisseur)
+        {
+            string leSite = "";
+            string requete = "select sitePieceDetacheeFourni from piecedetachee_fournie where idFournisseur = " + idFournisseur + " and idPieceDetachee = " + idPiece + "; ";
+            MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                leSite = dr.GetString(0);
+            }
+            return leSite;
+            dr.Close();
+            conn.Close();
+        }
+
+        public static string getNomPieceDetachee(int unId)
+        {
+            string nom = ""; 
+            string requete = "select nomPieceDetachee from piecedetachee where idPieceDetachee = " + unId + " ;";
+            MySqlConnection conn = new MySqlConnection(connexionServeur.connexion);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                nom = dr.GetString(0);
+            }
+            conn.Close();
+            return nom;
+        }
+
+        public static int GetIdTypeObjetCo(string unLibelle)
+        {
+            int id = 0;
+            string requete = "select * from typeobjetco where libelleTypeObjetCo = '" + unLibelle + "';";
+            MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                id = dr.GetInt32(0);
+            }
+            return id;
+            dr.Close();
+            conn.Close();
+        }
+
+        public static int GetIdObjetConnecte(string uneMarque,string unType,string unModele)
+        {
+            int id = 0;
+            string requete = "select idObjetConnecte from objetconnecte where idMarqueObjetCo = " + GetIdMarque(uneMarque).ToString() + " and idTypeObjetCo = " + GetIdTypeObjetCo(unType) + " and modeleObjetCo = '" + unModele + "' ;";
+            MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                id = dr.GetInt32(0);
+            }
+            return id;
+            dr.Close();
+            conn.Close();
+        }
      }
 
     public struct connexionServeur

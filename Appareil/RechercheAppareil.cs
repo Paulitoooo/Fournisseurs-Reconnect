@@ -101,6 +101,7 @@ namespace Fournisseurs_Reconnect
         {
             lesPrix.Clear();
             listeSites.Clear();
+            listeIdFournisseur.Clear();
             int nombreFournisseur = 0;
             timer = 0;
             if (boutonNeuf.Checked)

@@ -35,19 +35,21 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.boutonPieceDetachee = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(41, 406);
+            this.button1.Location = new System.Drawing.Point(12, 468);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(151, 23);
             this.button1.TabIndex = 0;
@@ -58,7 +60,7 @@
             // buttonAppareil
             // 
             this.buttonAppareil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAppareil.Location = new System.Drawing.Point(41, 310);
+            this.buttonAppareil.Location = new System.Drawing.Point(255, 293);
             this.buttonAppareil.Name = "buttonAppareil";
             this.buttonAppareil.Size = new System.Drawing.Size(125, 23);
             this.buttonAppareil.TabIndex = 1;
@@ -101,17 +103,28 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button9);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.boutonPieceDetachee);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.buttonAJouterMarque);
-            this.groupBox1.Location = new System.Drawing.Point(510, 22);
+            this.groupBox1.Location = new System.Drawing.Point(509, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 341);
+            this.groupBox1.Size = new System.Drawing.Size(265, 481);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gestion";
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(50, 242);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(172, 35);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "Ajouter/Modifier/Supprimmer un type de pièce détachée";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // boutonPieceDetachee
             // 
@@ -168,21 +181,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Affiliations";
             // 
-            // button7
+            // button8
             // 
-            this.button7.Location = new System.Drawing.Point(50, 242);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(172, 35);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Ajouter/Modifier/Supprimmer un type de pièce détachée";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button8.Location = new System.Drawing.Point(255, 330);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(125, 34);
+            this.button8.TabIndex = 10;
+            this.button8.Text = "Recherche de pièce détachée";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(50, 296);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(172, 35);
+            this.button9.TabIndex = 7;
+            this.button9.Text = "Ajouter/Modifier/Supprimer un objet connecté";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // Formulaire1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(824, 503);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonAppareil);
@@ -211,6 +235,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button boutonPieceDetachee;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
 }
 

@@ -39,7 +39,7 @@
             // 
             // siteFournisseur
             // 
-            this.siteFournisseur.Location = new System.Drawing.Point(342, 82);
+            this.siteFournisseur.Location = new System.Drawing.Point(342, 74);
             this.siteFournisseur.Multiline = true;
             this.siteFournisseur.Name = "siteFournisseur";
             this.siteFournisseur.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -49,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(95, 85);
+            this.label1.Location = new System.Drawing.Point(95, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(241, 13);
             this.label1.TabIndex = 22;
@@ -57,7 +57,7 @@
             // 
             // nouveauPrix
             // 
-            this.nouveauPrix.Location = new System.Drawing.Point(342, 214);
+            this.nouveauPrix.Location = new System.Drawing.Point(342, 206);
             this.nouveauPrix.Name = "nouveauPrix";
             this.nouveauPrix.Size = new System.Drawing.Size(100, 20);
             this.nouveauPrix.TabIndex = 23;
@@ -65,7 +65,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(207, 217);
+            this.label2.Location = new System.Drawing.Point(207, 209);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 13);
             this.label2.TabIndex = 24;
@@ -76,7 +76,7 @@
             this.boutonRetour.Cursor = System.Windows.Forms.Cursors.Hand;
             this.boutonRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.boutonRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boutonRetour.Location = new System.Drawing.Point(12, 324);
+            this.boutonRetour.Location = new System.Drawing.Point(12, 316);
             this.boutonRetour.Name = "boutonRetour";
             this.boutonRetour.Size = new System.Drawing.Size(114, 31);
             this.boutonRetour.TabIndex = 25;
@@ -87,7 +87,7 @@
             // 
             // boutonModifier
             // 
-            this.boutonModifier.Location = new System.Drawing.Point(573, 297);
+            this.boutonModifier.Location = new System.Drawing.Point(573, 289);
             this.boutonModifier.Name = "boutonModifier";
             this.boutonModifier.Size = new System.Drawing.Size(87, 37);
             this.boutonModifier.TabIndex = 1;
@@ -97,7 +97,7 @@
             // 
             // bouronRetablir
             // 
-            this.bouronRetablir.Location = new System.Drawing.Point(480, 297);
+            this.bouronRetablir.Location = new System.Drawing.Point(480, 289);
             this.bouronRetablir.Name = "bouronRetablir";
             this.bouronRetablir.Size = new System.Drawing.Size(87, 37);
             this.bouronRetablir.TabIndex = 26;
@@ -111,7 +111,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(733, 363);
+            this.ClientSize = new System.Drawing.Size(729, 359);
             this.ControlBox = false;
             this.Controls.Add(this.bouronRetablir);
             this.Controls.Add(this.boutonModifier);

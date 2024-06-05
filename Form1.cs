@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fournisseurs_Reconnect.Affiliation;
 using Fournisseurs_Reconnect.PieceDetachee;
+using Fournisseurs_Reconnect.Objet_connecté;
 
 namespace Fournisseurs_Reconnect
 {
@@ -92,6 +93,18 @@ namespace Fournisseurs_Reconnect
         {
             AjouterSupprimerModifierTypePieceDetachee ajouterSupprimerModifierTypePieceDetachee = new AjouterSupprimerModifierTypePieceDetachee();
             ajouterSupprimerModifierTypePieceDetachee.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            RecherchePieceDetachee recherchePieceDetachee = new RecherchePieceDetachee();
+            recherchePieceDetachee.ShowDialog();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            AjouterModifierSupprimerObjetConnecte ajouterModifierSupprimerObjetConnecte = new AjouterModifierSupprimerObjetConnecte();
+            ajouterModifierSupprimerObjetConnecte.ShowDialog();
         }
     }
     }

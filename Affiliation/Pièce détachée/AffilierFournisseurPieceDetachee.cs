@@ -79,6 +79,7 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
                 listeAppareil.Items.Add(drAppareil.GetString("modele"));
             }
             typeAppareilSelectionné = 1;
+            drAppareil.Close();
             conn.Close();
 
 
@@ -172,6 +173,18 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
             }
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
+            string requeteVerif = "select * from piecedetachee_fournie";
+            MySqlCommand cmdVerif = new MySqlCommand(requeteVerif, conn);
+            MySqlDataReader drVerif = cmdVerif.ExecuteReader();
+            while (drVerif.Read())
+            {
+                if(drVerif.GetInt32("idFournisseur") == GetIdFournisseur(listeFournisseur.Text) && drVerif.GetInt32("idPieceDetachee") == getIdPieceDetachee(listePieces.Text, listeAppareil.Text))
+                {
+                    MessageBox.Show("La pièce détachée " + listePieces.Text + " pour " + listeAppareil.Text + " et le fournisseur " + listeFournisseur.Text + " sont déjà affiliés");
+                    return;
+                }
+            }
+            drVerif.Close();
             string requeteAffiliation = "Insert into piecedetachee_fournie values( " + GetIdFournisseur(listeFournisseur.Text) + ", " + getIdPieceDetachee(listePieces.Text, listeAppareil.Text) + ", " + textBoxPrix.Text + ", '" + siteFournisseur.Text + "' );";
             MySqlCommand cmdAffiliation = new MySqlCommand(requeteAffiliation, conn);
             try
