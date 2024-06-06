@@ -4,6 +4,7 @@ using HtmlAgilityPack;
 namespace fonctions
 {
     using Org.BouncyCastle.Asn1.Mozilla;
+    using Org.BouncyCastle.Asn1.Ocsp;
     using System;
     using System.Windows.Forms;
 
@@ -325,7 +326,7 @@ namespace fonctions
                 lePrix = dr.GetFloat(0);
             }
             dr.Close();
-            conn.CLose();
+            conn.Close();
             return lePrix;
 
         }
@@ -343,6 +344,23 @@ namespace fonctions
                 leSite = dr.GetString(0);
             }
             return leSite;
+            dr.Close();
+            conn.Close();
+        }
+
+        public static int GetIdTypeAccessoire(string unType)
+        {
+            int id = 0;
+            string requete = "select idTypeAccessoire from typeaccessoire where libelleTypeAccessoire = '" + unType + "' ;";
+            MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                id = dr.GetInt32(0);
+            }
+            return id;
             dr.Close();
             conn.Close();
         }

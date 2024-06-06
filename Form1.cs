@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Fournisseurs_Reconnect.Affiliation;
 using Fournisseurs_Reconnect.PieceDetachee;
 using Fournisseurs_Reconnect.Objet_connecté;
+using Fournisseurs_Reconnect.Accessoires;
 
 namespace Fournisseurs_Reconnect
 {
@@ -105,6 +106,12 @@ namespace Fournisseurs_Reconnect
         {
             AjouterModifierSupprimerObjetConnecte ajouterModifierSupprimerObjetConnecte = new AjouterModifierSupprimerObjetConnecte();
             ajouterModifierSupprimerObjetConnecte.ShowDialog();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            AjouterModifierSupprimerAccessoire ajouterModifierSupprimerAccessoire = new AjouterModifierSupprimerAccessoire();
+            ajouterModifierSupprimerAccessoire.ShowDialog();
         }
     }
     }
