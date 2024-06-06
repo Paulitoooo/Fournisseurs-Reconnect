@@ -70,6 +70,11 @@ namespace Fournisseurs_Reconnect.Accessoires
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (listeAccessoires.Text == "" || listeMarque.Text == "" || listeType.Text == "")
+            {
+                MessageBox.Show("Il faut que tout les champs soient remplis");
+                return;
+            }
             MySqlConnection conn = new MySqlConnection(connexion);
             conn.Open();
             string requeteSuppression = "delete from accessoire where idAccessoire = " + GetIdAccessoire(listeMarque.Text, listeType.Text, listeAccessoires.Text) + " ;";
@@ -88,6 +93,32 @@ namespace Fournisseurs_Reconnect.Accessoires
                 listeMarque.Items.Add(GetNomMarque(drMarque.GetInt32(0)));
             }
             drMarque.Close();
+            conn.Close();
+        }
+
+        public static Accessoire accessoireAModif;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(listeAccessoires.Text == "" || listeMarque.Text == "" || listeType.Text == "")
+            {
+                MessageBox.Show("Il faut que tout les champs soient remplis");
+                return;
+            }
+            accessoireAModif = new Accessoire(GetIdAccessoire(listeMarque.Text, listeType.Text, listeAccessoires.Text), GetIdTypeAccessoire(listeType.Text), GetIdMarque(listeMarque.Text), listeAccessoires.Text);
+            ModifierAccessoire modifierAccessoire = new ModifierAccessoire();
+            modifierAccessoire.ShowDialog();
+            listeAccessoires.Items.Clear();
+            MySqlConnection conn = new MySqlConnection(connexion);
+            conn.Open();
+            string requeteAccessoire = "select nomAccessoire from accessoire where idMarqueAccessoire = " + GetIdMarque(listeMarque.Text) + " and idTypeAccessoire = " + GetIdTypeAccessoire(listeType.Text) + " order by nomAccessoire;";
+            MySqlCommand cmdAccessoire = new MySqlCommand(requeteAccessoire, conn);
+            MySqlDataReader drAccessoire = cmdAccessoire.ExecuteReader();
+            while (drAccessoire.Read())
+            {
+                listeAccessoires.Items.Add(drAccessoire.GetString(0));
+            }
+            drAccessoire.Close();
             conn.Close();
         }
     }

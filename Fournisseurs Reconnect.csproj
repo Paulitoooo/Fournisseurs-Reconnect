@@ -159,11 +159,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accessoires\Accessoire.cs" />
     <Compile Include="Accessoires\AjouterModifierSupprimerAccessoire.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accessoires\AjouterModifierSupprimerAccessoire.Designer.cs">
       <DependentUpon>AjouterModifierSupprimerAccessoire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accessoires\ModifierAccessoire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accessoires\ModifierAccessoire.Designer.cs">
+      <DependentUpon>ModifierAccessoire.cs</DependentUpon>
     </Compile>
     <Compile Include="Accessoires\ModifierSupprimerAccessoire.cs">
       <SubType>Form</SubType>
@@ -389,6 +396,9 @@
     </Compile>
     <EmbeddedResource Include="Accessoires\AjouterModifierSupprimerAccessoire.resx">
       <DependentUpon>AjouterModifierSupprimerAccessoire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accessoires\ModifierAccessoire.resx">
+      <DependentUpon>ModifierAccessoire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accessoires\ModifierSupprimerAccessoire.resx">
       <DependentUpon>ModifierSupprimerAccessoire.cs</DependentUpon>

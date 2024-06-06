@@ -46,6 +46,11 @@ namespace Fournisseurs_Reconnect.Accessoires
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBoxNomAccessoire.Text == "" || listeMarque.Text == "" || listeType.Text == "")
+            {
+                MessageBox.Show("Il faut que tout les champs soient remplis");
+                return;
+            }
             int prochainId = 0;
             string requeteProchainId = "select count(*) from accessoire;";
             MySqlConnection conn = new MySqlConnection(connexion);
