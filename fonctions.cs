@@ -273,6 +273,7 @@ namespace fonctions
             {
                 nom = dr.GetString(0);
             }
+            dr.Close();
             conn.Close();
             return nom;
         }
@@ -323,6 +324,8 @@ namespace fonctions
             {
                 lePrix = dr.GetFloat(0);
             }
+            dr.Close();
+            conn.CLose();
             return lePrix;
 
         }
