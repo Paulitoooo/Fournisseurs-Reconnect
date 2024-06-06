@@ -82,5 +82,10 @@ namespace Fournisseurs_Reconnect.Accessoires
             textBoxNomAccessoire.Clear();
         }
 
+        private void boutonSupprimerMarque_Click(object sender, EventArgs e)
+        {
+            ModifierSupprimerAccessoire modifierSupprimerAccessoire = new ModifierSupprimerAccessoire();
+            modifierSupprimerAccessoire.ShowDialog();
+        }
     }
 }

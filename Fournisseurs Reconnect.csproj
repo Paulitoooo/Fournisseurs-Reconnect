@@ -165,6 +165,12 @@
     <Compile Include="Accessoires\AjouterModifierSupprimerAccessoire.Designer.cs">
       <DependentUpon>AjouterModifierSupprimerAccessoire.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accessoires\ModifierSupprimerAccessoire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accessoires\ModifierSupprimerAccessoire.Designer.cs">
+      <DependentUpon>ModifierSupprimerAccessoire.cs</DependentUpon>
+    </Compile>
     <Compile Include="Affiliation\AffilierFournisseur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +389,9 @@
     </Compile>
     <EmbeddedResource Include="Accessoires\AjouterModifierSupprimerAccessoire.resx">
       <DependentUpon>AjouterModifierSupprimerAccessoire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accessoires\ModifierSupprimerAccessoire.resx">
+      <DependentUpon>ModifierSupprimerAccessoire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Affiliation\AffilierFournisseur.resx">
       <DependentUpon>AffilierFournisseur.cs</DependentUpon>

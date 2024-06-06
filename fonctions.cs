@@ -364,6 +364,24 @@ namespace fonctions
             dr.Close();
             conn.Close();
         }
+
+        public static string GetLibelleTypeAccessoire(int unId)
+        {
+            string libelle = "";
+            string requete = "select libelleTypeAccessoire from typeaccessoire where idTypeAccessoire = " + unId + ";";
+            MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                libelle = dr.GetString(0);
+            }
+            return libelle;
+            dr.Close();
+            conn.Close();
+        }
+    
     }
 
     public struct connexionServeur

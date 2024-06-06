@@ -121,6 +121,7 @@
             this.boutonSupprimerMarque.TabIndex = 54;
             this.boutonSupprimerMarque.Text = "Modifier/Supprimer un accesoire ?";
             this.boutonSupprimerMarque.UseVisualStyleBackColor = true;
+            this.boutonSupprimerMarque.Click += new System.EventHandler(this.boutonSupprimerMarque_Click);
             // 
             // AjouterModifierSupprimerAccessoire
             // 
