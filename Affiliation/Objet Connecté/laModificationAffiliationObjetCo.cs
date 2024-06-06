@@ -49,7 +49,7 @@ namespace Fournisseurs_Reconnect.Affiliation.Objet_Connecté
             }
             catch(Exception ex)
             {
-                  //MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
                 MessageBox.Show("Veillez à ce que le prix entré soit correct (avec un point avant les centimes et pas une virgule) \r\n Le lien du site ne doit pas contenir de caratères spéciaux tels que des guillemets ou apostrophes");
             }
             conn.Close();
