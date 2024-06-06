@@ -34,7 +34,7 @@ namespace Fournisseurs_Reconnect
             
            
                 conn.Open();
-                MessageBox.Show("Connexion réussie");
+                MessageBox.Show("Connexion réussie !");
             conn.Close();
                 
 
