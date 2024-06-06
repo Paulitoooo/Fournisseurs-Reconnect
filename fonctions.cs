@@ -381,7 +381,24 @@ namespace fonctions
             dr.Close();
             conn.Close();
         }
-    
+
+        public static int GetIdAccessoire(string uneMarque , string unType , string unAccessoire)
+        {
+            MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            int id = 0;
+            string requete = "select idAccessoire from accessoire where idMarqueAccessoire = " + GetIdMarque(uneMarque) + " and idTypeAccessoire = " + GetIdTypeAccessoire(unType) + " and nomAccessoire = '" + unAccessoire + "' ;";
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                id = dr.GetInt32(0);
+            }
+            return id;
+            dr.Close();
+            conn.Close();
+        }
+
     }
 
     public struct connexionServeur
