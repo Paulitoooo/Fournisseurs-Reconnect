@@ -1,6 +1,6 @@
-﻿namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
+﻿namespace Fournisseurs_Reconnect.Affiliation.Objet_Connecté
 {
-    partial class laModificationnAffiliationPieceDetachee
+    partial class laModificationAffiliationObjetCo
     {
         /// <summary>
         /// Required designer variable.
@@ -39,20 +39,20 @@
             // 
             // bouronRetablir
             // 
-            this.bouronRetablir.Location = new System.Drawing.Point(486, 306);
+            this.bouronRetablir.Location = new System.Drawing.Point(469, 292);
             this.bouronRetablir.Name = "bouronRetablir";
             this.bouronRetablir.Size = new System.Drawing.Size(87, 37);
-            this.bouronRetablir.TabIndex = 33;
+            this.bouronRetablir.TabIndex = 4;
             this.bouronRetablir.Text = "Rétablir";
             this.bouronRetablir.UseVisualStyleBackColor = true;
             this.bouronRetablir.Click += new System.EventHandler(this.bouronRetablir_Click);
             // 
             // boutonModifier
             // 
-            this.boutonModifier.Location = new System.Drawing.Point(579, 306);
+            this.boutonModifier.Location = new System.Drawing.Point(562, 292);
             this.boutonModifier.Name = "boutonModifier";
             this.boutonModifier.Size = new System.Drawing.Size(87, 37);
-            this.boutonModifier.TabIndex = 27;
+            this.boutonModifier.TabIndex = 3;
             this.boutonModifier.Text = "Modifier\r\nl\'affiliation\r\n";
             this.boutonModifier.UseVisualStyleBackColor = true;
             this.boutonModifier.Click += new System.EventHandler(this.boutonModifier_Click);
@@ -62,10 +62,10 @@
             this.boutonRetour.Cursor = System.Windows.Forms.Cursors.Hand;
             this.boutonRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.boutonRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boutonRetour.Location = new System.Drawing.Point(12, 316);
+            this.boutonRetour.Location = new System.Drawing.Point(12, 304);
             this.boutonRetour.Name = "boutonRetour";
             this.boutonRetour.Size = new System.Drawing.Size(114, 31);
-            this.boutonRetour.TabIndex = 32;
+            this.boutonRetour.TabIndex = 39;
             this.boutonRetour.TabStop = false;
             this.boutonRetour.Text = "< Retour";
             this.boutonRetour.UseVisualStyleBackColor = true;
@@ -74,44 +74,44 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(207, 209);
+            this.label2.Location = new System.Drawing.Point(207, 197);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 13);
-            this.label2.TabIndex = 31;
+            this.label2.TabIndex = 38;
             this.label2.Text = "Saisissez un nouveau prix";
             // 
             // nouveauPrix
             // 
-            this.nouveauPrix.Location = new System.Drawing.Point(342, 206);
+            this.nouveauPrix.Location = new System.Drawing.Point(342, 194);
             this.nouveauPrix.Name = "nouveauPrix";
             this.nouveauPrix.Size = new System.Drawing.Size(100, 20);
-            this.nouveauPrix.TabIndex = 30;
+            this.nouveauPrix.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 74);
+            this.label1.Location = new System.Drawing.Point(51, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(285, 13);
-            this.label1.TabIndex = 29;
+            this.label1.TabIndex = 36;
             this.label1.Text = "Saisissez un nouveau lien vers le site de la piece détachée\r\n";
             // 
             // siteFournisseur
             // 
-            this.siteFournisseur.Location = new System.Drawing.Point(342, 74);
+            this.siteFournisseur.Location = new System.Drawing.Point(342, 62);
             this.siteFournisseur.Multiline = true;
             this.siteFournisseur.Name = "siteFournisseur";
             this.siteFournisseur.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.siteFournisseur.Size = new System.Drawing.Size(176, 97);
-            this.siteFournisseur.TabIndex = 28;
+            this.siteFournisseur.TabIndex = 1;
             // 
-            // laModificationnAffiliationPieceDetachee
+            // laModificationAffiliationObjetCo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(678, 355);
+            this.ClientSize = new System.Drawing.Size(661, 341);
             this.ControlBox = false;
             this.Controls.Add(this.bouronRetablir);
             this.Controls.Add(this.boutonModifier);
@@ -121,13 +121,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.siteFournisseur);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "laModificationnAffiliationPieceDetachee";
+            this.Name = "laModificationAffiliationObjetCo";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Modification affilation pièce détachée";
-            this.Load += new System.EventHandler(this.laModificationnAffiliationPieceDetachee_Load);
+            this.Text = "Modifier l\'objet connecté";
+            this.Load += new System.EventHandler(this.laModificationAffiliationObjetCo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

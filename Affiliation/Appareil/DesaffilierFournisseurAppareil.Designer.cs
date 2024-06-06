@@ -185,7 +185,7 @@
             this.boutonRetour.Cursor = System.Windows.Forms.Cursors.Hand;
             this.boutonRetour.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.boutonRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boutonRetour.Location = new System.Drawing.Point(12, 383);
+            this.boutonRetour.Location = new System.Drawing.Point(12, 375);
             this.boutonRetour.Name = "boutonRetour";
             this.boutonRetour.Size = new System.Drawing.Size(114, 31);
             this.boutonRetour.TabIndex = 21;
@@ -229,7 +229,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(772, 422);
+            this.ClientSize = new System.Drawing.Size(768, 418);
             this.ControlBox = false;
             this.Controls.Add(this.boutonAffilier);
             this.Controls.Add(this.listeFournisseur);

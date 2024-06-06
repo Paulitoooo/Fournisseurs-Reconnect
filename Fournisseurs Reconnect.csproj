@@ -207,6 +207,25 @@
     <Compile Include="Affiliation\Objet Connecté\AffilierObjetConnecte.Designer.cs">
       <DependentUpon>AffilierObjetConnecte.cs</DependentUpon>
     </Compile>
+    <Compile Include="Affiliation\Objet Connecté\DesaffilierObjetConnecte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\Objet Connecté\DesaffilierObjetConnecte.Designer.cs">
+      <DependentUpon>DesaffilierObjetConnecte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Affiliation\Objet Connecté\laModificationAffiliationObjetCo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\Objet Connecté\laModificationAffiliationObjetCo.Designer.cs">
+      <DependentUpon>laModificationAffiliationObjetCo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Affiliation\Objet Connecté\ModifierAffiliationObjetConnecte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\Objet Connecté\ModifierAffiliationObjetConnecte.Designer.cs">
+      <DependentUpon>ModifierAffiliationObjetConnecte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Affiliation\Objet Connecté\ObjetCo_Fourni.cs" />
     <Compile Include="Affiliation\Pièce détachée\AffilierFournisseurPieceDetachee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,6 +398,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Affiliation\Objet Connecté\AffilierObjetConnecte.resx">
       <DependentUpon>AffilierObjetConnecte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\Objet Connecté\DesaffilierObjetConnecte.resx">
+      <DependentUpon>DesaffilierObjetConnecte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\Objet Connecté\laModificationAffiliationObjetCo.resx">
+      <DependentUpon>laModificationAffiliationObjetCo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\Objet Connecté\ModifierAffiliationObjetConnecte.resx">
+      <DependentUpon>ModifierAffiliationObjetConnecte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Affiliation\Pièce détachée\AffilierFournisseurPieceDetachee.resx">
       <DependentUpon>AffilierFournisseurPieceDetachee.cs</DependentUpon>

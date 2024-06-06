@@ -310,7 +310,40 @@ namespace fonctions
             dr.Close();
             conn.Close();
         }
-     }
+
+        public static float getPrixObjetCoFourni(int idObjetCo,int idFournisseur)
+        {
+            float lePrix = 0F;
+            string requete = "select Prix from objetconnecte_fourni where idObjetConnecte = " + idObjetCo + " and idFournisseur = " + idFournisseur + " ;";
+            MySqlConnection conn = new MySqlConnection("server = localhost; database = fournisseur_reconnect; user = root; pwd =");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                lePrix = dr.GetFloat(0);
+            }
+            return lePrix;
+
+        }
+
+        public static string getSiteObjetCoFOurni(int idObjetCo, int idFournisseur)
+        {
+            string leSite = "";
+            string requete = "select siteObjetCoFourni from objetconnecte_fourni where idObjetConnecte = " + idObjetCo + " and idFournisseur = " + idFournisseur + " ;";
+            MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                leSite = dr.GetString(0);
+            }
+            return leSite;
+            dr.Close();
+            conn.Close();
+        }
+    }
 
     public struct connexionServeur
     {
