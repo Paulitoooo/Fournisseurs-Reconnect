@@ -178,6 +178,7 @@
     <Compile Include="Accessoires\ModifierSupprimerAccessoire.Designer.cs">
       <DependentUpon>ModifierSupprimerAccessoire.cs</DependentUpon>
     </Compile>
+    <Compile Include="Affiliation\Accessoire\Accessoire_fourni.cs" />
     <Compile Include="Affiliation\Accessoire\AffilierAccessoire.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +190,18 @@
     </Compile>
     <Compile Include="Affiliation\Accessoire\DesaffilierAccessoire.Designer.cs">
       <DependentUpon>DesaffilierAccessoire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Affiliation\Accessoire\laModificationAffiliationAccessoire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\Accessoire\laModificationAffiliationAccessoire.Designer.cs">
+      <DependentUpon>laModificationAffiliationAccessoire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Affiliation\Accessoire\ModifierAffiliationAccessoire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Affiliation\Accessoire\ModifierAffiliationAccessoire.Designer.cs">
+      <DependentUpon>ModifierAffiliationAccessoire.cs</DependentUpon>
     </Compile>
     <Compile Include="Affiliation\AffilierFournisseur.cs">
       <SubType>Form</SubType>
@@ -420,6 +433,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Affiliation\Accessoire\DesaffilierAccessoire.resx">
       <DependentUpon>DesaffilierAccessoire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\Accessoire\laModificationAffiliationAccessoire.resx">
+      <DependentUpon>laModificationAffiliationAccessoire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Affiliation\Accessoire\ModifierAffiliationAccessoire.resx">
+      <DependentUpon>ModifierAffiliationAccessoire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Affiliation\AffilierFournisseur.resx">
       <DependentUpon>AffilierFournisseur.cs</DependentUpon>

@@ -399,6 +399,42 @@ namespace fonctions
             conn.Close();
         }
 
+        public static float getPrixAccessoire(int idFournisseur,int idAccessoire)
+        {
+            float lePrix = 0F;
+            string requete = "select Prix from accessoire_fourni where idFournisseur = " + idFournisseur + " and idAccessoire = " + idAccessoire + ";";
+            MySqlConnection conn = new MySqlConnection("server = localhost; database = fournisseur_reconnect; user = root; pwd =");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                lePrix = dr.GetFloat(0);
+            }
+            dr.Close();
+            conn.Close();
+            return lePrix;
+
+        }
+
+        public static string getSiteAccessoire(int idFournisseur , int idAccessoire)
+        {
+            string leSite = "";
+            string requete = "select siteAccessoireFourni from accessoire_fourni where idFournisseur = " + idFournisseur + " and idAccessoire = " + idAccessoire + ";";
+            MySqlConnection conn = new MySqlConnection("server = localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                leSite = dr.GetString(0);
+            }
+            return leSite;
+            dr.Close();
+            conn.Close();
+
+        }
+
     }
 
     public struct connexionServeur

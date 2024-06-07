@@ -1,6 +1,6 @@
-﻿namespace Fournisseurs_Reconnect.Affiliation.Objet_Connecté
+﻿namespace Fournisseurs_Reconnect.Affiliation.Accessoire
 {
-    partial class laModificationAffiliationObjetCo
+    partial class laModificationAffiliationAccessoire
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,7 @@
             this.bouronRetablir.Location = new System.Drawing.Point(469, 292);
             this.bouronRetablir.Name = "bouronRetablir";
             this.bouronRetablir.Size = new System.Drawing.Size(87, 37);
-            this.bouronRetablir.TabIndex = 4;
+            this.bouronRetablir.TabIndex = 43;
             this.bouronRetablir.Text = "Rétablir";
             this.bouronRetablir.UseVisualStyleBackColor = true;
             this.bouronRetablir.Click += new System.EventHandler(this.bouronRetablir_Click);
@@ -52,7 +52,7 @@
             this.boutonModifier.Location = new System.Drawing.Point(562, 292);
             this.boutonModifier.Name = "boutonModifier";
             this.boutonModifier.Size = new System.Drawing.Size(87, 37);
-            this.boutonModifier.TabIndex = 3;
+            this.boutonModifier.TabIndex = 42;
             this.boutonModifier.Text = "Modifier\r\nl\'affiliation\r\n";
             this.boutonModifier.UseVisualStyleBackColor = true;
             this.boutonModifier.Click += new System.EventHandler(this.boutonModifier_Click);
@@ -65,11 +65,10 @@
             this.boutonRetour.Location = new System.Drawing.Point(12, 298);
             this.boutonRetour.Name = "boutonRetour";
             this.boutonRetour.Size = new System.Drawing.Size(114, 31);
-            this.boutonRetour.TabIndex = 39;
+            this.boutonRetour.TabIndex = 46;
             this.boutonRetour.TabStop = false;
             this.boutonRetour.Text = "< Retour";
             this.boutonRetour.UseVisualStyleBackColor = true;
-            this.boutonRetour.Click += new System.EventHandler(this.boutonRetour_Click);
             // 
             // label2
             // 
@@ -77,7 +76,7 @@
             this.label2.Location = new System.Drawing.Point(207, 197);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 13);
-            this.label2.TabIndex = 38;
+            this.label2.TabIndex = 45;
             this.label2.Text = "Saisissez un nouveau prix";
             // 
             // nouveauPrix
@@ -85,16 +84,16 @@
             this.nouveauPrix.Location = new System.Drawing.Point(342, 194);
             this.nouveauPrix.Name = "nouveauPrix";
             this.nouveauPrix.Size = new System.Drawing.Size(100, 20);
-            this.nouveauPrix.TabIndex = 2;
+            this.nouveauPrix.TabIndex = 41;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 62);
+            this.label1.Location = new System.Drawing.Point(81, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(275, 13);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Saisissez un nouveau lien vers le site de l\'objet connecté";
+            this.label1.Size = new System.Drawing.Size(255, 13);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "Saisissez un nouveau lien vers le site de l\'accessoire\r\n";
             // 
             // siteFournisseur
             // 
@@ -103,15 +102,16 @@
             this.siteFournisseur.Name = "siteFournisseur";
             this.siteFournisseur.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.siteFournisseur.Size = new System.Drawing.Size(176, 97);
-            this.siteFournisseur.TabIndex = 1;
+            this.siteFournisseur.TabIndex = 40;
             // 
-            // laModificationAffiliationObjetCo
+            // laModificationAffiliationAccessoire
             // 
+            this.AcceptButton = this.boutonModifier;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(653, 333);
+            this.ClientSize = new System.Drawing.Size(657, 337);
             this.ControlBox = false;
             this.Controls.Add(this.bouronRetablir);
             this.Controls.Add(this.boutonModifier);
@@ -121,13 +121,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.siteFournisseur);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "laModificationAffiliationObjetCo";
+            this.Name = "laModificationAffiliationAccessoire";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Modifier l\'objet connecté";
-            this.Load += new System.EventHandler(this.laModificationAffiliationObjetCo_Load);
+            this.Text = "Modifier  l\'affiliation entre accessoire et fournisseur";
+            this.Load += new System.EventHandler(this.laModificationAffiliationAccessoire_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
