@@ -132,7 +132,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(581, 325);
+            this.ClientSize = new System.Drawing.Size(577, 321);
             this.ControlBox = false;
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);

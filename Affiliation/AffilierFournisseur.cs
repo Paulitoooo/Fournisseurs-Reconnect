@@ -1,4 +1,5 @@
 ﻿using Fournisseurs_Reconnect.Affiliation;
+using Fournisseurs_Reconnect.Affiliation.Accessoire;
 using Fournisseurs_Reconnect.Affiliation.Objet_Connecté;
 using Fournisseurs_Reconnect.Affiliation.Pièce_détachée;
 using System;
@@ -46,6 +47,12 @@ namespace Fournisseurs_Reconnect
         {
             AffilierObjetConnecte affilierObjetConnecte = new AffilierObjetConnecte();
             affilierObjetConnecte.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AffilierAccessoire affilierAccessoire = new AffilierAccessoire();
+            affilierAccessoire.ShowDialog();
         }
     }
 }

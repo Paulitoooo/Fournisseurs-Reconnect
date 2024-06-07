@@ -138,7 +138,7 @@ namespace Fournisseurs_Reconnect.Affiliation.Objet_Connecté
             catch(Exception ex)
             {
                 //MessageBox.Show(ex.Message);
-                MessageBox.Show("Il faut saisir un prix valide ! \n\rVeillez à ce que le prix saisi soit un nombre et que les centimes soient précédés d'un point et non pas d'une virgule");
+                MessageBox.Show("Veillez à ce que le prix entré soit correct (avec un point avant les centimes et pas une virgule) \r\n Le lien du site ne doit pas contenir de caratères spéciaux tels que des guillemets ou apostrophes");
             }
             conn.Close();
         }
