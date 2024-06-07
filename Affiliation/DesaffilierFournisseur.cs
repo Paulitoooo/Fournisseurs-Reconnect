@@ -1,4 +1,5 @@
-﻿using Fournisseurs_Reconnect.Affiliation.Objet_Connecté;
+﻿using Fournisseurs_Reconnect.Affiliation.Accessoire;
+using Fournisseurs_Reconnect.Affiliation.Objet_Connecté;
 using Fournisseurs_Reconnect.Affiliation.Pièce_détachée;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,12 @@ namespace Fournisseurs_Reconnect.Affiliation
         {
             DesaffilierObjetConnecte desaffilierObjetConnecte = new DesaffilierObjetConnecte();
             desaffilierObjetConnecte.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DesaffilierAccessoire desaffilierAccessoire = new DesaffilierAccessoire();
+            desaffilierAccessoire.ShowDialog();
         }
     }
 }

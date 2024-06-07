@@ -90,6 +90,11 @@ namespace Fournisseurs_Reconnect.Affiliation.Accessoire
 
         private void boutonAffilier_Click(object sender, EventArgs e)
         {
+            if(listeAccessoires.Text == "" || siteFournisseur.Text == "" || textBoxPrix.Text == "")
+            {
+                MessageBox.Show("Il faut que tout les champs soient remplis !");
+                return;
+            }
             int idAccessoire = GetIdAccessoire(listeMarque.Text, listeType.Text, listeAccessoires.Text);
             int idFournisseur = GetIdFournisseur(listeFournisseur.Text);
             string requeteAffilier = "insert into accessoire_fourni values(" + idFournisseur + "," + idAccessoire + "," + textBoxPrix.Text + ",'" + siteFournisseur.Text + "');";

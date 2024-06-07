@@ -53,7 +53,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(12, 407);
+            this.button2.Location = new System.Drawing.Point(12, 399);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(114, 31);
             this.button2.TabIndex = 3;
@@ -126,7 +126,7 @@
             this.groupBox1.Controls.Add(this.listeModele);
             this.groupBox1.Controls.Add(this.listeTypeObjetCo);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(51, 27);
+            this.groupBox1.Location = new System.Drawing.Point(30, 26);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 338);
             this.groupBox1.TabIndex = 72;
@@ -141,7 +141,7 @@
             this.groupBox2.Controls.Add(this.siteFournisseur);
             this.groupBox2.Controls.Add(this.listeFournisseur);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(435, 27);
+            this.groupBox2.Location = new System.Drawing.Point(414, 26);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(353, 338);
             this.groupBox2.TabIndex = 73;
@@ -205,7 +205,7 @@
             // 
             // boutonAffilier
             // 
-            this.boutonAffilier.Location = new System.Drawing.Point(372, 380);
+            this.boutonAffilier.Location = new System.Drawing.Point(354, 380);
             this.boutonAffilier.Name = "boutonAffilier";
             this.boutonAffilier.Size = new System.Drawing.Size(87, 37);
             this.boutonAffilier.TabIndex = 74;
@@ -220,7 +220,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(796, 446);
+            this.ClientSize = new System.Drawing.Size(792, 442);
             this.ControlBox = false;
             this.Controls.Add(this.boutonAffilier);
             this.Controls.Add(this.groupBox2);

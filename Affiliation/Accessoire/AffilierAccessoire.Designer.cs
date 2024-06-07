@@ -116,7 +116,7 @@
             this.groupBox1.Size = new System.Drawing.Size(298, 269);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Selectionnez un accessoire";
+            this.groupBox1.Text = "Selectionnez un accessoire à affilier";
             // 
             // button2
             // 
@@ -217,7 +217,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(717, 392);
+            this.ClientSize = new System.Drawing.Size(713, 388);
             this.ControlBox = false;
             this.Controls.Add(this.boutonAffilier);
             this.Controls.Add(this.groupBox2);
