@@ -314,6 +314,12 @@
       <DependentUpon>ModifierSupprimerObjetConnecte.cs</DependentUpon>
     </Compile>
     <Compile Include="Objet connecté\objetConnecte.cs" />
+    <Compile Include="Objet connecté\RechercheObjetConnecte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Objet connecté\RechercheObjetConnecte.Designer.cs">
+      <DependentUpon>RechercheObjetConnecte.cs</DependentUpon>
+    </Compile>
     <Compile Include="PieceDetachee\AjouterModifierSupprimerPieceDetachee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -493,6 +499,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Objet connecté\ModifierSupprimerObjetConnecte.resx">
       <DependentUpon>ModifierSupprimerObjetConnecte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Objet connecté\RechercheObjetConnecte.resx">
+      <DependentUpon>RechercheObjetConnecte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PieceDetachee\AjouterModifierSupprimerPieceDetachee.resx">
       <DependentUpon>AjouterModifierSupprimerPieceDetachee.cs</DependentUpon>

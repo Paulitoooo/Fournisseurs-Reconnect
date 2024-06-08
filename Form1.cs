@@ -113,6 +113,12 @@ namespace Fournisseurs_Reconnect
             AjouterModifierSupprimerAccessoire ajouterModifierSupprimerAccessoire = new AjouterModifierSupprimerAccessoire();
             ajouterModifierSupprimerAccessoire.ShowDialog();
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            RechercheObjetConnecte rechercheObjetConnecte = new RechercheObjetConnecte();
+            rechercheObjetConnecte.ShowDialog();
+        }
     }
     }
 
