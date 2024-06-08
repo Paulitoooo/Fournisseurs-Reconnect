@@ -119,7 +119,7 @@ namespace Fournisseurs_Reconnect.Objet_connecté
             {
                 listeSites.Add(new Uri(drRecherche.GetString("siteObjetCoFourni")));
                 lesPrix.Add(drRecherche.GetFloat("Prix").ToString());
-                listeIdFournisseur.Add()
+                listeIdFournisseur.Add(drRecherche.GetInt32("idFournisseur"));
             }
         }
     }
