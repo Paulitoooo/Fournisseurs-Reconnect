@@ -32,7 +32,7 @@ namespace Fournisseurs_Reconnect
             MySqlCommand cmdType = new MySqlCommand(requeteType, conn);
             MySqlDataReader drMarques = cmdMarques.ExecuteReader();
             while (drMarques.Read())
-            {
+            {       
                 this.listeMarques.Items.Add(drMarques.GetString("nomMarque"));
             }
             drMarques.Close();
