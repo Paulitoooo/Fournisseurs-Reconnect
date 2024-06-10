@@ -22,6 +22,8 @@ namespace Fournisseurs_Reconnect
         Appareils appareilModif = ModifierSupprimerApareil.AppareilAModifier;
         public static bool laModifFinie = false;
 
+        string NeufOuReconditionné = "";
+
         private void ModifierAppareil_Load(object sender, EventArgs e)
         {
             nomModele.Text = appareilModif.getModele();
@@ -78,7 +80,15 @@ namespace Fournisseurs_Reconnect
                 if (drVerif.GetString("modele") == nomModele.Text && drVerif.GetUInt32("StockageAppareil") == Int32.Parse(tailleStockage.Text) && drVerif.GetUInt32("idMarqueAppareil") == appareilApresModif.getIdMarque() && drVerif.GetUInt32("idTypeAppareil") == appareilApresModif.getIdType() && drVerif.GetBoolean("Neuf") == appareilApresModif.getNeuf())
                 
                 {
-                    MessageBox.Show("Il existe déjà un appareil " + nomModele.Text + " " + tailleStockage.Text + " Go enregistré dans la base de données ", "Modification impossible",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    if(appareilApresModif.getNeuf() == true)
+                    {
+                        NeufOuReconditionné = "Neuf";
+                    }
+                    else
+                    {
+                        NeufOuReconditionné = "Reconditionné";
+                    }
+                    MessageBox.Show("Il existe déjà un appareil " + nomModele.Text + " " + tailleStockage.Text + " Go " + NeufOuReconditionné + " enregistré dans la base de données ", "Modification impossible",MessageBoxButtons.OK,MessageBoxIcon.Warning); 
                     return;
                 }
             }

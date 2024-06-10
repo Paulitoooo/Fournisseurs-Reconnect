@@ -178,6 +178,12 @@
     <Compile Include="Accessoires\ModifierSupprimerAccessoire.Designer.cs">
       <DependentUpon>ModifierSupprimerAccessoire.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accessoires\RechercheAccessoire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accessoires\RechercheAccessoire.Designer.cs">
+      <DependentUpon>RechercheAccessoire.cs</DependentUpon>
+    </Compile>
     <Compile Include="Affiliation\Accessoire\Accessoire_fourni.cs" />
     <Compile Include="Affiliation\Accessoire\AffilierAccessoire.cs">
       <SubType>Form</SubType>
@@ -295,6 +301,12 @@
       <DependentUpon>ModifierAffiliationPieceDetachee.cs</DependentUpon>
     </Compile>
     <Compile Include="Affiliation\Pièce détachée\PieceDetacheeFournie.cs" />
+    <Compile Include="Demarrage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Demarrage.Designer.cs">
+      <DependentUpon>Demarrage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Objet connecté\AjouterModifierSupprimerObjetConnecte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +326,12 @@
       <DependentUpon>ModifierSupprimerObjetConnecte.cs</DependentUpon>
     </Compile>
     <Compile Include="Objet connecté\objetConnecte.cs" />
+    <Compile Include="Objet connecté\RechercheObjetConnecte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Objet connecté\RechercheObjetConnecte.Designer.cs">
+      <DependentUpon>RechercheObjetConnecte.cs</DependentUpon>
+    </Compile>
     <Compile Include="PieceDetachee\AjouterModifierSupprimerPieceDetachee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -428,6 +446,9 @@
     <EmbeddedResource Include="Accessoires\ModifierSupprimerAccessoire.resx">
       <DependentUpon>ModifierSupprimerAccessoire.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accessoires\RechercheAccessoire.resx">
+      <DependentUpon>RechercheAccessoire.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Affiliation\Accessoire\AffilierAccessoire.resx">
       <DependentUpon>AffilierAccessoire.cs</DependentUpon>
     </EmbeddedResource>
@@ -485,6 +506,9 @@
     <EmbeddedResource Include="Affiliation\Pièce détachée\ModifierAffiliationPieceDetachee.resx">
       <DependentUpon>ModifierAffiliationPieceDetachee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Demarrage.resx">
+      <DependentUpon>Demarrage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Objet connecté\AjouterModifierSupprimerObjetConnecte.resx">
       <DependentUpon>AjouterModifierSupprimerObjetConnecte.cs</DependentUpon>
     </EmbeddedResource>
@@ -493,6 +517,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Objet connecté\ModifierSupprimerObjetConnecte.resx">
       <DependentUpon>ModifierSupprimerObjetConnecte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Objet connecté\RechercheObjetConnecte.resx">
+      <DependentUpon>RechercheObjetConnecte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PieceDetachee\AjouterModifierSupprimerPieceDetachee.resx">
       <DependentUpon>AjouterModifierSupprimerPieceDetachee.cs</DependentUpon>

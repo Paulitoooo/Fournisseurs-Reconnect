@@ -164,7 +164,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(796, 446);
             this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
@@ -177,7 +177,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DesaffilierObjetConnecte";
+            this.Text = "Désaffilier un objet connecté";
             this.Load += new System.EventHandler(this.DesaffilierObjetConnecte_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

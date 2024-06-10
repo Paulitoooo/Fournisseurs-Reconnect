@@ -110,7 +110,7 @@ namespace Fournisseurs_Reconnect
             {
                 if(drVerif.GetString("modele") == textBoxNomModèle.Text && drVerif.GetUInt32("StockageAppareil").ToString() == textBoxStockage.Text && NeufOuReconditionné == drVerif.GetInt32("Neuf"))
                 {
-                    MessageBox.Show(textBoxNomModèle.Text + " " + textBoxStockage.Text + " existe déjà dans la base de données");
+                    MessageBox.Show(textBoxNomModèle.Text + " " + textBoxStockage.Text + " Go existe déjà dans la base de données");
                     return;
                 }
             }

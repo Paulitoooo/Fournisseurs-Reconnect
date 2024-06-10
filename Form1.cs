@@ -14,6 +14,7 @@ using Fournisseurs_Reconnect.Affiliation;
 using Fournisseurs_Reconnect.PieceDetachee;
 using Fournisseurs_Reconnect.Objet_connecté;
 using Fournisseurs_Reconnect.Accessoires;
+using System.Diagnostics;
 
 namespace Fournisseurs_Reconnect
 {
@@ -31,15 +32,8 @@ namespace Fournisseurs_Reconnect
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
-            
-           
-                conn.Open();
-                MessageBox.Show("Connexion réussie");
-            conn.Close();
-                
-
-            }
+            Process.Start(@"C:\wamp64\wampmanager.exe");
+        }
 
         private void buttonAppareil_Click(object sender, EventArgs e)
         {
@@ -112,6 +106,18 @@ namespace Fournisseurs_Reconnect
         {
             AjouterModifierSupprimerAccessoire ajouterModifierSupprimerAccessoire = new AjouterModifierSupprimerAccessoire();
             ajouterModifierSupprimerAccessoire.ShowDialog();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            RechercheObjetConnecte rechercheObjetConnecte = new RechercheObjetConnecte();
+            rechercheObjetConnecte.ShowDialog();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            RechercheAccessoire rechercheAccessoire = new RechercheAccessoire();
+            rechercheAccessoire.ShowDialog();
         }
     }
     }

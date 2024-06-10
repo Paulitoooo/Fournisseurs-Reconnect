@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formulaire1));
-            this.button1 = new System.Windows.Forms.Button();
             this.buttonAppareil = new System.Windows.Forms.Button();
             this.buttonAJouterMarque = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.boutonPieceDetachee = new System.Windows.Forms.Button();
@@ -43,20 +43,11 @@
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button8 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 468);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "test connexion BDD";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonAppareil
             // 
@@ -117,6 +108,16 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gestion";
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(50, 350);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(172, 35);
+            this.button10.TabIndex = 8;
+            this.button10.Text = "Ajouter/Modifier/Supprimer un accessoire";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
@@ -203,26 +204,37 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button10
+            // button11
             // 
-            this.button10.Location = new System.Drawing.Point(50, 350);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(172, 35);
-            this.button10.TabIndex = 8;
-            this.button10.Text = "Ajouter/Modifier/Supprimer un accessoire";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button11.Location = new System.Drawing.Point(255, 377);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(125, 34);
+            this.button11.TabIndex = 11;
+            this.button11.Text = "Recherche d\'objet connecté";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(255, 424);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(125, 34);
+            this.button12.TabIndex = 12;
+            this.button12.Text = "Recherche d\'accessoire";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // Formulaire1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 503);
+            this.Controls.Add(this.button12);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonAppareil);
-            this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Formulaire1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -234,8 +246,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonAppareil;
         private System.Windows.Forms.Button buttonAJouterMarque;
         private System.Windows.Forms.Button button2;
@@ -250,6 +260,8 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
     }
 }
 

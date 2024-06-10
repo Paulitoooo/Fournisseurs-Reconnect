@@ -114,7 +114,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(776, 426);
+            this.ClientSize = new System.Drawing.Size(772, 422);
             this.ControlBox = false;
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -129,7 +129,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DesaffilierFournisseur";
+            this.Text = "Désaffilier un fournisseur";
             this.ResumeLayout(false);
             this.PerformLayout();
 

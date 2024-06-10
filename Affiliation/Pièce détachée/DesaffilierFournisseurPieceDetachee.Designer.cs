@@ -206,7 +206,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(792, 465);
+            this.ClientSize = new System.Drawing.Size(788, 461);
             this.ControlBox = false;
             this.Controls.Add(this.boutonDesaffilier);
             this.Controls.Add(this.groupBox1);
@@ -219,7 +219,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DesaffilierFournisseurPieceDetachee";
+            this.Text = "Desaffilier une pièce détachée";
             this.Load += new System.EventHandler(this.DesaffilierFournisseurPieceDetachee_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -127,7 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(742, 405);
+            this.ClientSize = new System.Drawing.Size(738, 401);
             this.ControlBox = false;
             this.Controls.Add(this.boutonSupprimerMarque);
             this.Controls.Add(this.boutonAjouter);
@@ -144,7 +144,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AjouterModifierSupprimerObjetConnecte";
+            this.Text = "Ajouter/Modifier/Supprimer un objet connecté";
             this.Load += new System.EventHandler(this.AjouterModifierSupprimerObjetConnecte_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

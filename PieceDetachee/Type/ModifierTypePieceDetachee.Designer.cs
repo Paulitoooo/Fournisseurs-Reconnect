@@ -88,7 +88,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ModifierTypePieceDetachee";
+            this.Text = "Modifier un type de pièce détachée";
             this.Load += new System.EventHandler(this.ModifierTypePieceDetachee_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -164,6 +164,13 @@ namespace Fournisseurs_Reconnect.Affiliation
             MessageBox.Show("L'appareil " + listeModèles.Text + " " + listeTailleStockage.Text + " Go" + NR +"et le fournisseur " + listeFournisseur.Text + " ont bien été désaffiliés .");
             drDesaffilier.Close();
             conn.Close();
+            listeFournisseur.ClearSelected();
+            listeMarques.Items.Clear();
+            listeType.Items.Clear();
+            listeModèles.Items.Clear();
+            listeTailleStockage.Items.Clear();
+            boutonNeuf.Checked = false;
+            BoutonReconditionné.Checked = false;
 
         }
 

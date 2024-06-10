@@ -180,9 +180,22 @@ namespace Fournisseurs_Reconnect
 
                 string requeteModif = "Update marque set nomMarque = '" + nouveauNom + "' where idMarque = (select idMarque where nomMarque = '" + laMarqueAModif + "');";
                 MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
+                
                 try
                 {
-                    conn.Open();
+                    conn.Open(); 
+                    string requeteVerif = "Select nomMarque from marque;";
+                    MySqlCommand cmdVerif = new MySqlCommand(requeteVerif, conn);
+                    MySqlDataReader drVerif = cmdVerif.ExecuteReader();
+                    while (drVerif.Read())
+                    {
+                        if (drVerif.GetString("nomMarque") == textBoxModif.Text)
+                        {
+                            MessageBox.Show("Impossible de modifer la marque car ce nom est déjà inscrit dans la base de données");
+                            return;
+                        }
+                    }
+                    drVerif.Close();
                     MySqlCommand cmdRequeteModif = new MySqlCommand(requeteModif, conn);
                     MySqlDataReader drModif = cmdRequeteModif.ExecuteReader();
                     MessageBox.Show("Le nom a bien été modifié");

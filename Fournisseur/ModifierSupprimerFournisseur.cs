@@ -136,6 +136,7 @@ namespace Fournisseurs_Reconnect
             {
                 MessageBox.Show(ex.Message);
             }
+
             MySqlCommand cmdListe = new MySqlCommand(requeteSite, conn1);
             MySqlDataReader drListe = cmdListe.ExecuteReader();
             if (drListe.Read())
@@ -196,6 +197,20 @@ namespace Fournisseurs_Reconnect
                 try
                 {
                     conn.Open();
+                    string requeteVerifId = "Select * from fournisseur order by idFournisseur DESC";
+
+                    MySqlCommand cmdVerifId = new MySqlCommand(requeteVerifId, conn);
+                    MySqlDataReader drVerifId = cmdVerifId.ExecuteReader();
+                    while (drVerifId.Read())
+                    {
+                        if (drVerifId.GetString("nomFournisseur") == textBoxModif.Text)
+                        {
+                            MessageBox.Show("Il existe déjà un fournisseur portant ce nom", "Modification de fournisseur impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+                    drVerifId.Close();
+
                     MySqlCommand cmdRequeteModif = new MySqlCommand(requeteModif, conn);
                     MySqlDataReader drModif = cmdRequeteModif.ExecuteReader();
                     if (nouveauNom != leFournisseurAModif && nouveauSite != leSiteAmodif)
