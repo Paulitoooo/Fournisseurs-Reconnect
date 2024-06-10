@@ -230,7 +230,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1155, 559);
+            this.CancelButton = this.boutonRetour;
+            this.ClientSize = new System.Drawing.Size(1151, 555);
             this.ControlBox = false;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listeAccessoires);
@@ -254,7 +255,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RechercheAccessoire";
+            this.Text = "Rechercher un accessoire";
             this.Load += new System.EventHandler(this.RechercheAccessoire_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

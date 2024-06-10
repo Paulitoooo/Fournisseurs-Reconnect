@@ -232,7 +232,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(1159, 563);
+            this.ClientSize = new System.Drawing.Size(1155, 559);
             this.ControlBox = false;
             this.Controls.Add(this.label5);
             this.Controls.Add(this.progressBar1);
@@ -256,7 +256,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RechercheObjetConnecte";
+            this.Text = "Rechercher objet connecté";
             this.Load += new System.EventHandler(this.RechercheObjetConnecte_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

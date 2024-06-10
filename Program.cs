@@ -16,7 +16,7 @@ namespace Fournisseurs_Reconnect
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Formulaire1());
+            Application.Run(new Demarrage());
         }
 
 
