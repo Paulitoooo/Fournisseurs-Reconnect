@@ -193,6 +193,7 @@
             // linkLabelSite
             // 
             this.linkLabelSite.AutoSize = true;
+            this.linkLabelSite.Enabled = false;
             this.linkLabelSite.Location = new System.Drawing.Point(352, 45);
             this.linkLabelSite.Name = "linkLabelSite";
             this.linkLabelSite.Size = new System.Drawing.Size(61, 13);
@@ -276,7 +277,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(1118, 624);
+            this.ClientSize = new System.Drawing.Size(1114, 620);
             this.ControlBox = false;
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.flecheDroite);

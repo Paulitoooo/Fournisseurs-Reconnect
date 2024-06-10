@@ -178,6 +178,12 @@
     <Compile Include="Accessoires\ModifierSupprimerAccessoire.Designer.cs">
       <DependentUpon>ModifierSupprimerAccessoire.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accessoires\RechercheAccessoire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accessoires\RechercheAccessoire.Designer.cs">
+      <DependentUpon>RechercheAccessoire.cs</DependentUpon>
+    </Compile>
     <Compile Include="Affiliation\Accessoire\Accessoire_fourni.cs" />
     <Compile Include="Affiliation\Accessoire\AffilierAccessoire.cs">
       <SubType>Form</SubType>
@@ -433,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accessoires\ModifierSupprimerAccessoire.resx">
       <DependentUpon>ModifierSupprimerAccessoire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accessoires\RechercheAccessoire.resx">
+      <DependentUpon>RechercheAccessoire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Affiliation\Accessoire\AffilierAccessoire.resx">
       <DependentUpon>AffilierAccessoire.cs</DependentUpon>

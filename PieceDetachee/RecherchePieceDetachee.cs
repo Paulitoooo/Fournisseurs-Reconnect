@@ -165,6 +165,7 @@ namespace Fournisseurs_Reconnect.PieceDetachee
         int idFournisseur;
         private void boutonRecherche_Click(object sender, EventArgs e)
         {
+            linkLabelSite.Enabled = true;
             progressBar1.Value = 0;
             lesPrix.Clear();
             listeSites.Clear();

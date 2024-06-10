@@ -119,6 +119,12 @@ namespace Fournisseurs_Reconnect
             RechercheObjetConnecte rechercheObjetConnecte = new RechercheObjetConnecte();
             rechercheObjetConnecte.ShowDialog();
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            RechercheAccessoire rechercheAccessoire = new RechercheAccessoire();
+            rechercheAccessoire.ShowDialog();
+        }
     }
     }
 

@@ -99,6 +99,8 @@ namespace Fournisseurs_Reconnect
 
         private void boutonRecherche_Click(object sender, EventArgs e)
         {
+            linkLabelSite.Enabled = true;
+            progressBar1.Value = 0;
             lesPrix.Clear();
             listeSites.Clear();
             listeIdFournisseur.Clear();
@@ -217,6 +219,7 @@ namespace Fournisseurs_Reconnect
 
         private void flecheDroite_Click(object sender, EventArgs e)
         {
+            progressBar1.Value = 0;
             int MaxN = listeSites.Count - 1;
             timer = 0;
             n++;
@@ -234,6 +237,8 @@ namespace Fournisseurs_Reconnect
 
         private void flecheGauche_Click(object sender, EventArgs e)
         {
+
+            progressBar1.Value = 0;
             n--;
             timer = 0;
             if(n< 0)
