@@ -50,6 +50,7 @@ namespace Fournisseurs_Reconnect
             conn.Close();
             tailleStockage.Text = appareilModif.getStockageAppareil().ToString();
             laModifFinie = false;
+
         }
 
         private void boutonRetour_Click(object sender, EventArgs e)

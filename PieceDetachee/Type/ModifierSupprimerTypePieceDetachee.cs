@@ -61,6 +61,7 @@ namespace Fournisseurs_Reconnect.PieceDetachee
             if(compteurSécurité> 0)
             {
                 MessageBox.Show("Impossible de supprimer ce type car des pièces détachées sont déjà assoiciées à ce type . Veuillez d'abord les supprimer .", "Suppression de type de piece détachée impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                conn.Close();
                 return;
             }
             MySqlCommand cmdSuppression = new MySqlCommand(requeteSuppression, conn);

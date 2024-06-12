@@ -131,6 +131,7 @@ namespace Fournisseurs_Reconnect.PieceDetachee
                 listeTypePieceDetachee.Items.Add(drTypePieceDetachee.GetString("libelleTypePiece"));
             }
             drTypePieceDetachee.Close();
+            conn.Close();
         }
 
         private void listeTypePieceDetachee_Click(object sender, EventArgs e)
@@ -148,6 +149,7 @@ namespace Fournisseurs_Reconnect.PieceDetachee
                 listePieces.Items.Add(drPieceDetachee.GetString("nomPieceDetachee"));
             }
             drPieceDetachee.Close();
+            conn.Close();
         }
 
         private void boutonRetour_Click(object sender, EventArgs e)
@@ -189,6 +191,7 @@ namespace Fournisseurs_Reconnect.PieceDetachee
             if (listeSites.Count == 0)
             {
                 MessageBox.Show("Aucun fournisseur n'est affilié à cet appareil");
+                conn.Close();
                 return;
             }
             nbrFournisseur.Text = "Nombre de\r\n fournisseurs : " + listeSites.Count.ToString();

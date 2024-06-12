@@ -45,6 +45,7 @@ namespace Fournisseurs_Reconnect.PieceDetachee
                 if(drVerif.GetString("libelleTypePiece") == textBox1.Text)
                 {
                     MessageBox.Show("Ce type existe déjà dans la base de données", "Modification de type impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    conn.Close();
                     return;
                 }
             }

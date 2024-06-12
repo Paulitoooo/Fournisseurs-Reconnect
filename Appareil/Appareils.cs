@@ -69,7 +69,9 @@ namespace Fournisseurs_Reconnect.Appareil
             {
                 nomMarque = dataReader.GetString(0);
             }
+            conn.Close();
             return nomMarque;
+
         }
 
         public string getLibelleType()
@@ -84,7 +86,9 @@ namespace Fournisseurs_Reconnect.Appareil
             {
                 libelleType = dataReader.GetString(0);
             }
+            conn.Close();
             return libelleType;
+
         }
     }
 }

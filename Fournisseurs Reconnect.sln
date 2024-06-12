@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{61195309-9848-4A97-8CC2-A63D79A24DF8}"
 	ProjectSection(SolutionItems) = preProject
 		LICENCE.txt = LICENCE.txt
+		Sample.txt = Sample.txt
 	EndProjectSection
 EndProject
 Global

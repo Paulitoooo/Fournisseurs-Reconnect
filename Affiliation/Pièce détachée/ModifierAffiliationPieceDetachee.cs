@@ -136,6 +136,7 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
                 listeTypePieceDetachee.Items.Add(drTypePieceDetachee.GetString("libelleTypePiece"));
             }
             drTypePieceDetachee.Close();
+            conn.Close();
         }
 
         private void listeTypePieceDetachee_Click(object sender, EventArgs e)
@@ -154,6 +155,7 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
                 listePieces.Items.Add(drPieceDetachee.GetString("nomPieceDetachee"));
             }
             drPieceDetachee.Close();
+            conn.Close();
         }
 
         private void listePieces_Click(object sender, EventArgs e)
@@ -169,6 +171,8 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
                 listeFournisseur.Items.Add(drFournisseur.GetString("nomFournisseur"));
             }
             drFournisseur.Close();
+            conn.Close();
+
         }
 
         public static PieceDetacheeFournie pieceDetacheeAModif;

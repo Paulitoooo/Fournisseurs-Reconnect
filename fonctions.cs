@@ -22,9 +22,10 @@ namespace fonctions
             {
                 id = reader.GetInt32(0);
             }
-            return id;
             reader.Close();
             conn.Close();
+            return id;
+
         }
 
         public static int GetIdTypeAppareil(string unNom)
@@ -39,9 +40,10 @@ namespace fonctions
             {
                 id = reader.GetInt32(0);
             }
-            return id;
             reader.Close();
             conn.Close();
+            return id;
+
         }
 
         public static int GetIdAppareil(string unModele , string uneMarque , string unType, int unStockage, int Neuf)
@@ -56,9 +58,10 @@ namespace fonctions
             {
                 id = reader.GetInt32(0);
             }
-            return id;
             reader.Close();
             conn.Close();
+            return id;
+
         }
 
         public static int GetIdFournisseur(string unNom)
@@ -73,6 +76,7 @@ namespace fonctions
             {
                 id = reader.GetInt32(0);
             }
+            conn.Close();
             return id;
         }
 
@@ -88,6 +92,7 @@ namespace fonctions
             {
                 leNom = reader.GetString(0);
             }
+            conn.Close();
             return leNom;
         }
 
@@ -104,9 +109,9 @@ namespace fonctions
             {
                 lePrix = dr.GetFloat(0);
             }
-            return lePrix;
             dr.Close();
             conn.Close();
+            return lePrix;
         }
 
         public static string GetSiteAppareilFourni(int idAppareil, int idFournisseur)
@@ -121,9 +126,9 @@ namespace fonctions
             {
                 leSite = dr.GetString(0);
             }
-            return leSite;
             dr.Close();
             conn.Close();
+            return leSite;
         }
 
         public static int getIdTypePieceDetachee(string libelleType)
@@ -138,9 +143,9 @@ namespace fonctions
             {
                 id = dr.GetInt32(0);
             }
-            return id;
             dr.Close();
             conn.Close();
+            return id;
         }
 
         public static int getIdPieceDetachee(string nomPiece,string nomModele)
@@ -155,9 +160,9 @@ namespace fonctions
             {
                 id = dr.GetInt32(0);
             }
-            return id;
             dr.Close();
             conn.Close();
+            return id;
         }
 
         public static string getLibelleTypePieceDetachee(int unId) 
@@ -172,9 +177,10 @@ namespace fonctions
             {
                 libelle = dr.GetString("libelleTypePiece");
             }
-            return libelle;
             dr.Close();
             conn.Close();
+            return libelle;
+
         }
 
         public static string GetNomMarque(int unId)
@@ -189,9 +195,10 @@ namespace fonctions
             {
                 nomMarque = dr.GetString("nomMarque");
             }
-            return nomMarque;
             dr.Close();
             conn.Close();
+            return nomMarque;
+
         }
 
         public static int GetUnIdTypePourUnePiece(int idPiece)
@@ -206,9 +213,10 @@ namespace fonctions
             {
                 id = dr.GetInt32(0);
             }
-            return id;
             dr.Close();
             conn.Close();
+            return id;
+
         }
 
         public static string GetUnModelePourUnePiece(int idPiece)
@@ -223,9 +231,10 @@ namespace fonctions
             {
                 modele = dr.GetString("nomModeleAppareil");
             }
-            return modele;
             dr.Close();
             conn.Close();
+            return modele;
+
         }
 
         public static float getPrixPieceDetacheeFournie(int idPiece,int idFounisseur)
@@ -240,9 +249,10 @@ namespace fonctions
             {
                 lePrix = dr.GetFloat(0);
             }
-            return lePrix;
             dr.Close();
             conn.Close();
+            return lePrix;
+
         }
 
         public static string getSitePieceDetacheeFournie(int idPiece, int idFournisseur)
@@ -257,9 +267,10 @@ namespace fonctions
             {
                 leSite = dr.GetString(0);
             }
-            return leSite;
             dr.Close();
             conn.Close();
+            return leSite;
+
         }
 
         public static string getNomPieceDetachee(int unId)
@@ -291,9 +302,10 @@ namespace fonctions
             {
                 id = dr.GetInt32(0);
             }
-            return id;
             dr.Close();
             conn.Close();
+            return id;
+
         }
 
         public static int GetIdObjetConnecte(string uneMarque,string unType,string unModele)
@@ -308,9 +320,10 @@ namespace fonctions
             {
                 id = dr.GetInt32(0);
             }
-            return id;
             dr.Close();
             conn.Close();
+            return id;
+
         }
 
         public static float getPrixObjetCoFourni(int idObjetCo,int idFournisseur)
@@ -343,9 +356,10 @@ namespace fonctions
             {
                 leSite = dr.GetString(0);
             }
-            return leSite;
             dr.Close();
             conn.Close();
+            return leSite;
+
         }
 
         public static int GetIdTypeAccessoire(string unType)
@@ -360,9 +374,10 @@ namespace fonctions
             {
                 id = dr.GetInt32(0);
             }
-            return id;
             dr.Close();
             conn.Close();
+            return id;
+
         }
 
         public static string GetLibelleTypeAccessoire(int unId)
@@ -377,9 +392,10 @@ namespace fonctions
             {
                 libelle = dr.GetString(0);
             }
-            return libelle;
             dr.Close();
             conn.Close();
+            return libelle;
+
         }
 
         public static int GetIdAccessoire(string uneMarque , string unType , string unAccessoire)
@@ -394,9 +410,10 @@ namespace fonctions
             {
                 id = dr.GetInt32(0);
             }
-            return id;
             dr.Close();
             conn.Close();
+            return id;
+
         }
 
         public static float getPrixAccessoire(int idFournisseur,int idAccessoire)
@@ -429,9 +446,10 @@ namespace fonctions
             {
                 leSite = dr.GetString(0);
             }
-            return leSite;
             dr.Close();
             conn.Close();
+            return leSite;
+
 
         }
 

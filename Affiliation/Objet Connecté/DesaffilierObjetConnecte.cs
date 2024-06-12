@@ -70,6 +70,7 @@ namespace Fournisseurs_Reconnect.Affiliation.Objet_Connecté
             {
                 listeMarque.Items.Add(drMarque.GetString("nomMarque"));
             }
+            conn.Close();
 
         }
 

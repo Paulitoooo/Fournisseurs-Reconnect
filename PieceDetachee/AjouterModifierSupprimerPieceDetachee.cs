@@ -94,6 +94,7 @@ namespace Fournisseurs_Reconnect
             MySqlDataReader drAjouter = cmdAjouter.ExecuteReader();
             MessageBox.Show("La piece détachée à bien été ajoutée");
             textBoxNomPiece.Clear();
+            Conn.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

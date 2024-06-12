@@ -51,6 +51,7 @@ namespace Fournisseurs_Reconnect.Affiliation
                 {
                     MessageBox.Show("Il faut saisir un prix valide ! \n\r Veillez à ce que le prix saisi soit un nombre et que les centimes soient précédés d'un point et non pas d'une virgule");
                 }
+                conn.Close();
                 
             }
             else

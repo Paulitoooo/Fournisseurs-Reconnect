@@ -72,7 +72,8 @@ namespace Fournisseurs_Reconnect
             if(compteurSécurité > 0)
             {
                 MessageBox.Show("Vous ne pouvez pas supprimer ce fournisseur car il est affilié à des appareils/accessoire/pièces détachées . Vous devez d'abord désaffilier ces derniers pour pouvoir supprimer ce fournisseur .", "Suppression de fournisseur impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                            conn.Close();
+               return;
             }
             DialogResult dialog = MessageBox.Show("Voulez vous vraiment supprimer le fournisseur " + fournisseurASupprimer + " ?", "", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
@@ -206,6 +207,7 @@ namespace Fournisseurs_Reconnect
                         if (drVerifId.GetString("nomFournisseur") == textBoxModif.Text)
                         {
                             MessageBox.Show("Il existe déjà un fournisseur portant ce nom", "Modification de fournisseur impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            conn.Close();
                             return;
                         }
                     }

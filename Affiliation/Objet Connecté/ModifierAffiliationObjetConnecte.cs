@@ -68,6 +68,7 @@ namespace Fournisseurs_Reconnect.Affiliation.Objet_Connecté
             {
                 listeMarque.Items.Add(drMarque.GetString("nomMarque"));
             }
+            conn.Close();
         }
 
         private void listeMarque_Click(object sender, EventArgs e)

@@ -33,9 +33,10 @@ namespace Fournisseurs_Reconnect.Accessoires
                     listeMarque.Items.Add(GetNomMarque(drMarque.GetInt32(0)));
                 }
                 drMarque.Close();
-            }
+                conn.Close();
+        }
 
-            private void listeMarque_Click(object sender, EventArgs e)
+        private void listeMarque_Click(object sender, EventArgs e)
             {
                 listeType.Items.Clear();
                 listeAccessoires.Items.Clear();
@@ -110,6 +111,7 @@ namespace Fournisseurs_Reconnect.Accessoires
             if (listeSites.Count == 0)
             {
                 MessageBox.Show("Aucun fournisseur n'est affilié à cet objet connecté");
+                conn.Close();
                 return;
             }
             nbrFournisseur.Text = "Nombre de\r\n fournisseurs : " + listeSites.Count.ToString();

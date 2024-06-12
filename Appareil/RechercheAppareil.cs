@@ -82,9 +82,6 @@ namespace Fournisseurs_Reconnect
             listeTailleStockage.Items.Clear();
             boutonNeuf.Checked = false;
             BoutonReconditionné.Checked = false;
-            MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
-            conn.Open();
-            
         }
 
         int NeufOuReconditionné;
@@ -156,6 +153,7 @@ namespace Fournisseurs_Reconnect
             if (listeSites.Count == 0)
             {
                 MessageBox.Show("Aucun fournisseur n'est affilié à cet appareil");
+                conn.Close();
                 return;
             }
             nbrFournisseur.Text = "Nombre de\r\n fournisseurs : " + listeSites.Count.ToString();

@@ -218,6 +218,7 @@ namespace Fournisseurs_Reconnect.Affiliation.Pièce_détachée
                 listeTypeAppareil.Items.Add(drTypeAppareil.GetString("libelleTypeAppareil"));
             }
             drTypeAppareil.Close();
+            conn.Close();
 
         }
     }

@@ -52,7 +52,7 @@
             // buttonAppareil
             // 
             this.buttonAppareil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAppareil.Location = new System.Drawing.Point(255, 293);
+            this.buttonAppareil.Location = new System.Drawing.Point(166, 253);
             this.buttonAppareil.Name = "buttonAppareil";
             this.buttonAppareil.Size = new System.Drawing.Size(125, 23);
             this.buttonAppareil.TabIndex = 1;
@@ -187,7 +187,7 @@
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button6);
             this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Location = new System.Drawing.Point(181, 22);
+            this.groupBox2.Location = new System.Drawing.Point(90, 21);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(265, 190);
             this.groupBox2.TabIndex = 9;
@@ -196,7 +196,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(255, 330);
+            this.button8.Location = new System.Drawing.Point(166, 290);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(125, 34);
             this.button8.TabIndex = 10;
@@ -206,7 +206,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(255, 377);
+            this.button11.Location = new System.Drawing.Point(166, 337);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(125, 34);
             this.button11.TabIndex = 11;
@@ -216,7 +216,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(255, 424);
+            this.button12.Location = new System.Drawing.Point(166, 384);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(125, 34);
             this.button12.TabIndex = 12;
@@ -228,6 +228,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(824, 503);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
@@ -237,6 +238,7 @@
             this.Controls.Add(this.buttonAppareil);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Formulaire1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);

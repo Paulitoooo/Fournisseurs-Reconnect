@@ -32,6 +32,8 @@ namespace Fournisseurs_Reconnect
                 this.listeMarques.Items.Add(drMarques.GetString("nomMarque"));
             }
             drMarques.Close();
+            conn.Close();
+
 
         }
 
@@ -76,6 +78,7 @@ namespace Fournisseurs_Reconnect
                 if (compteurSecurite > 0)
                 {
                     MessageBox.Show("Impossible de supprimer la marque car des appareils/accessoires/objets connectés y sont associés. Veuillez supprimer ces dernier pour supprimer la marque","Erreur de suppression",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                    conn.Close();
                     return;
                 }
                 DialogResult dialogResult = MessageBox.Show("Voulez vous vraiment supprimer la marque " + marqueASupprimer + " ?", "", MessageBoxButtons.YesNo);
@@ -88,6 +91,7 @@ namespace Fournisseurs_Reconnect
                 }
                 else
                 {
+                    conn.Close();
                     return;
                 }
                 this.listeMarques.Items.Clear();
@@ -192,6 +196,7 @@ namespace Fournisseurs_Reconnect
                         if (drVerif.GetString("nomMarque") == textBoxModif.Text)
                         {
                             MessageBox.Show("Impossible de modifer la marque car ce nom est déjà inscrit dans la base de données");
+                            conn.Close();
                             return;
                         }
                     }

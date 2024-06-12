@@ -98,6 +98,8 @@ namespace Fournisseurs_Reconnect
                 {
                     listePieces.Items.Add(drPiece.GetString("nomPieceDetachee"));
                 }
+                Conn.Close();
+
             }
             conn.Close();
         }

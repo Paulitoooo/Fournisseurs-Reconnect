@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Fournisseurs_Reconnect
 {
@@ -22,6 +23,7 @@ namespace Fournisseurs_Reconnect
         {
             try
             {
+                
                 Process.Start("C:/wamp64/wampmanager.exe");
 
                 Process.Start("http://localhost/phpmyadmin/");

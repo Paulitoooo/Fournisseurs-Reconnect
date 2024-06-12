@@ -40,7 +40,8 @@ namespace Fournisseurs_Reconnect
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             try
             {
-                conn.Open();
+                
+
             }
             catch(Exception ex)
             {

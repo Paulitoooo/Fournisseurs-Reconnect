@@ -32,6 +32,8 @@ namespace Fournisseurs_Reconnect.Accessoires
                 listeMarque.Items.Add(GetNomMarque(drMarque.GetInt32(0)));
             }
             drMarque.Close();
+            conn.Close();
+
         }
 
         private void listeMarque_Click(object sender, EventArgs e)
