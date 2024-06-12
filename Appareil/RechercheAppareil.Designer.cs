@@ -53,6 +53,7 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.nbrFournisseur = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -291,6 +292,15 @@
             this.progressBar1.Size = new System.Drawing.Size(100, 12);
             this.progressBar1.TabIndex = 75;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(76, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(227, 13);
+            this.label6.TabIndex = 76;
+            this.label6.Text = "Si le prix est différent vous  pouvez le modifier :";
+            // 
             // RechercheAppareil
             // 
             this.AcceptButton = this.boutonRecherche;
@@ -299,6 +309,7 @@
             this.CancelButton = this.boutonRetour;
             this.ClientSize = new System.Drawing.Size(1163, 567);
             this.ControlBox = false;
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.nbrFournisseur);
             this.Controls.Add(this.label5);
@@ -355,5 +366,6 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label nbrFournisseur;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label6;
     }
 }
