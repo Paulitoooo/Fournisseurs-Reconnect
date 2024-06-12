@@ -145,7 +145,7 @@ namespace Fournisseurs_Reconnect.Affiliation
 
         private void boutonAffilier_Click(object sender, EventArgs e)
         {
-            if(listeMarques.Text =="" || listeModèles.Text == "" || listeTailleStockage.Text == "" || listeType.Text == "")
+            if(listeMarques.Text =="" || listeModèles.Text == "" || listeTailleStockage.Text == "" || listeType.Text == "" || (boutonNeuf.Checked == false && BoutonReconditionné.Checked == false) )
             {
                 MessageBox.Show("Il faut selectionner un appareil !");
                 return;

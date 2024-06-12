@@ -47,6 +47,7 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.flecheDroite = new System.Windows.Forms.Button();
             this.flecheGauche = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // webBrowser1
@@ -225,6 +226,15 @@
             this.flecheGauche.UseVisualStyleBackColor = true;
             this.flecheGauche.Click += new System.EventHandler(this.flecheGauche_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(78, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(227, 13);
+            this.label6.TabIndex = 77;
+            this.label6.Text = "Si le prix est différent vous  pouvez le modifier :";
+            // 
             // RechercheObjetConnecte
             // 
             this.AcceptButton = this.boutonRecherche;
@@ -232,8 +242,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(1155, 559);
+            this.ClientSize = new System.Drawing.Size(1151, 555);
             this.ControlBox = false;
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.flecheDroite);
@@ -283,5 +294,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label label6;
     }
 }
