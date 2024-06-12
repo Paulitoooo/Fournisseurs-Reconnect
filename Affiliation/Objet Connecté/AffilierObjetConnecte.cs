@@ -124,6 +124,7 @@ namespace Fournisseurs_Reconnect.Affiliation.Objet_Connecté
                 if(drVerif.GetInt32("idObjetConnecte") == GetIdObjetConnecte(listeMarque.Text, listeTypeObjetCo.Text, listeModele.Text) && drVerif.GetInt32("idFournisseur")== GetIdFournisseur(listeFournisseur.Text)) 
                 {
                     MessageBox.Show("Cet objet connecté et ce fournisseur sont déjà affilié !");
+                    conn.Close();
                     return;
                 }
             }

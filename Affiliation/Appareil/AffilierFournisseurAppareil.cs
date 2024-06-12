@@ -189,6 +189,7 @@ namespace Fournisseurs_Reconnect.Affiliation
                 if (drVerif.GetUInt32("idAppareil") == appareilsAffilié.getIdAppareil() && drVerif.GetUInt32("idFournisseur") == fournisseurAffilié.getIdFournisseur())
                 {
                     MessageBox.Show("Ce fournisseur et cet appareil sont déjà associés", "Affiliation impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    conn.Close();
                     return;
                 }
             }
