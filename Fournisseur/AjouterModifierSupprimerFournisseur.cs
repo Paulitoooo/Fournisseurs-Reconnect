@@ -38,15 +38,7 @@ namespace Fournisseurs_Reconnect
             int prochainId;
             string requeteProchainId = "SELECT COUNT(idFournisseur) from fournisseur;";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
-            try
-            {
-                
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            conn.Open();
             MySqlCommand cmdRequeteId = new MySqlCommand(requeteProchainId, conn);
             MySqlDataReader drID = cmdRequeteId.ExecuteReader();
             if (drID.Read()) 

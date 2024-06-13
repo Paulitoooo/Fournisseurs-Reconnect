@@ -30,7 +30,6 @@ namespace Fournisseurs_Reconnect
                 ShowInTaskbar = false;
                 Formulaire1 formulaire1 = new Formulaire1();
                 formulaire1.ShowDialog();
-                this.Close();
             }
             catch
             {
