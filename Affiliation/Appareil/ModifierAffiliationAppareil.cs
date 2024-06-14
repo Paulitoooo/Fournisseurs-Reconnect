@@ -124,10 +124,23 @@ namespace Fournisseurs_Reconnect.Affiliation
             }
             listeTailleStockage.Items.Clear();
             listeFournisseur.Items.Clear();
-            boutonNeuf.Checked = false;
-            BoutonReconditionné.Checked = false;
             boutonModifier.Enabled = false;
             listeFournisseur.Enabled = false;
+            listeTailleStockage.Items.Clear();
+            MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            string typeSelectionné = listeType.Text;
+            string modèleSelectionné = listeModèles.Text;
+            string requeteTailleStockage = "Select StockageAppareil from appareil where modele='" + modèleSelectionné + "' and idTypeAppareil = " + GetIdTypeAppareil( typeSelectionné) + " and Neuf = 1;";
+            MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
+            MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
+            while (drTailleStockage.Read())
+            {
+                listeTailleStockage.Items.Add(drTailleStockage.GetUInt32("StockageAppareil"));
+            }
+            listeTailleStockage.Enabled = true;
+            NeufOuReconditionné = 1;
+            conn.Close();
         }
 
         private void listeTailleStockage_Click(object sender, EventArgs e)
@@ -157,15 +170,7 @@ namespace Fournisseurs_Reconnect.Affiliation
         bool neufOuReconditioné = true;
         private void boutonAffilier_Click(object sender, EventArgs e)
         {
-            if (boutonNeuf.Checked)
-            {
-                neufOuReconditioné = true;
-            }
-            if (BoutonReconditionné.Checked)
-            {
-                neufOuReconditioné = false;
-            }
-            Appareil.Appareils appareil = new Fournisseurs_Reconnect.Appareil.Appareils(GetIdAppareil(listeModèles.Text, listeMarques.Text, listeType.Text, Int32.Parse(listeTailleStockage.Text),NeufOuReconditionné), listeModèles.Text, GetIdMarque(listeMarques.Text), GetIdTypeAppareil(listeType.Text), Int32.Parse(listeTailleStockage.Text), neufOuReconditioné);
+            Appareil.Appareils appareil = new Fournisseurs_Reconnect.Appareil.Appareils(GetIdAppareil(listeModèles.Text, listeMarques.Text, listeType.Text, Int32.Parse(listeTailleStockage.Text),NeufOuReconditionné), listeModèles.Text, GetIdMarque(listeMarques.Text), GetIdTypeAppareil(listeType.Text), Int32.Parse(listeTailleStockage.Text), true);
             affiliationAModif = new Appareil_Fourni(new Fournisseur.Fournisseurs(GetIdFournisseur(listeFournisseur.Text), listeFournisseur.Text), GetPrixAppareilFourni(appareil.getIdAppareil(), GetIdFournisseur(listeFournisseur.Text)),GetSiteAppareilFourni(appareil.getIdAppareil(),GetIdFournisseur(listeFournisseur.Text)),appareil);
             laModificationAffiliationAppareil laModificationAffiliationAppareil = new laModificationAffiliationAppareil();
             laModificationAffiliationAppareil.ShowDialog();
@@ -181,48 +186,5 @@ namespace Fournisseurs_Reconnect.Affiliation
 
         }
 
-        private void boutonNeuf_CheckedChanged(object sender, EventArgs e)
-        {
-            if (boutonNeuf.Checked)
-            {
-                listeTailleStockage.Items.Clear();
-                MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
-                conn.Open();
-                string typeSelectionné = listeType.Text;
-                string modèleSelectionné = listeModèles.Text;
-                string requeteTailleStockage = "Select StockageAppareil from appareil where modele='" + modèleSelectionné + "' and Neuf = 1;";
-                MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
-                MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
-                while (drTailleStockage.Read())
-                {
-                    listeTailleStockage.Items.Add(drTailleStockage.GetUInt32("StockageAppareil"));
-                }
-                listeTailleStockage.Enabled = true;
-                NeufOuReconditionné = 1;
-                conn.Close();
-            }
-        }
-
-        private void BoutonReconditionné_CheckedChanged(object sender, EventArgs e)
-        {
-            if (BoutonReconditionné.Checked)
-            {
-                listeTailleStockage.Items.Clear();
-                MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
-                conn.Open();
-                string typeSelectionné = listeType.Text;
-                string modèleSelectionné = listeModèles.Text;
-                string requeteTailleStockage = "Select StockageAppareil from appareil where modele='" + modèleSelectionné + "' and Neuf = 0;";
-                MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
-                MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
-                while (drTailleStockage.Read())
-                {
-                    listeTailleStockage.Items.Add(drTailleStockage.GetUInt32("StockageAppareil"));
-                }
-                listeTailleStockage.Enabled = true;
-                NeufOuReconditionné = 0;
-                conn.Close();
-            }
-        }
     }
 }

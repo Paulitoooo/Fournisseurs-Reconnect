@@ -173,9 +173,10 @@
             // listeAccessoires
             // 
             this.listeAccessoires.FormattingEnabled = true;
+            this.listeAccessoires.HorizontalScrollbar = true;
             this.listeAccessoires.Location = new System.Drawing.Point(197, 357);
             this.listeAccessoires.Name = "listeAccessoires";
-            this.listeAccessoires.Size = new System.Drawing.Size(117, 43);
+            this.listeAccessoires.Size = new System.Drawing.Size(191, 147);
             this.listeAccessoires.TabIndex = 96;
             // 
             // label2
@@ -192,7 +193,7 @@
             this.listeType.FormattingEnabled = true;
             this.listeType.Location = new System.Drawing.Point(197, 275);
             this.listeType.Name = "listeType";
-            this.listeType.Size = new System.Drawing.Size(117, 56);
+            this.listeType.Size = new System.Drawing.Size(191, 69);
             this.listeType.Sorted = true;
             this.listeType.TabIndex = 94;
             this.listeType.SelectedIndexChanged += new System.EventHandler(this.listeType_SelectedIndexChanged);
@@ -241,7 +242,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(1147, 551);
+            this.ClientSize = new System.Drawing.Size(1143, 547);
             this.ControlBox = false;
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);

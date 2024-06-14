@@ -15,6 +15,8 @@ using Fournisseurs_Reconnect.PieceDetachee;
 using Fournisseurs_Reconnect.Objet_connecté;
 using Fournisseurs_Reconnect.Accessoires;
 using System.Diagnostics;
+using static fonctions.connexionServeur;
+using static fonctions.lesFonctions;
 
 namespace Fournisseurs_Reconnect
 {
@@ -27,7 +29,7 @@ namespace Fournisseurs_Reconnect
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,7 +41,7 @@ namespace Fournisseurs_Reconnect
         {
             RechercheAppareil rechercheAppareil = new RechercheAppareil();
             rechercheAppareil.ShowDialog();
-            
+
         }
 
         private void buttonAJouterMarque_Click(object sender, EventArgs e)
@@ -119,6 +121,63 @@ namespace Fournisseurs_Reconnect
             RechercheAccessoire rechercheAccessoire = new RechercheAccessoire();
             rechercheAccessoire.ShowDialog();
         }
-    }
-    }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            int n = 1;
+            List<string> listeAccessoire = new List<string>();
+            MySqlConnection conn = new MySqlConnection(connexion);
+            conn.Open();
+            string requete = "select * from a WHERE FAM = 'ACCESSOIRES';";
+            MySqlCommand cmd = new MySqlCommand(requete, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            int idType = 0;
+            int idMarque = 0;
+            int id = 1;
+            while (dr.Read())
+            {
+                try
+                {
+                    if (dr.GetString("SFAM") is null)
+                    {
+                        idType = 0;
+                    }
+                    else
+                    {
+                        idType = GetIdTypeAccessoire(dr.GetString("SFAM"));
+                    }
+                    if (dr.GetString("Marque") is null)
+                    {
+                        idMarque = 0;
+                    }
+                    else
+                    {
+                        idMarque = GetIdMarque(dr.GetString("Marque"));
+                    }
+                    string requeteAjout = "insert into  accessoire values(" + id + "," + idType + "," + idMarque + ",'" + dr.GetString("Désignation") + "');";
+                    listeAccessoire.Add(requeteAjout);
+                    id++;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                
+
+
+
+
+            }
+            dr.Close();
+            for(int i = 1; i<id; i++)
+            {
+                string laRequete = listeAccessoire[i];
+                MySqlCommand cmdAjout = new MySqlCommand(laRequete, conn);
+                MySqlDataReader drAjout = cmdAjout.ExecuteReader();
+                drAjout.Close();
+            }
+        }
+    }
+}
+    

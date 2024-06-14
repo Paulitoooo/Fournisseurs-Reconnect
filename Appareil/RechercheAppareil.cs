@@ -80,8 +80,19 @@ namespace Fournisseurs_Reconnect
         private void listeModèles_Click(object sender, EventArgs e)
         {
             listeTailleStockage.Items.Clear();
-            boutonNeuf.Checked = false;
-            BoutonReconditionné.Checked = false;
+            MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            string typeSelectionné = listeType.Text;
+            string modèleSelectionné = listeModèles.Text;
+            string requeteTailleStockage = "Select StockageAppareil from appareil where modele='" + modèleSelectionné + "' and idTypeAppareil = " + GetIdTypeAppareil(listeType.Text) + " ;";
+            MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
+            MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
+            while (drTailleStockage.Read())
+            {
+                listeTailleStockage.Items.Add(drTailleStockage.GetUInt32("StockageAppareil"));
+            }
+            listeTailleStockage.Enabled = true;
+            conn.Close();
         }
 
         int NeufOuReconditionné;
@@ -97,20 +108,12 @@ namespace Fournisseurs_Reconnect
         private void boutonRecherche_Click(object sender, EventArgs e)
         {
             linkLabelSite.Enabled = true;
-            progressBar1.Value = 0;
             lesPrix.Clear();
             listeSites.Clear();
             listeIdFournisseur.Clear();
             int nombreFournisseur = 0;
             timer = 0;
-            if (boutonNeuf.Checked)
-            {
-                NeufOuReconditionné = 1;
-            }
-            if (BoutonReconditionné.Checked)
-            {
-                NeufOuReconditionné = 0;
-            }
+            int appareil = GetIdAppareil(listeModèles.Text, listeMarques.Text, listeType.Text, Int32.Parse(listeTailleStockage.Text), 1);
             string marqueSelectionnée = listeMarques.Text;
                 string modèleSelectionné = listeModèles.Text;
                 string stockageSelectionné = listeTailleStockage.Text;
@@ -121,9 +124,7 @@ namespace Fournisseurs_Reconnect
             }
             string requeteFinale = "SELECT * from appareil_fourni" +
                     " inner join appareil on appareil_fourni.idAppareil = appareil.idAppareil" +
-                    " where appareil.idMarqueAppareil = (SELECT `idMarque` from marque where nomMarque ='" +
-                    marqueSelectionnée + "') and appareil.modele = '" + modèleSelectionné + "' and appareil.StockageAppareil =" +
-                    stockageSelectionné + " and appareil.Neuf =" + NeufOuReconditionné + " order by Prix;";
+                    " where appareil_fourni.idAppareil = " + appareil + ";";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
             MySqlCommand cmdFinale = new MySqlCommand(requeteFinale, conn);
@@ -162,7 +163,7 @@ namespace Fournisseurs_Reconnect
             flecheDroite.Enabled = true;
             flecheGauche.Enabled = true;
             prixActuel = float.Parse(labelPrix.Text);
-            idAppareil = GetIdAppareil(listeModèles.Text, listeMarques.Text, listeType.Text, Int32.Parse(listeTailleStockage.Text), NeufOuReconditionné);
+            idAppareil = GetIdAppareil(listeModèles.Text, listeMarques.Text, listeType.Text, Int32.Parse(listeTailleStockage.Text), 1);
             idFournisseur = listeIdFournisseur[n];
             linkLabelSite.Links.Clear();
             linkLabelSite.Links.Add(0, 12, listeSites[n]);
@@ -217,7 +218,6 @@ namespace Fournisseurs_Reconnect
 
         private void flecheDroite_Click(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
             int MaxN = listeSites.Count - 1;
             timer = 0;
             n++;
@@ -236,7 +236,6 @@ namespace Fournisseurs_Reconnect
         private void flecheGauche_Click(object sender, EventArgs e)
         {
 
-            progressBar1.Value = 0;
             n--;
             timer = 0;
             if(n< 0)
@@ -272,6 +271,7 @@ namespace Fournisseurs_Reconnect
                         MySqlDataReader drPrix = cmdPrix.ExecuteReader();
                         drPrix.Close();
                         conn.Close();
+
                         timer1.Enabled = false;
                         labelPrix.ForeColor = Color.Green;
                         timer2.Enabled = true;
@@ -292,7 +292,7 @@ namespace Fournisseurs_Reconnect
 
         private void labelPrix_TextChanged(object sender, EventArgs e)
         {
-            if(timer < 1)
+            if (timer < 1)
             {
                 timer++;
 
@@ -309,45 +309,35 @@ namespace Fournisseurs_Reconnect
             timer2.Enabled = false;
         }
 
-        private void boutonNeuf_CheckedChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (boutonNeuf.Checked)
+            try
             {
-                listeTailleStockage.Items.Clear();
-                MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
-                conn.Open();
-                string typeSelectionné = listeType.Text;
-                string modèleSelectionné = listeModèles.Text;
-                string requeteTailleStockage = "Select StockageAppareil from appareil where modele='" + modèleSelectionné + "' and Neuf = 1;";
-                MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
-                MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
-                while (drTailleStockage.Read())
+                if (prixActuel != float.Parse(labelPrix.Text))
                 {
-                    listeTailleStockage.Items.Add(drTailleStockage.GetUInt32("StockageAppareil"));
-                }
-                listeTailleStockage.Enabled = true;
-                conn.Close();
-            }
-        }
 
-        private void BoutonReconditionné_CheckedChanged(object sender, EventArgs e)
-        {
-            if (BoutonReconditionné.Checked)
-            {
-                listeTailleStockage.Items.Clear();
-                MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
-                conn.Open();
-                string typeSelectionné = listeType.Text;
-                string modèleSelectionné = listeModèles.Text;
-                string requeteTailleStockage = "Select StockageAppareil from appareil where modele='" + modèleSelectionné + "' and Neuf = 0;";
-                MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
-                MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
-                while (drTailleStockage.Read())
-                {
-                    listeTailleStockage.Items.Add(drTailleStockage.GetUInt32("StockageAppareil"));
+
+                    string requetePrix = "Update appareil_fourni set Prix = " + labelPrix.Text + " where idAppareil = " + idAppareil + " and idFournisseur = " + listeIdFournisseur[n] + " ;";
+                    MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
+                    conn.Open();
+                    MySqlCommand cmdPrix = new MySqlCommand(requetePrix, conn);
+                    MySqlDataReader drPrix = cmdPrix.ExecuteReader();
+                    drPrix.Close();
+                    conn.Close();
+                    timer1.Enabled = false;
+                    labelPrix.ForeColor = Color.Green;
+                    timer2.Enabled = true;
+                    prixActuel = float.Parse(labelPrix.Text);
+
+
+
+
                 }
-                listeTailleStockage.Enabled = true;
-                conn.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Il faut saisir un prix valide ! \n\rVeillez à ce que le prix saisi soit un nombre et que les centimes soient précédés d'un point et non pas d'une virgule");
+                timer1.Enabled = false;
             }
         }
     }

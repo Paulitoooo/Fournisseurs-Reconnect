@@ -53,7 +53,7 @@
             this.listeType.FormattingEnabled = true;
             this.listeType.Location = new System.Drawing.Point(251, 106);
             this.listeType.Name = "listeType";
-            this.listeType.Size = new System.Drawing.Size(117, 56);
+            this.listeType.Size = new System.Drawing.Size(200, 82);
             this.listeType.Sorted = true;
             this.listeType.TabIndex = 6;
             this.listeType.SelectedIndexChanged += new System.EventHandler(this.listeType_SelectedIndexChanged);
@@ -80,15 +80,16 @@
             // listeAccessoires
             // 
             this.listeAccessoires.FormattingEnabled = true;
-            this.listeAccessoires.Location = new System.Drawing.Point(251, 188);
+            this.listeAccessoires.HorizontalScrollbar = true;
+            this.listeAccessoires.Location = new System.Drawing.Point(254, 209);
             this.listeAccessoires.Name = "listeAccessoires";
-            this.listeAccessoires.Size = new System.Drawing.Size(117, 43);
+            this.listeAccessoires.Size = new System.Drawing.Size(200, 147);
             this.listeAccessoires.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(108, 188);
+            this.label3.Location = new System.Drawing.Point(111, 209);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(137, 13);
             this.label3.TabIndex = 9;
@@ -99,7 +100,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(12, 282);
+            this.button2.Location = new System.Drawing.Point(12, 392);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(114, 31);
             this.button2.TabIndex = 10;
@@ -108,7 +109,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(221, 247);
+            this.button1.Location = new System.Drawing.Point(224, 378);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 31);
             this.button1.TabIndex = 11;
@@ -118,7 +119,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(313, 247);
+            this.button3.Location = new System.Drawing.Point(316, 378);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(86, 31);
             this.button3.TabIndex = 12;
@@ -132,7 +133,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(577, 321);
+            this.ClientSize = new System.Drawing.Size(573, 435);
             this.ControlBox = false;
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);

@@ -75,23 +75,16 @@ namespace Fournisseurs_Reconnect
         {
             if (textBoxNomModèle.Text == "")
             {
-                MessageBox.Show("Il faut rensiegner un nom de modèle", "Ajout de l'appareil impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Il faut renseigner un nom de modèle", "Ajout de l'appareil impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (textBoxStockage.Text == "")
             {
-                MessageBox.Show("Il faut rensiegner un stockage", "Ajout de l'appareil impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Il faut renseigner un stockage", "Ajout de l'appareil impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             int NeufOuReconditionné = 1;
-            if (boutonNeuf.Checked)
-            {
-                NeufOuReconditionné = 1;
-            }
-            if (BoutonReconditionné.Checked)
-            {
-                NeufOuReconditionné = 0;
-            }
+            
             string requeteVerif = "select * from appareil;";
             int prochainId;
             string requeteId = "SELECT count(idAppareil) from appareil;";

@@ -39,9 +39,6 @@
             this.listeMarques = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.BoutonReconditionné = new System.Windows.Forms.RadioButton();
-            this.boutonNeuf = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxPrix = new System.Windows.Forms.TextBox();
@@ -51,7 +48,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.boutonAffilier = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,7 +91,7 @@
             this.listeType.FormattingEnabled = true;
             this.listeType.Location = new System.Drawing.Point(181, 81);
             this.listeType.Name = "listeType";
-            this.listeType.Size = new System.Drawing.Size(141, 43);
+            this.listeType.Size = new System.Drawing.Size(141, 82);
             this.listeType.TabIndex = 17;
             this.listeType.Click += new System.EventHandler(this.listeType_Click);
             // 
@@ -120,7 +116,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 145);
+            this.label2.Location = new System.Drawing.Point(54, 201);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 13);
             this.label2.TabIndex = 14;
@@ -130,11 +126,11 @@
             // 
             this.listeModèles.Enabled = false;
             this.listeModèles.FormattingEnabled = true;
-            this.listeModèles.Location = new System.Drawing.Point(180, 145);
+            this.listeModèles.Location = new System.Drawing.Point(180, 201);
             this.listeModèles.Name = "listeModèles";
             this.listeModèles.Size = new System.Drawing.Size(142, 43);
             this.listeModèles.TabIndex = 13;
-            this.listeModèles.Click += new System.EventHandler(this.listeModèles_Click);
+            this.listeModèles.SelectedIndexChanged += new System.EventHandler(this.listeModèles_SelectedIndexChanged);
             // 
             // listeMarques
             // 
@@ -157,7 +153,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.listeMarques);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
@@ -172,39 +167,6 @@
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selectionnez un appareil  à affilier";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.BoutonReconditionné);
-            this.groupBox3.Controls.Add(this.boutonNeuf);
-            this.groupBox3.Location = new System.Drawing.Point(122, 214);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 52);
-            this.groupBox3.TabIndex = 20;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Neuf ou reconditionné ?";
-            // 
-            // BoutonReconditionné
-            // 
-            this.BoutonReconditionné.AutoSize = true;
-            this.BoutonReconditionné.Location = new System.Drawing.Point(99, 20);
-            this.BoutonReconditionné.Name = "BoutonReconditionné";
-            this.BoutonReconditionné.Size = new System.Drawing.Size(94, 17);
-            this.BoutonReconditionné.TabIndex = 10;
-            this.BoutonReconditionné.Text = "Reconditionné";
-            this.BoutonReconditionné.UseVisualStyleBackColor = true;
-            this.BoutonReconditionné.CheckedChanged += new System.EventHandler(this.BoutonReconditionné_CheckedChanged);
-            // 
-            // boutonNeuf
-            // 
-            this.boutonNeuf.AutoSize = true;
-            this.boutonNeuf.Location = new System.Drawing.Point(18, 20);
-            this.boutonNeuf.Name = "boutonNeuf";
-            this.boutonNeuf.Size = new System.Drawing.Size(48, 17);
-            this.boutonNeuf.TabIndex = 9;
-            this.boutonNeuf.Text = "Neuf";
-            this.boutonNeuf.UseVisualStyleBackColor = true;
-            this.boutonNeuf.CheckedChanged += new System.EventHandler(this.boutonNeuf_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -304,8 +266,6 @@
             this.Load += new System.EventHandler(this.AffilierFournisseurAppareil_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -333,8 +293,5 @@
         private System.Windows.Forms.Button boutonAffilier;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxPrix;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton BoutonReconditionné;
-        private System.Windows.Forms.RadioButton boutonNeuf;
     }
 }

@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.BoutonReconditionné = new System.Windows.Forms.RadioButton();
-            this.boutonNeuf = new System.Windows.Forms.RadioButton();
             this.listeMarques = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,12 +42,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.boutonAffilier = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.listeMarques);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
@@ -65,39 +60,6 @@
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selectionnez un appareil  à désaffilier";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.BoutonReconditionné);
-            this.groupBox2.Controls.Add(this.boutonNeuf);
-            this.groupBox2.Location = new System.Drawing.Point(122, 246);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 52);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Neuf ou reconditionné ?";
-            // 
-            // BoutonReconditionné
-            // 
-            this.BoutonReconditionné.AutoSize = true;
-            this.BoutonReconditionné.Location = new System.Drawing.Point(99, 20);
-            this.BoutonReconditionné.Name = "BoutonReconditionné";
-            this.BoutonReconditionné.Size = new System.Drawing.Size(94, 17);
-            this.BoutonReconditionné.TabIndex = 10;
-            this.BoutonReconditionné.Text = "Reconditionné";
-            this.BoutonReconditionné.UseVisualStyleBackColor = true;
-            this.BoutonReconditionné.CheckedChanged += new System.EventHandler(this.BoutonReconditionné_CheckedChanged);
-            // 
-            // boutonNeuf
-            // 
-            this.boutonNeuf.AutoSize = true;
-            this.boutonNeuf.Location = new System.Drawing.Point(18, 20);
-            this.boutonNeuf.Name = "boutonNeuf";
-            this.boutonNeuf.Size = new System.Drawing.Size(48, 17);
-            this.boutonNeuf.TabIndex = 9;
-            this.boutonNeuf.Text = "Neuf";
-            this.boutonNeuf.UseVisualStyleBackColor = true;
-            this.boutonNeuf.CheckedChanged += new System.EventHandler(this.boutonNeuf_CheckedChanged);
             // 
             // listeMarques
             // 
@@ -135,7 +97,7 @@
             this.listeType.FormattingEnabled = true;
             this.listeType.Location = new System.Drawing.Point(181, 105);
             this.listeType.Name = "listeType";
-            this.listeType.Size = new System.Drawing.Size(141, 43);
+            this.listeType.Size = new System.Drawing.Size(141, 82);
             this.listeType.TabIndex = 2;
             this.listeType.Click += new System.EventHandler(this.listeType_Click);
             this.listeType.SelectedIndexChanged += new System.EventHandler(this.listeType_Click);
@@ -144,7 +106,7 @@
             // 
             this.listeModèles.Enabled = false;
             this.listeModèles.FormattingEnabled = true;
-            this.listeModèles.Location = new System.Drawing.Point(180, 189);
+            this.listeModèles.Location = new System.Drawing.Point(180, 214);
             this.listeModèles.Name = "listeModèles";
             this.listeModèles.Size = new System.Drawing.Size(142, 43);
             this.listeModèles.TabIndex = 3;
@@ -154,7 +116,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 316);
+            this.label3.Location = new System.Drawing.Point(51, 295);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 13);
             this.label3.TabIndex = 16;
@@ -163,7 +125,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 189);
+            this.label2.Location = new System.Drawing.Point(54, 214);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 13);
             this.label2.TabIndex = 14;
@@ -173,7 +135,7 @@
             // 
             this.listeTailleStockage.Enabled = false;
             this.listeTailleStockage.FormattingEnabled = true;
-            this.listeTailleStockage.Location = new System.Drawing.Point(180, 316);
+            this.listeTailleStockage.Location = new System.Drawing.Point(180, 295);
             this.listeTailleStockage.Name = "listeTailleStockage";
             this.listeTailleStockage.Size = new System.Drawing.Size(142, 43);
             this.listeTailleStockage.TabIndex = 4;
@@ -229,7 +191,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(768, 418);
+            this.ClientSize = new System.Drawing.Size(764, 414);
             this.ControlBox = false;
             this.Controls.Add(this.boutonAffilier);
             this.Controls.Add(this.listeFournisseur);
@@ -245,8 +207,6 @@
             this.Load += new System.EventHandler(this.DesaffilierFournisseurAppareil_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,8 +227,5 @@
         private System.Windows.Forms.ListBox listeFournisseur;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button boutonAffilier;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton BoutonReconditionné;
-        private System.Windows.Forms.RadioButton boutonNeuf;
     }
 }

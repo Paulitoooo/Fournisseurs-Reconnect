@@ -119,9 +119,23 @@ namespace Fournisseurs_Reconnect.Affiliation
                 return;
             }
             listeTailleStockage.Items.Clear();
-            boutonNeuf.Checked = false;
-            BoutonReconditionné.Checked = false;
-            
+            MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
+            conn.Open();
+            string typeSelectionné = listeType.Text;
+            string modèleSelectionné = listeModèles.Text;
+            string requeteTailleStockage = "Select StockageAppareil from appareil inner join appareil_fourni on appareil.idAppareil = appareil_fourni.idAppareil where modele='" + modèleSelectionné + "' and idTypeAppareil = " + GetIdTypeAppareil(typeSelectionné) + " and Neuf = 1 and idFournisseur = " + GetIdFournisseur(listeFournisseur.Text) + " ;";
+            MySqlCommand cmdTailleStockage = new MySqlCommand(requeteTailleStockage, conn);
+            MySqlDataReader drTailleStockage = cmdTailleStockage.ExecuteReader();
+            while (drTailleStockage.Read())
+            {
+                listeTailleStockage.Items.Add(drTailleStockage.GetUInt32("StockageAppareil"));
+            }
+            listeTailleStockage.Enabled = true;
+            NeufOuReconditionné = 1;
+            conn.Close();
+
+
+
         }
 
         private void listeTailleStockage_Click(object sender, EventArgs e)
@@ -147,7 +161,7 @@ namespace Fournisseurs_Reconnect.Affiliation
                 return;
             }
 
-            string requeteDesaffilier = "Delete from appareil_fourni where idAppareil =" + GetIdAppareil(listeModèles.Text, listeMarques.Text, listeType.Text, Int32.Parse(listeTailleStockage.Text), NeufOuReconditionné) + " and idFournisseur = " + GetIdFournisseur(listeFournisseur.Text) + " ;";
+            string requeteDesaffilier = "Delete from appareil_fourni where idAppareil =" + GetIdAppareil(listeModèles.Text, listeMarques.Text, listeType.Text, Int32.Parse(listeTailleStockage.Text), 1) + " and idFournisseur = " + GetIdFournisseur(listeFournisseur.Text) + " ;";
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();
             MySqlCommand cmdDesaffilier = new MySqlCommand(requeteDesaffilier, conn);
@@ -169,8 +183,6 @@ namespace Fournisseurs_Reconnect.Affiliation
             listeType.Items.Clear();
             listeModèles.Items.Clear();
             listeTailleStockage.Items.Clear();
-            boutonNeuf.Checked = false;
-            BoutonReconditionné.Checked = false;
 
         }
 
@@ -217,8 +229,6 @@ namespace Fournisseurs_Reconnect.Affiliation
             listeMarques.Items.Clear();
             listeType.Items.Clear();
             listeModèles.Items.Clear();
-            boutonNeuf.Checked = false;
-            BoutonReconditionné.Checked = false;
             listeTailleStockage.Items.Clear();
             MySqlConnection conn = new MySqlConnection("server=localhost;database=fournisseur_reconnect;user=root;pwd=");
             conn.Open();

@@ -51,7 +51,7 @@
             // 
             this.textBoxNomAccessoire.Location = new System.Drawing.Point(260, 185);
             this.textBoxNomAccessoire.Name = "textBoxNomAccessoire";
-            this.textBoxNomAccessoire.Size = new System.Drawing.Size(117, 20);
+            this.textBoxNomAccessoire.Size = new System.Drawing.Size(257, 20);
             this.textBoxNomAccessoire.TabIndex = 10;
             // 
             // label2
@@ -119,7 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(533, 288);
+            this.ClientSize = new System.Drawing.Size(529, 284);
             this.ControlBox = false;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);

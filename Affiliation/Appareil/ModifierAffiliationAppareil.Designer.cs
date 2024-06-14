@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.BoutonReconditionné = new System.Windows.Forms.RadioButton();
-            this.boutonNeuf = new System.Windows.Forms.RadioButton();
             this.listeMarques = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,12 +42,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.boutonModifier = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.listeMarques);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
@@ -66,39 +61,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selectionnez un appareil";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.BoutonReconditionné);
-            this.groupBox2.Controls.Add(this.boutonNeuf);
-            this.groupBox2.Location = new System.Drawing.Point(122, 249);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 52);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Neuf ou reconditionné ?";
-            // 
-            // BoutonReconditionné
-            // 
-            this.BoutonReconditionné.AutoSize = true;
-            this.BoutonReconditionné.Location = new System.Drawing.Point(99, 20);
-            this.BoutonReconditionné.Name = "BoutonReconditionné";
-            this.BoutonReconditionné.Size = new System.Drawing.Size(94, 17);
-            this.BoutonReconditionné.TabIndex = 10;
-            this.BoutonReconditionné.Text = "Reconditionné";
-            this.BoutonReconditionné.UseVisualStyleBackColor = true;
-            this.BoutonReconditionné.CheckedChanged += new System.EventHandler(this.BoutonReconditionné_CheckedChanged);
-            // 
-            // boutonNeuf
-            // 
-            this.boutonNeuf.AutoSize = true;
-            this.boutonNeuf.Location = new System.Drawing.Point(18, 20);
-            this.boutonNeuf.Name = "boutonNeuf";
-            this.boutonNeuf.Size = new System.Drawing.Size(48, 17);
-            this.boutonNeuf.TabIndex = 9;
-            this.boutonNeuf.Text = "Neuf";
-            this.boutonNeuf.UseVisualStyleBackColor = true;
-            this.boutonNeuf.CheckedChanged += new System.EventHandler(this.boutonNeuf_CheckedChanged);
-            // 
             // listeMarques
             // 
             this.listeMarques.FormattingEnabled = true;
@@ -113,7 +75,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 105);
+            this.label4.Location = new System.Drawing.Point(21, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(154, 13);
             this.label4.TabIndex = 18;
@@ -133,9 +95,9 @@
             this.listeType.Cursor = System.Windows.Forms.Cursors.Default;
             this.listeType.Enabled = false;
             this.listeType.FormattingEnabled = true;
-            this.listeType.Location = new System.Drawing.Point(181, 105);
+            this.listeType.Location = new System.Drawing.Point(181, 111);
             this.listeType.Name = "listeType";
-            this.listeType.Size = new System.Drawing.Size(141, 43);
+            this.listeType.Size = new System.Drawing.Size(141, 82);
             this.listeType.TabIndex = 2;
             this.listeType.Click += new System.EventHandler(this.listeType_Click);
             this.listeType.SelectedIndexChanged += new System.EventHandler(this.listeType_Click);
@@ -144,7 +106,7 @@
             // 
             this.listeModèles.Enabled = false;
             this.listeModèles.FormattingEnabled = true;
-            this.listeModèles.Location = new System.Drawing.Point(180, 189);
+            this.listeModèles.Location = new System.Drawing.Point(180, 230);
             this.listeModèles.Name = "listeModèles";
             this.listeModèles.Size = new System.Drawing.Size(142, 43);
             this.listeModèles.TabIndex = 3;
@@ -163,7 +125,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 189);
+            this.label2.Location = new System.Drawing.Point(54, 230);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 13);
             this.label2.TabIndex = 14;
@@ -231,7 +193,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.boutonRetour;
-            this.ClientSize = new System.Drawing.Size(784, 434);
+            this.ClientSize = new System.Drawing.Size(780, 430);
             this.ControlBox = false;
             this.Controls.Add(this.boutonModifier);
             this.Controls.Add(this.label1);
@@ -247,8 +209,6 @@
             this.Load += new System.EventHandler(this.ModifierAffiliationAppareil_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,8 +229,5 @@
         private System.Windows.Forms.ListBox listeFournisseur;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button boutonModifier;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton BoutonReconditionné;
-        private System.Windows.Forms.RadioButton boutonNeuf;
     }
 }

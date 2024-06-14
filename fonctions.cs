@@ -56,7 +56,7 @@ namespace fonctions
             MySqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                id = reader.GetInt32(0);
+                id = reader.GetInt32("idAppareil");
             }
             reader.Close();
             conn.Close();

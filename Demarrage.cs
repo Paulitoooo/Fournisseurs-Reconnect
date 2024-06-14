@@ -31,9 +31,9 @@ namespace Fournisseurs_Reconnect
                 Formulaire1 formulaire1 = new Formulaire1();
                 formulaire1.ShowDialog();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Wamp n'est pas installé sur cet ordinateur !");
+                MessageBox.Show(ex.Message);
             }
         }
     }
